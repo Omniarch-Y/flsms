@@ -16,17 +16,19 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('first_name');
+            $table->string('middle_name');
             $table->string('last_name');
             $table->string('sex');
-            $table->string('dob');
-            $table->string('phone_number')->unique();
+            $table->date('dob');
+            $table->unsignedBigInteger('phone_number')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('picture');
             $table->unsignedBigInteger('address_id');
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nationality');
-            $table->string('position');
+            $table->string('password');
+            $table->string('role');
             $table->rememberToken();
             $table->timestamps();
         });

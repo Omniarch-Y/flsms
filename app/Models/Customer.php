@@ -14,13 +14,14 @@ class Customer extends Model
         'middle_name',
         'last_name',
         'dob',
+        'sex',
         'phone_number',
         'picture',
         'address_id',
         'nationality',
-        'type_of_business',
+        'business_type',
         'group_id',
-        'password',
+        // 'password',
         'user_id',
     ];
 }

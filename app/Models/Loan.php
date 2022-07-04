@@ -11,15 +11,16 @@ class Loan extends Model
 
     protected $fillable = [
         'cust_id',
-        'cascade',
         'collateral',
         'interest_rate',
+        'insurance',
         'service_charge',
         'amount',
         'net_amount',
+        'penalty_rate',
         'status',
         'starting_date',
-        'ending_date' ,
+        'ending_date',
         'user_id'
     ];
 }

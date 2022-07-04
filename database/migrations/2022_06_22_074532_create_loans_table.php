@@ -18,16 +18,18 @@ return new class extends Migration
             $table->unsignedBigInteger('cust_id');
             $table->foreign('cust_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
             $table->string('collateral');
-            $table->string('interest_rate');
-            $table->string('service_charge');
-            $table->string('amount');
-            $table->string('net_amount');
-            $table->string('penalty_rate');
+            $table->Integer('interest_rate');
+            $table->Integer('service_charge')->nullable();
+            $table->unsignedBigInteger('amount');
+            $table->unsignedBigInteger('net_amount')->nullable();
+            $table->Integer('penalty_rate')->nullable();
             $table->boolean('status')->default(0);
-            $table->string('starting_date');
-            $table->string('ending_date');      
+            $table->date('starting_date');
+            $table->date('ending_date');      
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('insurance')->nullable();
+            $table->foreign('insurance')->references('id')->on('insurances')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

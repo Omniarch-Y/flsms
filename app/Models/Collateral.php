@@ -10,9 +10,9 @@ class Collateral extends Model
     use HasFactory;
 
     protected $fillable = [
-        'type_of_collateral',
+        'collateral_type',
+        'description',
         'value',
-        'loan_id',
         'user_id'
     ];
 }

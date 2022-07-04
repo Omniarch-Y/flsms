@@ -18,20 +18,20 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('middle_name');
             $table->string('last_name');
-            $table->string('dob');
-            $table->string('age');
-            $table->string('phone_number')->unique();
-            $table->string('picture');
-            $table->unsignedBigInteger('address_id');
+            $table->string('sex');
+            $table->date('dob');
+            $table->unsignedBigInteger('phone_number')->unique();
+            $table->string('picture')->nullable();
+            $table->unsignedBigInteger('address_id')->nullable();
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('cascade')->onUpdate('cascade');
             $table->string('nationality');
             $table->string('business_type');
             $table->unsignedBigInteger('group_id')->nullable();
             $table->foreign('group_id')->references('id')->on('group_customers')->onDelete('cascade')->onUpdate('cascade');
             $table->string('password')->nullable();
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-
+            $table->timestamps();
         });
     }
 

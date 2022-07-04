@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('collaterals', function (Blueprint $table) {
             $table->id();
-            $table->string('collateral_types');
+            $table->string('collateral_type');
             $table->text('description');
-            $table->string('value');
-            $table->unsignedBigInteger('loan_id');
-            $table->foreign('loan_id')->references('id')->on('loans')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('value');
+            // $table->unsignedBigInteger('loan_id');
+            // $table->foreign('loan_id')->references('id')->on('loans')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
