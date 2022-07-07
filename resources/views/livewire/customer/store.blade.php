@@ -10,7 +10,7 @@
        <div class="modal-content">
              <div class="modal-header justify-content-center">
                 <center>
-                    <h2 class="modal-title text-dark text-center "style=" justify-content-center">{{ __('Customer registration') }}</h2>
+                    <h2 class="modal-title text-dark text-center" >{{ __('Customer registration') }}</h2>
                 </center>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -69,53 +69,17 @@
                     </span>
                     @enderror
                 </div>
-            
-                {{-- <div class="col-md-4">    
-                <label for="sex" class="form-label">{{ __('Sex') }}</label>
-                  <div class="row">
-                    <div class="col-sm-6">
-                        <input type="radio" name="sex" class="form-check-input" id="sex" value="{{ __('F') }}" wire:model.debounce.500ms="sex">
-                        <label class="form-check-label" for="sex">Female</label>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="radio" name="sex" class="form-check-input" id="sex" value="{{ __('M') }}" wire:model.debounce.500ms="sex">  
-                        <label class="form-check-label" for="sex">Male</label>
-                    </div>
-                 </div>
-                 @error('sex')
-                 <span class="invalid-feedback" role="alert">
-                     <strong>{{ $message }}</strong>
-                 </span>
-                 @enderror
-            </div> --}}
-
-            {{-- <div class="col-sm-4">
-                <label for="sex" class="form-label lable_color">{{ __('Sex') }}</label>
-        
-                <select class="form-control" id="sex" name="sex" focus wire:model.debounce.500ms="sex">
-
-                    <option value="Select Role" disabled selected>Click to Select Sex</option>
-                    <option value="F" selected>Female</option>
-                    <option value="M" selected>Male</option>
-                    
-                </select>
-
-                @error('sex')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div> --}}
 
             <div class="col-sm-4">
                 <label for="sex" class="form-label lable_color">{{ __('Sex') }}</label>
                 <div class="row ms-1">
-            <div class="form-check col-sm-3">
-            
+
+              <div class="form-check col-sm-6">
                 <input class="form-check-input" type="radio" name="sex" id="sex" value="{{ 'F' }}" wire:model.debounce.500ms="sex" required>
                 <label class="form-check-label" for="sex">Female</label>
               </div>
-              <div class="form-check col-sm-3">
+
+              <div class="form-check col-sm-6">
                 <input class="form-check-input" type="radio" name="sex" id="sex" value="{{ 'M' }}" wire:model.debounce.500ms="sex" required>
                 <label class="form-check-label" for="sex">Male</label>
               </div>
@@ -126,30 +90,6 @@
               </span>
               @enderror
             </div>
-
-            {{-- <div class="col-sm-4">
-                <label for="sex" class="form-label">{{ __('Sex') }}</label>
-        
-                    <input id="sex" type="text" class="form-control @error('sex') is-invalid @enderror" name="sex" placeholder="{{ __('Enter sex')}}"  autocomplete="sex" autofocus  wire:model.debounce.500ms="sex">
-        
-                    @error('sex')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
-                
-            </div> --}}
-
-            {{-- <div class="col-md-4">    
-                <label for="sex" class="form-label">{{ __('Sex') }}</label>
-                    <div class="col-sm-4">
-                    <input type="radio" name="sex" class="form-check-input" id="sex" value="{{ __('F') }}" wire:model.debounce.500ms="sex">
-                    <label class="form-check-label" for="sex">Female</label>
-            
-                    <input type="radio" name="sex" class="form-check-input ms-2" id="sex" value="{{ __('M') }}" wire:model.debounce.500ms="sex">
-                    <label class="form-check-label" for="sex">Male</label>
-                </div>
-            </div> --}}
             
                 <div class="col-sm-4">
                     <label for="phone_number" class="form-label">{{ __('Phone number') }}</label>
@@ -253,25 +193,34 @@
                         @enderror
             
                 </div>
-            
-                <div class="col-sm-4">
-                    <label for="group_id" class="form-label lable_color">{{ __('Group') }}</label>
-            
-                    <select class="form-control" id="group_id" name="group_id" focus wire:model.debounce.500ms="group_id" required>
-                        
-                        <option value="1" selected>weeee</option>
-                        
-                        <option value="Select Role" disabled selected>Click to Select Group</option>       
-                    </select>
 
-                    @error('group_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                <div class="col-sm-4">
+                    <label for="Group name" class="form-label">{{ __(' Group name') }}</label>
+            
+                        <input id="group_name" type="text" class="form-control @error('group_name') is-invalid @enderror" name="group_name" placeholder="{{ __('Enter group name')}}"  autocomplete="group_name" autofocus  wire:model.debounce.500ms="group_name">
+            
+                        @error('group_name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    
                 </div>
             
-                <div class="col-sm-4">
+                <div class="col-sm-5">
+                    <label for="Remark" class="form-label">{{ __('Remark') }}</label>
+            
+                    <textarea id="remark"  placeholder="{{ __('Enter remark') }}" type="text-field" class="form-control @error('remark') is-invalid @enderror" name="remark" value="{{ old('remark') }}" autocomplete="remark" wire:model="remark"></textarea>
+            
+                        @error('remark')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                        
+                </div>
+            
+                <div class="col-sm-3">
                     <label for="picture" class="form-label">{{ __('Picture') }}</label>
 
                   <input name="picture" type="file" class="form-control" wire:model="picture" required>
@@ -282,13 +231,15 @@
                         @enderror
                 </div>
 
-                {{-- @if ($picture)
-                <img class="mb-6 ms-5" src="{{ $picture->temporaryUrl() }}" style="max-width:10rem;min-height:10rem;">
-                @endif --}}
+                <div class="col-sm-12">
+                    @if ($picture)
+                    <img class="mb-6 ms-5" src="{{ $picture->temporaryUrl() }}" style="max-width:10rem;min-height:10rem;">
+                    @endif
+                </div>
             
             </div>
                 <center>
-                    <button type="submit" class="btn btn-primary" wire:target="store" wire:loading.attr="disabled" data-bs-dismiss="modal" {{ $notfilled ? 'disabled' : '' }}>
+                    <button type="submit" class="btn btn-primary" wire:target="store" data-bs-dismiss="modal" data-backdrop="static" data-keyboard="false" wire:loading.attr="disabled" {{ $notfilled ? 'disabled' : '' }}>
                     {{ __('Register') }}
                     </button>
                 </center>
@@ -298,23 +249,4 @@
     </div>
   </div>
 </div>
- {{-- end of register customer modal --}}
-
-@push('scripts')
-    {{-- <script>
-        window.addEventListener('close-modal', event => {
-            $('#registerCustomer').modal('hide');
-        });
-    </script> --}}
-    <script>
-        window.addEventListener('close-modal', event => {
-            $('#registerCustomer').modal('hide');
-        })
-        </script>
-@endpush
-{{-- 
-<script>
-    window.addEventListener('close-modal', event => {
-        $('#registerCustomer').modal('hide');
-    });
-</script> --}}
+ {{-- end of store customer modal --}}

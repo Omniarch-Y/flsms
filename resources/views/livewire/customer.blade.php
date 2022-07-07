@@ -1,14 +1,4 @@
 <div>
-    <livewire:customer.display/>
-    {{-- <livewire:customer.store/>
-    <livewire:customer.delete/> --}}
+    <livewire:customer.view/>
 </div>
 
-
-{{-- @section('script')
-<script>
-    window.addEventListener('close-modal', event => {
-        $('#registerCustomer').modal('hide');
-    })
-    </script>
-@endsection --}}

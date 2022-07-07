@@ -1,5 +1,4 @@
-
-    {{--  start of register customer modal --}}
+    {{--  start of delete customer modal --}}
 
     <div wire:ignore.self class="modal fade" id="deleteCustomer" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog modal-md" role="document">
@@ -32,30 +31,7 @@
         </div>
       </div>
     </div>
-     {{-- end of register customer modal --}}
-    
-@push('scripts')
-     <script>
-         // window.addEventListener('close-modal', event => {
-         //     $('#registerCustomer').modal('hide');
-         // });
- 
-         window.addEventListener('deleted', e => {
-            //  Swal.fire({
-            //      position: 'top-end',
-            //      icon: e.detail.icon,
-            //      title: e.detail.title,
-            //      showConfirmButton: false,
-            //      timer: 1500
-            //  });
-            swalWithBootstrapButtons.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-               )
-         });
-     </script>
- @endpush
+     {{-- end of delete customer modal --}}
     
     
     

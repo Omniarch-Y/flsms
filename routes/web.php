@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::get('customers',Customer::class)->middleware('isLoan_officer');
 
-Route::get('user',User::class)->middleware('isAdmin');
+Route::get('users',User::class)->middleware('isLoan_officer');
 
 Auth::routes();
 
