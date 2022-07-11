@@ -99,7 +99,7 @@ class View extends Component
             'user_id' => auth()->user()->id,
         ]);
 
-        $this->dispatchBrowserEvent('created', [
+        $this->dispatchBrowserEvent('respond', [
             'title' => 'User registered',
             'icon' => 'success',
             // 'iconColor' => 'green'
@@ -180,7 +180,7 @@ class View extends Component
             'role' => $validateData['role'],
         ]);
 
-        $this->dispatchBrowserEvent('updated', [
+        $this->dispatchBrowserEvent('respond', [
             'title' => 'User data updated',
             'icon' => 'success',
             // 'iconColor' => 'green'
@@ -217,14 +217,27 @@ class View extends Component
 
     public function deleteUser(int $user)
     {
-        $this->user_id = $user;
+        $authUser = auth()->user()->id;
+
+        if($user == $authUser){
+           return $this->dispatchBrowserEvent('respond', [
+                'title' => 'Invalid action!',
+                'icon' => 'error',
+                // 'iconColor' => 'green'
+            ]);
+
+        }else if($user !== $authUser){
+            $this->user_id = $user;
+
+            $this->dispatchBrowserEvent('deleteUser');
+        }
     }
 
     public function destroy()
     {
         $user = User::find($this->user_id)->delete();
 
-        $this->dispatchBrowserEvent('deleted', [
+        $this->dispatchBrowserEvent('respond', [
             'title' => 'User deleted!',
             'icon' => 'success',
             // 'iconColor' => 'green'

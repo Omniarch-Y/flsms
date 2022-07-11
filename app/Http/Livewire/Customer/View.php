@@ -62,29 +62,35 @@ class View extends Component
 
     public function store()
     {   
-        $isAvailable = Address::where('hno', $this->hno)
-                              ->where('woreda', $this->woreda)
-                              ->where('subCity', $this->subCity)
-                              ->where('city', $this->city)
-                              ->where('country', $this->country)
+        $hno = $this->hno;
+        $woreda = $this->woreda;
+        $subCity = $this->subCity;
+        $city = $this->city;
+        $country = $this->country;
+
+        $isAvailable = Address::where('hno', $hno)
+                              ->where('woreda', $woreda)
+                              ->where('subCity', $subCity)
+                              ->where('city', $city)
+                              ->where('country', $country)
                               ->first();
 
         if($isAvailable == false){
             // creating new address
             Address::create([
-                    'woreda' => $this->woreda,
-                    'hno'=> $this->hno,
-                    'subCity' => $this->subCity,
-                    'city' => $this->city,
-                    'country' => $this->country,
+                    'woreda' => $woreda,
+                    'hno'=> $hno,
+                    'subCity' => $subCity,
+                    'city' => $city,
+                    'country' => $country,
             ]);
         }
 
-        $findAddress = Address::where('hno', $this->hno)
-                              ->where('woreda', $this->woreda)
-                              ->where('subCity', $this->subCity)
-                              ->where('city', $this->city)
-                              ->where('country', $this->country)
+        $findAddress = Address::where('hno', $hno)
+                              ->where('woreda', $woreda)
+                              ->where('subCity', $subCity)
+                              ->where('city', $city)
+                              ->where('country', $country)
                               ->first();
 
         $groupAvailable = GroupCustomer::where('group_name', $this->group_name)
@@ -104,7 +110,7 @@ class View extends Component
 
         if($findGroup == null) {
 
-            Customer::create([
+            $registerCustomer = Customer::create([
                 'first_name' => $this->first_name,
                 'middle_name' => $this->middle_name,
                 'last_name' => $this->last_name,
@@ -121,7 +127,7 @@ class View extends Component
             ]);
         }
         else{
-            Customer::create([
+            $registerCustomer = Customer::create([
                 'first_name' => $this->first_name,
                 'middle_name' => $this->middle_name,
                 'last_name' => $this->last_name,
@@ -137,69 +143,81 @@ class View extends Component
     
             ]);
         }
+        if($registerCustomer){
 
-        $this->dispatchBrowserEvent('respond', [
-            'title' => 'Customer registered',
-            'icon' => 'success',
-            // 'iconColor' => 'green'
-        ]);
+            $this->reset();
 
-        $this->reset();
-        
-        $this->dispatchBrowserEvent('close-modal');
+            $this->dispatchBrowserEvent('close-modal');
+    
+            $this->dispatchBrowserEvent('respond', [
+                'title' => 'Customer registered',
+                'icon' => 'success',
+                // 'iconColor' => 'green'
+            ]);
+        }
     }
 
     public function update()
     {      
-        $validateData = $this->validate([
-            'first_name' =>['required', 'string', 'max:255'],
-            'middle_name' =>['required', 'string', 'max:255'],
-            'last_name' =>['required', 'string', 'max:255'],
-            'dob' => ['required', 'date'],
-            'sex' => ['required'],
-            'phone_number' => ['required', 'numeric', 'min:10'],
-            'hno' => ['required', 'numeric'],
-            'woreda' => ['required', 'numeric'],
-            'subCity' => ['required', 'string', 'max:255'],
-            'city' => ['required', 'string', 'max:255'],
-            'country' => ['required', 'string', 'max:255'],
-            'nationality' => ['required', 'string', 'max:255'],
-            'business_type' => ['required', 'string', 'max:255'],
-            'group_id' => ['required', 'numeric', 'max:255'],
-        ]);
+        // $validateData = $this->validate([
+        //     'first_name' =>['required', 'string', 'max:255'],
+        //     'middle_name' =>['required', 'string', 'max:255'],
+        //     'last_name' =>['required', 'string', 'max:255'],
+        //     'dob' => ['required', 'date'],
+        //     'sex' => ['required'],
+        //     'phone_number' => ['required', 'numeric', 'min:10'],
+        //     'hno' => ['required', 'numeric'],
+        //     'woreda' => ['required', 'numeric'],
+        //     'subCity' => ['required', 'string', 'max:255'],
+        //     'city' => ['required', 'string', 'max:255'],
+        //     'country' => ['required', 'string', 'max:255'],
+        //     'nationality' => ['required', 'string', 'max:255'],
+        //     'business_type' => ['required', 'string', 'max:255'],
+        //     'group_name' => ['string', 'max:255'],
+        //     'remark' => ['string', 'max:255'],
+        // ]);
 
-        
+        $hno = $this->hno;
+        $woreda = $this->woreda;
+        $subCity = $this->subCity;
+        $city = $this->city;
+        $country = $this->country;
 
-        $savedAddress_1 = $this->hno;
-        $savedAddress_2 = $this->woreda;
-        $savedAddress_3 = $this->subCity;
-        $savedAddress_4 = $this->city;
-        $savedAddress_5 = $this->country;
-
-        $isAvailable = Address::where('hno', $savedAddress_1)
-                              ->where('woreda', $savedAddress_2)
-                              ->where('subCity', $savedAddress_3)
-                              ->where('city', $savedAddress_4)
-                              ->where('country', $savedAddress_5)
+        $isAvailable = Address::where('hno', $hno)
+                              ->where('woreda', $woreda)
+                              ->where('subCity', $subCity)
+                              ->where('city', $city)
+                              ->where('country', $country)
                               ->first();
 
         if($isAvailable == false){
             // creating new address
             Address::create([
-                    'hno'=> $this->hno,
-                    'woreda' => $this->woreda,
-                    'subCity' => $this->subCity,
-                    'city' => $this->city,
-                    'country' => $this->country,
+                    'hno'=> $hno,
+                    'woreda' => $woreda,
+                    'subCity' => $subCity,
+                    'city' => $city,
+                    'country' => $country,
             ]);
         }
 
-        $findAddress = Address::where('hno', $savedAddress_1)
-                              ->where('woreda', $savedAddress_2)
-                              ->where('subCity', $savedAddress_3)
-                              ->where('city', $savedAddress_4)
-                              ->where('country', $savedAddress_5)
+        $findAddress = Address::where('hno', $hno)
+                              ->where('woreda', $woreda)
+                              ->where('subCity', $subCity)
+                              ->where('city', $city)
+                              ->where('country', $country)
                               ->first();
+
+        $groupAvailable = GroupCustomer::where('group_name', $this->group_name)->first();
+
+        if(!$groupAvailable && $this->group_name && $this->remark){
+            $group = GroupCustomer::create([
+                'group_name' => $this->group_name,
+                'remark' => $this->remark,
+            ]);
+        }
+                        
+        $findGroup = GroupCustomer::where('group_name', $this->group_name)->first();
 
         if ($this->picture == null){
             $currentCustomer = Customer::find($this->customer_id);
@@ -207,20 +225,39 @@ class View extends Component
         }else{
             $picture = $this->picture->store('public/customerPictures');
         }
+        
+        if($findGroup == null) {
 
-        Customer::where('id', $this->customer_id)->update([
-            'first_name' => $validateData['first_name'],
-            'middle_name' => $validateData['middle_name'],
-            'last_name' => $validateData['last_name'],
-            'dob' => $validateData['dob'],
-            'sex' => $validateData['sex'],
-            'phone_number' => $validateData['phone_number'],
-            'picture' => $picture,
-            'address_id' => $findAddress->id,
-            'nationality' => $validateData['nationality'],
-            'business_type' => $validateData['business_type'],
-            'group_id' => $validateData['group_id'],
-        ]);
+            Customer::where('id', $this->customer_id)->update([
+                'first_name' => $this->first_name,
+                'middle_name' => $this->middle_name,
+                'last_name' => $this->last_name,
+                'dob' => $this->dob,
+                'sex' => $this->sex,
+                'phone_number' => $this->phone_number,
+                'picture' => $picture,
+                'address_id' => $findAddress->id,
+                'nationality' => $this->nationality,
+                'business_type' => $this->business_type,
+                'group_id' => null,
+            ]);
+          }else{
+
+            Customer::where('id', $this->customer_id)->update([
+                'first_name' => $this->first_name,
+                'middle_name' => $this->middle_name,
+                'last_name' => $this->last_name,
+                'dob' => $this->dob,
+                'sex' => $this->sex,
+                'phone_number' => $this->phone_number,
+                'picture' => $picture,
+                'address_id' => $findAddress->id,
+                'nationality' => $this->nationality,
+                'business_type' => $this->business_type,
+                'group_id' =>$findGroup->id,
+            ]);
+        }
+        // $this->reset();
 
         $this->dispatchBrowserEvent('respond', [
             'title' => 'Customer data updated',
@@ -228,7 +265,6 @@ class View extends Component
             // 'iconColor' => 'green'
         ]);
 
-        $this->reset();
     }
 
    public function editCustomer(int $customer_id)
@@ -254,15 +290,16 @@ class View extends Component
             $this->country = $customerAddress->country;
             $this->business_type = $currentCustomer->business_type;
             $this->nationality = $currentCustomer->nationality;
-            $this->group_id = 2;
+            // $this->group_name => $customerGroup->group_name,
+            // $this->remark  => $customerGroup->remark,
 
-            // if(!$customerGroup){
-            //     $this->group_name = '';
-            //     $this->remark = '';
-            // }else{
-            //     $this->group_name = $customerGroup->group_name;
-            //     $this->remark = $customerGroup->remark;
-            // }
+            if(!$customerGroup){
+                $this->group_name = '';
+                $this->remark = '';
+            }else{
+                $this->group_name = $customerGroup->group_name;
+                $this->remark = $customerGroup->remark;
+            }
 
 
             // $this->picture = $currentCustomer->picture;

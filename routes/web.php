@@ -24,34 +24,38 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('customers',Customer::class)->middleware('isLoan_officer');
+Route::get('/a', function () {
+    return view('adminlte');
+});
 
-Route::get('users',User::class)->middleware('isLoan_officer');
+Route::get('customers', Customer::class)->middleware('isLoan_officer');
+
+Route::get('users', User::class)->middleware('isAdmin');
 
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::controller(CustomerController::class)->middleware('isAdmin')->group(function(){
-    Route::get('customerForm','create');
-    Route::post('registerCustomer','store');
-    Route::get('editCustomer','edit');
-    Route::put('updateUser/{id}','update');
-    Route::delete('deleteUser/{id}','destroy');
-});
+// Route::controller(CustomerController::class)->middleware('isAdmin')->group(function(){
+//     Route::get('customerForm','create');
+//     Route::post('registerCustomer','store');
+//     Route::get('editCustomer','edit');
+//     Route::put('updateUser/{id}','update');
+//     Route::delete('deleteUser/{id}','destroy');
+// });
 
-Route::controller(UserController::class)->group(function(){
-    Route::get('userForm','create');
-    Route::post('registerUser','store');
-    Route::get('editUser','edit');
-    Route::put('updateUser/{id}','update');
-    Route::delete('deleteUser/{id}','destroy');
-});
+// Route::controller(UserController::class)->group(function(){
+//     Route::get('userForm','create');
+//     Route::post('registerUser','store');
+//     Route::get('editUser','edit');
+//     Route::put('updateUser/{id}','update');
+//     Route::delete('deleteUser/{id}','destroy');
+// });
 
-Route::controller(LoanController::class)->middleware('isLoan_officer')->group(function(){
-    Route::get('loanForm','create');
-    Route::post('issueLoan','store');
-    Route::get('editUser','edit');
-    Route::put('updateUser/{id}','update');
-    Route::delete('deleteUser/{id}','destroy');
-});
+// Route::controller(LoanController::class)->middleware('isLoan_officer')->group(function(){
+//     Route::get('loanForm','create');
+//     Route::post('issueLoan','store');
+//     Route::get('editUser','edit');
+//     Route::put('updateUser/{id}','update');
+//     Route::delete('deleteUser/{id}','destroy');
+// });

@@ -27,11 +27,11 @@ class HomeController extends Controller
             return redirect('/customers');
         }
         else if (auth()->user()->role == 'encoder'){
-            return view('Encoder.home');
+            return view('home');
         }
         else if (auth()->user()->role == 'manager'){
-            return view('Manager.home');
+            return redirect('/users');
         }
-        else return view('Admin.home');
+        else return redirect('/users');
     }
 }

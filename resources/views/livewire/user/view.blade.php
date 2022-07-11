@@ -80,11 +80,11 @@
             $('#registerCustomer').modal('hide');
         });
 
-        window.addEventListener('open-modal', event => {
-            $('#registerCustomer').modal('show');
+        window.addEventListener('deleteUser', event => {
+            $('#deleteUser').modal('show');
         });
 
-        window.addEventListener('deleted', e => {
+        window.addEventListener('respond', e => {
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -103,41 +103,5 @@
                 })
         });
 
-        window.addEventListener('created', e => {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })
-
-                    Toast.fire({
-                    icon: e.detail.icon,
-                    title: e.detail.title
-                })
-        });
-        window.addEventListener('updated', e => {
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })
-
-                    Toast.fire({
-                    icon: e.detail.icon,
-                    title: e.detail.title
-                })
-        });
     </script>
 @endpush
