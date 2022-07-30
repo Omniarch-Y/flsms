@@ -80,9 +80,11 @@ class LoanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function showWithdrawal($id)
     {
-        //
+        $we = Loan::find($id);
+
+        return view('livewire.loan.withdrawal_receipt', ['data' => $we]);
     }
 
     /**

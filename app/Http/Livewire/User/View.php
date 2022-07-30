@@ -50,35 +50,35 @@ class View extends Component
 
     public function store()
     {
-        $savedAddress_1 = $this->hno;
-        $savedAddress_2 = $this->woreda;
-        $savedAddress_3 = $this->subCity;
-        $savedAddress_4 = $this->city;
-        $savedAddress_5 = $this->country;
+        $hno = $this->hno;
+        $woreda = $this->woreda;
+        $subCity = $this->subCity;
+        $city = $this->city;
+        $country = $this->country;
 
-        $isAvailable = Address::where('hno', $savedAddress_1)
-                              ->where('woreda', $savedAddress_2)
-                              ->where('subCity', $savedAddress_3)
-                              ->where('city', $savedAddress_4)
-                              ->where('country', $savedAddress_5)
+        $isAvailable = Address::where('hno', $hno)
+                              ->where('woreda', $woreda)
+                              ->where('subCity', $subCity)
+                              ->where('city', $city)
+                              ->where('country', $country)
                               ->first();
 
         if($isAvailable == false){
             // creating new address
             Address::create([
-                    'woreda' => $this->woreda,
-                    'hno'=> $this->hno,
-                    'subCity' => $this->subCity,
-                    'city' => $this->city,
-                    'country' => $this->country,
+                    'hno'=> $hno,
+                    'woreda' => $woreda,
+                    'subCity' => $subCity,
+                    'city' => $city,
+                    'country' => $country,
             ]);
         }
 
-        $findAddress = Address::where('hno', $savedAddress_1)
-                              ->where('woreda', $savedAddress_2)
-                              ->where('subCity', $savedAddress_3)
-                              ->where('city', $savedAddress_4)
-                              ->where('country', $savedAddress_5)
+        $findAddress = Address::where('hno', $hno)
+                              ->where('woreda', $woreda)
+                              ->where('subCity', $subCity)
+                              ->where('city', $city)
+                              ->where('country', $country)
                               ->first();
 
         $picture = $this->picture->store('public/userPictures');
@@ -219,17 +219,15 @@ class View extends Component
     {
         $authUser = auth()->user()->id;
 
-        if($user == $authUser){
-           return $this->dispatchBrowserEvent('respond', [
+        if($user !== $authUser){
+            $this->user_id = $user;
+            $this->dispatchBrowserEvent('deleteUser');
+        }else {
+            $this->dispatchBrowserEvent('respond', [
                 'title' => 'Invalid action!',
                 'icon' => 'error',
                 // 'iconColor' => 'green'
             ]);
-
-        }else if($user !== $authUser){
-            $this->user_id = $user;
-
-            $this->dispatchBrowserEvent('deleteUser');
         }
     }
 

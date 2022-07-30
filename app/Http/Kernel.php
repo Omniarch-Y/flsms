@@ -67,7 +67,7 @@ class Kernel extends HttpKernel
         //Custom defined middleware
         'isAdmin'=>\App\Http\Middleware\Admin::class,
         'isLoan_officer'=>\App\Http\Middleware\Loan_officer::class,
-        'isEncoders'=>\App\Http\Middleware\Encoder::class,
+        'isEncoder'=>\App\Http\Middleware\Encoder::class,
         'isManager'=>\App\Http\Middleware\Manager::class,
     ];
 }

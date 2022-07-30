@@ -51,7 +51,7 @@
                                   <button class="btn btn-secondary btn-sm">view</button>
                                   <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editUser" wire:click='editUser({{ $user->id }})'>Edit</button>
                                   @include('livewire.user.edit')
-                                  <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-swal-template="#my-template" data-bs-target="#deleteUser" wire:click='deleteUser({{ $user->id}})'>Delete</button>
+                                  <button type="button" class="btn btn-danger btn-sm" wire:click='deleteUser({{ $user->id}})'>Delete</button>
                                   @include('livewire.user.delete')
                              </td>
                            </tr>
@@ -78,6 +78,11 @@
     <script>
         window.addEventListener('close-modal', event => {
             $('#registerCustomer').modal('hide');
+        });
+
+
+        window.addEventListener('hide-deleteUser', event => {
+            $('#deleteUser').modal('hide');
         });
 
         window.addEventListener('deleteUser', event => {

@@ -156,9 +156,8 @@
                                     data-bs-target="#editCustomer" wire:click='editCustomer({{ $customer->id }})'><i
                                         class="fa-regular fa-pen-to-square" aria-hidden="true"></i></button>
                                 @include('livewire.customer.edit')
-                                <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#deleteCustomer"
-                                    wire:click='deleteCustomer({{ $customer->id }})'><i class="fa-regular fa-trash"
+                                <button type="button" class="btn btn-danger btn-sm"
+                                    wire:click='deleteCustomer({{ $customer->id }})'><i class="fa fa-trash"
                                         aria-hidden="true"></i></button>
                                 @include('livewire.customer.delete')
                                 <button type="button" class="btn btn-success btn-sm"
@@ -194,6 +193,10 @@
 
         window.addEventListener('open-modal', e => {
             $('#issueLoan').modal('show');
+        });
+
+        window.addEventListener('delete-modal', e => {
+            $('#deleteCustomer').modal('show');
         });
 
         window.addEventListener('respond', e => {

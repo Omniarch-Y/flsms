@@ -21,7 +21,7 @@ class Admin
             if(auth()->user()->role== 'admin' || auth()->user()->role== 'manager'){
                 return $next($request);
             }
-            abort(403,"Sorry!! You need an admin or manager privilege to access this page.");
+            abort(403,"Sorry!! Access denied");
         }
         abort(403,"Sorry!! You need to log in in order to access this page.");
 

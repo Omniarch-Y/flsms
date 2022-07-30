@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Livewire\Customer;
 use App\Http\Livewire\User;
+use App\Http\Livewire\Loan;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoanController;
@@ -24,38 +25,25 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/a', function () {
-    return view('adminlte');
+// Route::get('/withdrawal', function() {
+//     Session::get('data');
+//     return view('livewire.loan.withdrawal_receipt');
+// })->name('withdrawal');
+
+Route::controller(HomeController::class)->group( function (){
+    Route::get('home','index');
 });
 
+Route::controller(LoanController::class)->group( function (){
+    Route::get('withdrawal/{id}','showWithdrawal');
+});
+
+// Route::get('home', [HomeController::class, 'index'])->name('home');
+
 Route::get('customers', Customer::class)->middleware('isLoan_officer');
+
+Route::get('loans', Loan::class)->middleware('isEncoder');
 
 Route::get('users', User::class)->middleware('isAdmin');
 
 Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-// Route::controller(CustomerController::class)->middleware('isAdmin')->group(function(){
-//     Route::get('customerForm','create');
-//     Route::post('registerCustomer','store');
-//     Route::get('editCustomer','edit');
-//     Route::put('updateUser/{id}','update');
-//     Route::delete('deleteUser/{id}','destroy');
-// });
-
-// Route::controller(UserController::class)->group(function(){
-//     Route::get('userForm','create');
-//     Route::post('registerUser','store');
-//     Route::get('editUser','edit');
-//     Route::put('updateUser/{id}','update');
-//     Route::delete('deleteUser/{id}','destroy');
-// });
-
-// Route::controller(LoanController::class)->middleware('isLoan_officer')->group(function(){
-//     Route::get('loanForm','create');
-//     Route::post('issueLoan','store');
-//     Route::get('editUser','edit');
-//     Route::put('updateUser/{id}','update');
-//     Route::delete('deleteUser/{id}','destroy');
-// });

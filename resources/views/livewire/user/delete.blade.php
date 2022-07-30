@@ -19,7 +19,7 @@
                     </div>
                         <center>
                             <div class="modal-footer">
-                                <button type="submit" class="btn btn-danger" wire:target="destroy" wire:loading.attr='disabled'>
+                                <button type="submit" class="btn btn-danger" data-bs-dismiss="modal" wire:target="destroy"  wire:loading.attr='disabled'>
                                     {{ __('Yes') }}
                                 </button>
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>

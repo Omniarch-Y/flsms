@@ -140,7 +140,6 @@ class View extends Component
                 'business_type' => $this->business_type,
                 'user_id' => auth()->user()->id,
                 'group_id' => $findGroup->id,
-    
             ]);
         }
         if($registerCustomer){
@@ -158,24 +157,7 @@ class View extends Component
     }
 
     public function update()
-    {      
-        // $validateData = $this->validate([
-        //     'first_name' =>['required', 'string', 'max:255'],
-        //     'middle_name' =>['required', 'string', 'max:255'],
-        //     'last_name' =>['required', 'string', 'max:255'],
-        //     'dob' => ['required', 'date'],
-        //     'sex' => ['required'],
-        //     'phone_number' => ['required', 'numeric', 'min:10'],
-        //     'hno' => ['required', 'numeric'],
-        //     'woreda' => ['required', 'numeric'],
-        //     'subCity' => ['required', 'string', 'max:255'],
-        //     'city' => ['required', 'string', 'max:255'],
-        //     'country' => ['required', 'string', 'max:255'],
-        //     'nationality' => ['required', 'string', 'max:255'],
-        //     'business_type' => ['required', 'string', 'max:255'],
-        //     'group_name' => ['string', 'max:255'],
-        //     'remark' => ['string', 'max:255'],
-        // ]);
+    {
 
         $hno = $this->hno;
         $woreda = $this->woreda;
@@ -273,7 +255,6 @@ class View extends Component
         $customerAddress = Address::find($currentCustomer->address_id);
         $customerGroup = GroupCustomer::find($currentCustomer->group_id);
 
-
         if($currentCustomer)
         {
             $this->customer_id = $currentCustomer->id;
@@ -311,7 +292,17 @@ class View extends Component
 
     public function deleteCustomer(int $customer)
     {
-        $this->customer_id = $customer;
+        $isAvailable = Loan::where('cust_id',$customer)->where('status',0)->get();
+
+        if($isAvailable->count() <= 0 ){
+            $this->customer_id = $customer;
+            $this->dispatchBrowserEvent('delete-modal');
+        }else{
+            $this->dispatchBrowserEvent('respond', [
+                'title' => 'Customer has active loan!',
+                'icon' => 'error',
+            ]);
+        }
     }
 
     public function destroy()

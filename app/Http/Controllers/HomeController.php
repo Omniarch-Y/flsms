@@ -27,7 +27,7 @@ class HomeController extends Controller
             return redirect('/customers');
         }
         else if (auth()->user()->role == 'encoder'){
-            return view('home');
+            return redirect('/loans');
         }
         else if (auth()->user()->role == 'manager'){
             return redirect('/users');

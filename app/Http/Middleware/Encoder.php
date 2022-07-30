@@ -21,7 +21,7 @@ class Encoder
             if(auth()->user()->role== 'encoder'){
                 return $next($request);
             }
-            abort(403,"Sorry!! You need an encoder privilege to access this page.");
+            abort(403,"Sorry!! Access denied");
         }
         abort(403,"Sorry!! You need to log in in order to access this page.");
     }
