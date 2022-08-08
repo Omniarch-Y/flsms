@@ -16,10 +16,11 @@ return new class extends Migration
         Schema::create('loans', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cust_id');
-            $table->foreign('cust_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade')->nullable();
-            $table->string('collateral');
+            $table->foreign('cust_id')->references('id')->on('customers')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('collateral');
+            $table->foreign('collateral')->references('id')->on('collateral')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('loan_type');
             $table->Integer('interest_rate');
-            $table->Integer('service_charge')->nullable();
             $table->unsignedBigInteger('amount');
             $table->unsignedBigInteger('net_amount')->nullable();
             $table->Integer('penalty_rate')->nullable();
@@ -27,7 +28,7 @@ return new class extends Migration
             $table->date('starting_date');
             $table->date('ending_date');      
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('insurance')->nullable();
             $table->foreign('insurance')->references('id')->on('insurances')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps();

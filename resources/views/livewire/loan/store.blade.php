@@ -22,6 +22,19 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                         @csrf
                         <div class="row g-4 mb-4">
                             <div class="col-sm-4">
+                                <label for="loan_type" class="form-label lable_color">{{ __('Loan type') }}</label>
+
+                                <select class="form-control" id="loan_type" name="loan_type" required focus
+                                    wire:model="loan_type">
+
+                                    <option value="personal" selected>Personal</option>
+                                    <option value="buisness" selected>Buisness</option>
+
+                                    <option value="Select Role" disabled selected>Click to Select type</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-4">
                                 <label for="amount" class="form-label">{{ __('Amount') }}</label>
 
                                 <input id="amount" type="number"
@@ -58,9 +71,8 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
 
                                 <input id="starting_date" type="date"
                                     class="form-control @error('starting_date') is-invalid @enderror"
-                                    name="starting_date" value="{{ old('starting_date') }}"
-                                    autocomplete="starting_date" placeholder="{{ __('Enter starting date') }}"
-                                    required wire:model="starting_date">
+                                    name="starting_date" value="{{ old('starting_date') }}" autocomplete="starting_date"
+                                    placeholder="{{ __('Enter starting date') }}" required wire:model="starting_date">
 
                                 @error('starting_date')
                                     <span class="invalid-feedback" role="alert">
@@ -91,13 +103,14 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                                 <select class="form-control" id="collateral_type" name="collateral_type" required focus
                                     wire:model="collateral_type">
 
-                                    <option value="1" selected>weeee</option>
+                                    <option value="1" selected>Property</option>
+                                    <option value="1" selected>Car</option>
+                                    <option value="1" selected>Equipment</option>
+
 
                                     <option value="Select Role" disabled selected>Click to Select Group</option>
                                 </select>
                             </div>
-
-
 
                             <div class="col-sm-4">
                                 <label for="collateral_value" class="form-label">{{ __('Collateral value') }}</label>

@@ -16,6 +16,20 @@
                     <form wire:submit.prevent='update'>
                         @csrf
                         <div class="row g-4 mb-4">
+
+                            <div class="col-sm-4">
+                                <label for="loan_type" class="form-label lable_color">{{ __('Loan type') }}</label>
+
+                                <select class="form-control" id="loan_type" name="loan_type" required focus
+                                    wire:model="loan_type">
+
+                                    <option value="personal" selected>Personal</option>
+                                    <option value="buisness" selected>Buisness</option>
+
+                                    <option value="Select Role" disabled selected>Click to Select type</option>
+                                </select>
+                            </div>
+
                             <div class="col-sm-4">
                                 <label for="amount" class="form-label">{{ __('Amount') }}</label>
 
@@ -53,9 +67,8 @@
 
                                 <input id="starting_date" type="date"
                                     class="form-control @error('starting_date') is-invalid @enderror"
-                                    name="starting_date" value="{{ old('starting_date') }}"
-                                    autocomplete="starting_date" placeholder="{{ __('Enter starting date') }}"
-                                    required wire:model="starting_date">
+                                    name="starting_date" value="{{ old('starting_date') }}" autocomplete="starting_date"
+                                    placeholder="{{ __('Enter starting date') }}" required wire:model="starting_date">
 
                                 @error('starting_date')
                                     <span class="invalid-feedback" role="alert">
@@ -86,7 +99,10 @@
                                 <select class="form-control" id="collateral_type" name="collateral_type" required focus
                                     wire:model="collateral_type">
 
-                                    <option value="1" selected>weeee</option>
+                                    <option value="1" selected>Property</option>
+                                    <option value="1" selected>Car</option>
+                                    <option value="1" selected>Equipment</option>
+
 
                                     <option value="Select Role" disabled selected>Click to Select Group</option>
                                 </select>
@@ -137,36 +153,6 @@
                                 @enderror
 
                             </div> --}}
-
-                            <div class="col-sm-4">
-                                <label for="net_amount" class="form-label">{{ __('Net amount') }}</label>
-
-                                <input id="net_amount" placeholder="{{ __('Enter initial diposit') }}" type="number"
-                                    class="form-control @error('net_amount') is-invalid @enderror" name="net_amount"
-                                    value="{{ old('net_amount') }}" autocomplete="net_amount" required wire:model="net_amount">
-
-                                @error('net_amount')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-
-                            </div>
-
-                            <div class="col-sm-4">
-                                <label for="initial_deposit" class="form-label">{{ __('Insurance initial deposit') }}</label>
-
-                                <input id="initial_deposit" placeholder="{{ __('Enter initial diposit') }}" type="number"
-                                    class="form-control @error('initial_deposit') is-invalid @enderror" name="initial_deposit"
-                                    value="{{ old('initial_deposit') }}" autocomplete="initial_deposit" required wire:model="initial_deposit">
-
-                                @error('initial_deposit')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-
-                            </div>
 
                         </div>
                         <center>

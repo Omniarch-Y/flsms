@@ -9,6 +9,7 @@ use App\Models\GroupCustomer;
 use App\Models\Address;
 use App\Models\Loan;
 use App\Models\Collateral;
+use App\Models\Insurance;
 use Livewire\WithFileUploads;
 
 class View extends Component
@@ -21,7 +22,7 @@ class View extends Component
 
     public $search, $customer_id, $first_name, $middle_name, $last_name, $dob, $sex, $phone_number, $picture, $hno, $woreda, $subCity, $city, $country, $nationality, $business_type, $group_name, $remark;
     
-    public $amount, $collateral_type, $value, $cust_id, $description, $starting_date, $ending_date, $interest_rate;
+    public $loan_type, $amount, $collateral_type, $value, $cust_id, $description, $starting_date, $ending_date, $interest_rate;
 
     public $rules = [
         'first_name' =>['required', 'string', 'max:255'],
@@ -32,7 +33,7 @@ class View extends Component
         'phone_number' => ['required', 'numeric', 'min:10'],
         'picture' => ['required', 'image'],
         'hno' => ['required', 'numeric'],
-        'woreda' => ['required', 'numeric'],
+        'woreda' => ['required', 'string'],
         'subCity' => ['required', 'string', 'max:255'],
         'city' => ['required', 'string', 'max:255'],
         'country' => ['required', 'string', 'max:255'],
@@ -42,6 +43,7 @@ class View extends Component
         'remark' => ['string', 'max:255'],
         // Loan and collateral values validation
         'amount' => ['required', 'numeric'],
+        'loan_type' => ['required', 'string'],
         'interest_rate' => ['required', 'numeric'],
         'starting_date' => ['required', 'date'],
         'ending_date' => ['required', 'date'],
@@ -334,18 +336,27 @@ class View extends Component
     public function storeLoan()
     {
         $collateral = Collateral::create([
-            'collateral_type' => 'another wee',
+            'collateral_type' => $this->collateral_type,
             'value' => $this->value,
             'description' => $this->description,
             'user_id' => auth()->user()->id,
         ]);
 
+        $Insurance = Insurance::create([
+            'initial_deposit' => $this->amount * 0.1,
+            'remaining_balance' => $this->amount * 0.1,
+            // 'repayment_date' => $this->repayment_date,
+        ]);
+
         Loan::create([
             'amount' => $this->amount,
+            'service_charge' => $this->amount * 0.02,
+            'loan_type' => $this->loan_type,
             'interest_rate' => $this->interest_rate,
             'starting_date' => $this->starting_date,
             'ending_date' => $this->ending_date,
             'cust_id' => $this->customer_id,
+            'insurance' => $Insurance->id,
             'collateral' => $collateral->id,
             'user_id' => auth()->user()->id,
         ]);

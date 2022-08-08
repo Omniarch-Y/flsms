@@ -217,20 +217,5 @@
                 title: e.detail.title
             })
         });
-
-        window.addEventListener('swal:confirm', e => {
-            Swal({
-                    title: e.detail.title,
-                    text: e.detail.text,
-                    icon: e.detail.type,
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.livewire.emit('destroy', event.detail.id);
-                    }
-                });
-        });
     </script>
 @endpush

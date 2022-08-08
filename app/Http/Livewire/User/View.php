@@ -29,7 +29,7 @@ class View extends Component
         'email' => ['required', 'email'],
         'picture' => ['required', 'image'],
         'hno' => ['required', 'numeric'],
-        'woreda' => ['required', 'numeric'],
+        'woreda' => ['required', 'string'],
         'subCity' => ['required', 'string', 'max:255'],
         'city' => ['required', 'string', 'max:255'],
         'country' => ['required', 'string', 'max:255'],

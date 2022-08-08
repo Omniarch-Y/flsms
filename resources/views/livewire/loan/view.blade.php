@@ -141,7 +141,7 @@
                             <td>{{ $loan->cust_id }}</td>
                             <td>{{ $loan->collateral }}</td>
                             <td>{{ $loan->net_amount }}</td>
-                            <td>{{ $loan->starting_date}}</td>
+                            <td>{{ $loan->starting_date }}</td>
                             <td>{{ $loan->ending_date }}</td>
                             <td>
                                 <button class="btn btn-secondary btn-sm">view</button>
@@ -150,7 +150,10 @@
                                         class="fa-regular fa-pen-to-square" aria-hidden="true"></i></button>
                                 @include('livewire.loan.edit')
                                 <button type="button" class="btn btn-success btn-sm"
-                                    wire:click='collect({{ $loan->id }})'>Collect</button>
+                                    wire:click='withdraw({{ $loan->id }})'>Withdraw</button>
+                                @include('livewire.loan.collect')
+                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#collect" wire:click='collect({{ $loan->id }})'>Collect</button>
                                 @include('livewire.loan.collect')
                             </td>
                         </tr>
@@ -202,21 +205,6 @@
                 icon: e.detail.icon,
                 title: e.detail.title
             })
-        });
-
-        window.addEventListener('swal:confirm', e => {
-            Swal({
-                    title: e.detail.title,
-                    text: e.detail.text,
-                    icon: e.detail.type,
-                    buttons: true,
-                    dangerMode: true,
-                })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        window.livewire.emit('destroy', event.detail.id);
-                    }
-                });
         });
     </script>
 @endpush

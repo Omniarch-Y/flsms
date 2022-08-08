@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('insurances', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('initial_deposit');
-            $table->date('repayment_date');
-            $table->unsignedBigInteger('remaining_balance');
+            $table->unsignedBigInteger('initial_deposit')->nullable();
+            $table->date('time_gap')->nullable();
+            $table->date('repayment_date')->nullable();
+            $table->unsignedBigInteger('remaining_balance')->nullable();
             $table->timestamps();
         });
     }

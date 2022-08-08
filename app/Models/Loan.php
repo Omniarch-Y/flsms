@@ -12,6 +12,7 @@ class Loan extends Model
     protected $fillable = [
         'cust_id',
         'collateral',
+        'loan_type',
         'interest_rate',
         'insurance',
         'service_charge',

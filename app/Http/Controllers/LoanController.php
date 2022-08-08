@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Loan;
 use App\Models\Collateral;
-
+use App\Models\Insurance;
+use App\Models\WithdrawalReceipt;
+use App\Models\CollectionReceipt;
 
 class LoanController extends Controller
 {
@@ -81,10 +83,20 @@ class LoanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showWithdrawal($id)
-    {
-        $we = Loan::find($id);
+    {   
+        $withdrawal = WithdrawalReceipt::find($id);
+        $loan = Loan::find($withdrawal->loan_id);
 
-        return view('livewire.loan.withdrawal_receipt', ['data' => $we]);
+        return view('livewire.Receipt.withdrawal_receipt', ['data' => $loan, 'withdrawal' => $withdrawal]);
+    }
+
+    public function showCollect($id)
+    {   
+        $collection = CollectionReceipt::find($id);
+        $loan = Loan::find($collection->loan_id);
+        $insurance = Insurance::find($collection->ins_id);
+
+        return view('livewire.Receipt.collection_receipt', ['loan' => $loan, 'insurance' => $insurance, 'collection' => $collection]);
     }
 
     /**

@@ -141,7 +141,7 @@ $notfilled = $errors->any() || empty($this->first_name) || empty($this->middle_n
                             <div class="col-sm-3">
                                 <label for="woreda" class="form-label">{{ __('Woreda') }}</label>
 
-                                <input id="woreda" type="number"
+                                <input id="woreda" type="text"
                                     class="form-control @error('woreda') is-invalid @enderror" name="woreda"
                                     placeholder="{{ __('Enter woreda') }}" autocomplete="woreda" autofocus
                                     wire:model.debounce.500ms="woreda">

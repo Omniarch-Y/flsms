@@ -38,6 +38,10 @@ Route::controller(LoanController::class)->group( function (){
     Route::get('withdrawal/{id}','showWithdrawal');
 });
 
+Route::controller(LoanController::class)->group( function (){
+    Route::get('collect/{id}','showCollect');
+});
+
 // Route::get('home', [HomeController::class, 'index'])->name('home');
 
 Route::get('customers', Customer::class)->middleware('isLoan_officer');
