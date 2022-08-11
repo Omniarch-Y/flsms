@@ -10,7 +10,9 @@ use App\Models\Address;
 use App\Models\Loan;
 use App\Models\Collateral;
 use App\Models\Insurance;
+use App\Models\Interest;
 use Livewire\WithFileUploads;
+use Carbon\Carbon;
 
 class View extends Component
 {
@@ -20,9 +22,9 @@ class View extends Component
 
     protected $paginationTheme = 'bootstrap';
 
-    public $search, $customer_id, $first_name, $middle_name, $last_name, $dob, $sex, $phone_number, $picture, $hno, $woreda, $subCity, $city, $country, $nationality, $business_type, $group_name, $remark;
+    public $search, $customer_id, $first_name, $middle_name, $last_name, $dob, $sex, $phone_number, $email, $picture, $hno, $woreda, $subCity, $city, $country, $nationality, $business_type, $group_name, $remark;
     
-    public $loan_type, $amount, $collateral_type, $value, $cust_id, $description, $starting_date, $ending_date, $interest_rate;
+    public $loan_type, $amount, $collateral_type, $value, $cust_id, $description, $starting_date, $ending_date, $interest_rate, $interest_type;
 
     public $rules = [
         'first_name' =>['required', 'string', 'max:255'],
@@ -31,6 +33,7 @@ class View extends Component
         'dob' => ['required', 'date'],
         'sex' => ['required'],
         'phone_number' => ['required', 'numeric', 'min:10'],
+        'email' => ['email'],
         'picture' => ['required', 'image'],
         'hno' => ['required', 'numeric'],
         'woreda' => ['required', 'string'],
@@ -41,15 +44,16 @@ class View extends Component
         'business_type' => ['required', 'string', 'max:255'],
         'group_name' => ['string', 'max:255'],
         'remark' => ['string', 'max:255'],
-        // Loan and collateral values validation
+        // Loan ,Collateral and Interest values validation
         'amount' => ['required', 'numeric'],
         'loan_type' => ['required', 'string'],
-        'interest_rate' => ['required', 'numeric'],
         'starting_date' => ['required', 'date'],
         'ending_date' => ['required', 'date'],
         'collateral_type' => ['required', 'string'],
         'value' => ['required','numeric'],
         'description' => ['required', 'string'],
+        'interest_rate' => ['required', 'numeric'],
+        'interest_type' => ['required', 'string'],
     ];
 
     public function updatingSearch()
@@ -119,6 +123,7 @@ class View extends Component
                 'dob' => $this->dob,
                 'sex' => $this->sex,
                 'phone_number' => $this->phone_number,
+                'email' => $this->email,
                 'picture' => $picture,
                 'address_id' => $findAddress->id,
                 'nationality' => $this->nationality,
@@ -136,6 +141,7 @@ class View extends Component
                 'dob' => $this->dob,
                 'sex' => $this->sex,
                 'phone_number' => $this->phone_number,
+                'email' => $this->email,
                 'picture' => $picture,
                 'address_id' => $findAddress->id,
                 'nationality' => $this->nationality,
@@ -160,7 +166,6 @@ class View extends Component
 
     public function update()
     {
-
         $hno = $this->hno;
         $woreda = $this->woreda;
         $subCity = $this->subCity;
@@ -219,12 +224,14 @@ class View extends Component
                 'dob' => $this->dob,
                 'sex' => $this->sex,
                 'phone_number' => $this->phone_number,
+                'email' => $this->email,
                 'picture' => $picture,
                 'address_id' => $findAddress->id,
                 'nationality' => $this->nationality,
                 'business_type' => $this->business_type,
                 'group_id' => null,
             ]);
+
           }else{
 
             Customer::where('id', $this->customer_id)->update([
@@ -234,6 +241,7 @@ class View extends Component
                 'dob' => $this->dob,
                 'sex' => $this->sex,
                 'phone_number' => $this->phone_number,
+                'email' => $this->email,
                 'picture' => $picture,
                 'address_id' => $findAddress->id,
                 'nationality' => $this->nationality,
@@ -266,6 +274,7 @@ class View extends Component
             $this->dob = $currentCustomer->dob;
             $this->sex = $currentCustomer->sex;
             $this->phone_number = $currentCustomer->phone_number;
+            $this->email = $currentCustomer->email;
             $this->hno = $customerAddress->hno;
             $this->woreda = $customerAddress->woreda;
             $this->subCity =$customerAddress->subCity;
@@ -330,7 +339,6 @@ class View extends Component
                 'icon' => 'error',
             ]);
         }
-
     }
 
     public function storeLoan()
@@ -342,6 +350,25 @@ class View extends Component
             'user_id' => auth()->user()->id,
         ]);
 
+        $interest_rate = $this->interest_rate;
+        $interest_type = $this->interest_type;
+
+        $isAvailable = Interest::where('interest_rate', $interest_rate)
+                                ->where('interest_type', $interest_type)
+                                ->first();
+
+        if($isAvailable == false){
+            // creating new Interest
+            Interest::create([
+                    'interest_rate'=> $interest_rate,
+                    'interest_type' => $interest_type,
+            ]);
+        }
+
+        $findInterest = Interest::where('interest_rate', $interest_rate)
+                              ->where('interest_type', $interest_type)
+                              ->first();
+
         $Insurance = Insurance::create([
             'initial_deposit' => $this->amount * 0.1,
             'remaining_balance' => $this->amount * 0.1,
@@ -350,14 +377,17 @@ class View extends Component
 
         Loan::create([
             'amount' => $this->amount,
+            'total_debt' => $this->amount,
             'service_charge' => $this->amount * 0.02,
             'loan_type' => $this->loan_type,
             'interest_rate' => $this->interest_rate,
             'starting_date' => $this->starting_date,
             'ending_date' => $this->ending_date,
+            'interest_date' => Carbon::now()->addDays(30),
             'cust_id' => $this->customer_id,
-            'insurance' => $Insurance->id,
-            'collateral' => $collateral->id,
+            'insu_id' => $Insurance->id,
+            'int_id' => $findInterest->id,
+            'coll_id' => $collateral->id,
             'user_id' => auth()->user()->id,
         ]);
 

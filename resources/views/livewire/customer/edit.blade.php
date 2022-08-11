@@ -268,6 +268,13 @@
                                 @enderror
                             </div>
 
+                            <div class="col-sm-12">
+                                @if ($picture)
+                                    <img class="mb-6 ms-5" src="{{ $picture->temporaryUrl() }}"
+                                        style="max-width:10rem;min-height:10rem;">
+                                @endif
+                            </div>
+
                         </div>
                         <center>
                             <button type="submit" class="btn btn-primary" wire:target="update"

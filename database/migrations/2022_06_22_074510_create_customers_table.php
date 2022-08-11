@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('sex');
             $table->date('dob');
             $table->unsignedBigInteger('phone_number')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('picture')->nullable();
             $table->unsignedBigInteger('address_id')->nullable();
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('set null')->onUpdate('cascade');

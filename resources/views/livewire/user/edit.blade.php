@@ -252,10 +252,12 @@
                                 @enderror
                             </div>
 
-                            @if ('picture')
-                                <img class="mb-6 ms-5" src="{{ 'picture' }}"
-                                    style="max-width:10rem;min-height:10rem;">
-                            @endif
+                            <center>
+                                @if ($picture)
+                                    <img class="mb-6 ms-5" src="{{ $picture->temporaryUrl() }}"
+                                        style="max-width:10rem;min-height:10rem;">
+                                @endif
+                            </center>
 
                         </div>
                         <center>

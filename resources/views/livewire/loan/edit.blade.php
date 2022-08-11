@@ -47,19 +47,33 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="Interest rate" class="form-label">{{ __('Interest rate') }}</label>
+                                <label for="interest_rate"
+                                    class="form-label lable_color">{{ __('Interest Rate') }}</label>
 
-                                <input id="interest_rate" type="number"
-                                    class="form-control @error('interest_rate') is-invalid @enderror"
-                                    name="interest_rate" placeholder="{{ __('Enter interest rate') }}" required
-                                    autocomplete="interest_rate" autofocus required wire:model="interest_rate">
+                                <select class="form-control" id="interest_rate" name="interest_rate" required focus
+                                    wire:model="interest_rate">
 
-                                @error('interest_rate')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                    <option value="0.05" selected>5%</option>
+                                    <option value="0.1" selected>10%</option>
+                                    <option value="0.15" selected>15%</option>
+                                    <option value="0.2" selected>20%</option>
 
+                                    <option value="Select Role" disabled selected>Click to Select type</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="interest_type"
+                                    class="form-label lable_color">{{ __('Interest Type') }}</label>
+
+                                <select class="form-control" id="interest_type" name="interest_type" required focus
+                                    wire:model="interest_type">
+
+                                    <option value="simple" selected>Simple</option>
+                                    <option value="compound" selected>Compound</option>
+
+                                    <option value="Select Role" disabled selected>Click to Select type</option>
+                                </select>
                             </div>
 
                             <div class="col-sm-4">
@@ -99,9 +113,9 @@
                                 <select class="form-control" id="collateral_type" name="collateral_type" required focus
                                     wire:model="collateral_type">
 
-                                    <option value="1" selected>Property</option>
-                                    <option value="1" selected>Car</option>
-                                    <option value="1" selected>Equipment</option>
+                                    <option value="property" selected>Property</option>
+                                    <option value="car" selected>Car</option>
+                                    <option value="equipment" selected>Equipment</option>
 
 
                                     <option value="Select Role" disabled selected>Click to Select Group</option>
@@ -111,9 +125,10 @@
                             <div class="col-sm-4">
                                 <label for="collateral_value" class="form-label">{{ __('Collateral value') }}</label>
 
-                                <input id="value" placeholder="{{ __('Enter collateral value') }}" type="number"
-                                    class="form-control @error('value') is-invalid @enderror" name="value"
-                                    value="{{ old('value') }}" autocomplete="value" required wire:model="value">
+                                <input id="value" placeholder="{{ __('Enter collateral value') }}"
+                                    type="number" class="form-control @error('value') is-invalid @enderror"
+                                    name="value" value="{{ old('value') }}" autocomplete="value" required
+                                    wire:model="value">
 
                                 @error('value')
                                     <span class="invalid-feedback" role="alert">

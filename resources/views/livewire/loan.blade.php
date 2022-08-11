@@ -8,7 +8,7 @@
 
     <div class="content-wrapper">
 
-        <div class="content-header">
+        {{-- <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
@@ -22,12 +22,12 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <section class="content">
             <div class="container-fluid">
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-lg-3 col-6">
 
                         <div class="small-box bg-info">
@@ -88,7 +88,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
 
                 <livewire:loan.view />
 

@@ -122,6 +122,22 @@ $notfilled = $errors->any() || empty($this->first_name) || empty($this->middle_n
 
                             </div>
 
+                            <div class="col-sm-12">
+                                <label for="email" class="form-label">{{ __('Email') }}</label>
+
+                                <input id="email" placeholder="{{ __('Enter Email') }}" type="email"
+                                    class="form-control @error('email') is-invalid @enderror" name="email"
+                                    value="{{ old('email') }}" autocomplete="email"
+                                    wire:model.debounce.500ms="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+
+                            </div>
+
                             <div class="col-sm-3">
                                 <label for="hno" class="form-label">{{ __('House number') }}</label>
 

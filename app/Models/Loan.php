@@ -11,10 +11,11 @@ class Loan extends Model
 
     protected $fillable = [
         'cust_id',
-        'collateral',
+        'coll_id',
         'loan_type',
-        'interest_rate',
-        'insurance',
+        'int_id',
+        'total_debt',
+        'insu_id',
         'service_charge',
         'amount',
         'net_amount',
@@ -22,6 +23,7 @@ class Loan extends Model
         'status',
         'starting_date',
         'ending_date',
+        'interest_date',
         'user_id'
     ];
 }

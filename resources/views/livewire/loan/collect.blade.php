@@ -2,7 +2,7 @@
 
 <div wire:ignore.self class="modal fade" id="collect" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
                 <center>
@@ -17,7 +17,7 @@
                         @csrf
                         <div class="row g-4 mb-4">
 
-                            <div class="col-sm-4">
+                            <div class="col-sm-12">
                                 <label for="collected_amount" class="form-label">{{ __('Amount') }}</label>
 
                                 <input id="collected_amount" type="number"

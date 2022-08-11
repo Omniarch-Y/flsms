@@ -17,6 +17,7 @@
                 <a href="#"
                     class="d-block">{{ auth()->user()->first_name }}{{ ' ' }}{{ auth()->user()->middle_name }}{{ ' ' }}{{ auth()->user()->last_name }}</a>
             </div>
+            
         </div>
 
         {{-- <div class="form-inline">
@@ -35,7 +36,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
 
-                <li class="nav-item menu-open">
+                {{-- <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
@@ -43,7 +44,31 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                </li> --}}
+                @if(auth()->user()->role == 'loan_officer')
+                <li class="nav-item">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#registerCustomer" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Add Customer
+                            {{-- <span class="right badge badge-danger">New</span> --}}
+                        </p>
+                    </a>
                 </li>
+                @endif
+                @if(auth()->user()->role == 'manager')
+                <li class="nav-item">
+                    <a href="" data-bs-toggle="modal" data-bs-target="#registerUser" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Add User
+                            {{-- <span class="right badge badge-danger">New</span> --}}
+                        </p>
+                    </a>
+                </li>
+                @endif
+
+                @if(auth()->user()->role == 'encoder')
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
@@ -53,7 +78,8 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
+                @endif
+                {{-- <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
@@ -76,10 +102,8 @@
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
         </nav>
-
     </div>
-
 </aside>

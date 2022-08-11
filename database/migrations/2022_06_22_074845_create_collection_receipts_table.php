@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('collection_receipts', function (Blueprint $table) {
             $table->id();
-            $table->integer('amount');
-            $table->unsignedBigInteger('ins_id');
-            $table->foreign('ins_id')->references('id')->on('insurances')->onDelete('cascade')->onUpdate('cascade');
+            $table->float('amount');
+            $table->unsignedBigInteger('insu_id');
+            $table->foreign('insu_id')->references('id')->on('insurances')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('loan_id');
             $table->foreign('loan_id')->references('id')->on('loans')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('user_id');

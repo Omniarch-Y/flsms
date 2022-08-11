@@ -139,14 +139,13 @@
                             <td></td>
                             <td>{{ $loan->id }}</td>
                             <td>{{ $loan->cust_id }}</td>
-                            <td>{{ $loan->collateral }}</td>
+                            <td>{{ $loan->coll_id }}</td>
                             <td>{{ $loan->net_amount }}</td>
                             <td>{{ $loan->starting_date }}</td>
                             <td>{{ $loan->ending_date }}</td>
                             <td>
                                 <button class="btn btn-secondary btn-sm">view</button>
-                                <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#editLoan" wire:click='editLoan({{ $loan->id }})'><i
+                                <button type="button" class="btn btn-warning btn-sm" wire:click='editLoan({{ $loan->id }})'><i
                                         class="fa-regular fa-pen-to-square" aria-hidden="true"></i></button>
                                 @include('livewire.loan.edit')
                                 <button type="button" class="btn btn-success btn-sm"
@@ -182,6 +181,10 @@
 
         window.addEventListener('open-modal', e => {
             $('#issueLoan').modal('show');
+        });
+
+        window.addEventListener('editLoan-modal', e => {
+            $('#editLoan').modal('show');
         });
 
         window.addEventListener('delete-modal', e => {

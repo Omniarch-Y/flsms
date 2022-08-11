@@ -16,6 +16,7 @@ class Customer extends Model
         'dob',
         'sex',
         'phone_number',
+        'email',
         'picture',
         'address_id',
         'nationality',

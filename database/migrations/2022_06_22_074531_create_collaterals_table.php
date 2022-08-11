@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('collateral_type');
             $table->text('description');
-            $table->unsignedBigInteger('value');
+            $table->float('value');
             // $table->unsignedBigInteger('loan_id');
             // $table->foreign('loan_id')->references('id')->on('loans')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('user_id');

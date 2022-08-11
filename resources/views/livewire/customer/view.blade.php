@@ -8,7 +8,9 @@
                 style="max-width:20rem; float:left">
 
             <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#registerCustomer"
+
                 style="float:right">Add customer</button>
+                <span class="warning-tooltip">6</span>
             @include('livewire.customer.store')
         </div>
 

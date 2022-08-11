@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('withdrawal_receipts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('amount');
+            // $table->unsignedBigInteger('amount');
             $table->unsignedBigInteger('loan_id');
             $table->foreign('loan_id')->references('id')->on('loans')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('user_id');

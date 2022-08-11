@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CollectionReceipt extends Model
+class Interest extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'amount',
-        'pen_id',
-        'insu_id',
-        'loan_id',
-        'user_id'
+        'interest_rate',
+        'interest_type'
     ];
 }

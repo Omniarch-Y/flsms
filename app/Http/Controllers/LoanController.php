@@ -94,7 +94,7 @@ class LoanController extends Controller
     {   
         $collection = CollectionReceipt::find($id);
         $loan = Loan::find($collection->loan_id);
-        $insurance = Insurance::find($collection->ins_id);
+        $insurance = Insurance::find($collection->insu_id);
 
         return view('livewire.Receipt.collection_receipt', ['loan' => $loan, 'insurance' => $insurance, 'collection' => $collection]);
     }
