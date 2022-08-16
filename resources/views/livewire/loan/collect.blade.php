@@ -18,11 +18,11 @@
                         <div class="row g-4 mb-4">
 
                             <div class="col-sm-12">
-                                <label for="collected_amount" class="form-label">{{ __('Amount') }}</label>
+                                <label for="collected_amount" class="form-lable text-dark">{{ __('Amount') }}</label>
 
                                 <input id="collected_amount" type="number"
                                     class="form-control @error('collected_amount') is-invalid @enderror"
-                                    name="collected_amount" placeholder="{{ __('Enter requested collected_amount') }}"
+                                    name="collected_amount" placeholder="{{ __('Enter collected amount') }}"
                                     required autocomplete="collected_amount" autofocus required
                                     wire:model="collected_amount">
 
@@ -34,8 +34,13 @@
 
                             </div>
 
+                            <input id="collected_amount" type="text"
+                                     @error('collected_amount') is-invalid @enderror"
+                                    name="collected_amount" placeholder="{{ __('Enter requested collected_amount') }}"
+                                    required autocomplete="collected_amount" autofocus required
+                                    wire:model="play" readonly style="border:none; color:red">
                             {{-- <div class="col-sm-4">
-                                <label for="Penality" class="form-label">{{ __('Penality') }}</label>
+                                <label for="Penality" class="form-lable text-dark">{{ __('Penality') }}</label>
 
                                 <input id="penality" type="number"
                                     class="form-control @error('penality') is-invalid @enderror"

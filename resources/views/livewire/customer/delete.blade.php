@@ -2,7 +2,7 @@
 
 <div wire:ignore.self class="modal fade" id="deleteCustomer" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
     aria-hidden="true">
-    <div class="modal-dialog modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-dialog modal-md modal-danger" role="document">
         <div class="modal-content">
             <div class="modal-header justify-content-center">
                 <center>

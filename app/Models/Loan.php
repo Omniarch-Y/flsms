@@ -26,4 +26,25 @@ class Loan extends Model
         'interest_date',
         'user_id'
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function customer() {
+        return $this->belongsTo(Customer::class,'cust_id');
+
+    }
+    public function collateral() {
+        return $this->belongsTo(Collateral::class,'coll_id');
+
+    }
+    public function insurance() {
+        return $this->belongsTo(Insurance::class,'insu_id');
+
+    }
+    public function interest() {
+        return $this->belongsTo(Interest::class,'int_id');
+
+    }
 }

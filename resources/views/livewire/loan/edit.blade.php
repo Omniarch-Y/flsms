@@ -18,7 +18,7 @@
                         <div class="row g-4 mb-4">
 
                             <div class="col-sm-4">
-                                <label for="loan_type" class="form-label lable_color">{{ __('Loan type') }}</label>
+                                <label for="loan_type" class="form-lable text-dark lable_color">{{ __('Loan type') }}</label>
 
                                 <select class="form-control" id="loan_type" name="loan_type" required focus
                                     wire:model="loan_type">
@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="amount" class="form-label">{{ __('Amount') }}</label>
+                                <label for="amount" class="form-lable text-dark">{{ __('Amount') }}</label>
 
                                 <input id="amount" type="number"
                                     class="form-control @error('amount') is-invalid @enderror" name="amount"
@@ -48,7 +48,7 @@
 
                             <div class="col-sm-4">
                                 <label for="interest_rate"
-                                    class="form-label lable_color">{{ __('Interest Rate') }}</label>
+                                    class="form-lable text-dark lable_color">{{ __('Interest Rate') }}</label>
 
                                 <select class="form-control" id="interest_rate" name="interest_rate" required focus
                                     wire:model="interest_rate">
@@ -64,7 +64,7 @@
 
                             <div class="col-sm-4">
                                 <label for="interest_type"
-                                    class="form-label lable_color">{{ __('Interest Type') }}</label>
+                                    class="form-lable text-dark lable_color">{{ __('Interest Type') }}</label>
 
                                 <select class="form-control" id="interest_type" name="interest_type" required focus
                                     wire:model="interest_type">
@@ -77,7 +77,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="starting date" class="form-label">{{ __('Starting date') }}</label>
+                                <label for="starting date" class="form-lable text-dark">{{ __('Starting date') }}</label>
 
                                 <input id="starting_date" type="date"
                                     class="form-control @error('starting_date') is-invalid @enderror"
@@ -92,7 +92,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="Ending date" class="form-label">{{ __('Ending date') }}</label>
+                                <label for="Ending date" class="form-lable text-dark">{{ __('Ending date') }}</label>
 
                                 <input id="ending_date" type="date"
                                     class="form-control @error('ending_date') is-invalid @enderror" name="ending_date"
@@ -108,7 +108,7 @@
 
                             <div class="col-sm-4">
                                 <label for="collateral_type"
-                                    class="form-label lable_color">{{ __('Collateral type') }}</label>
+                                    class="form-lable text-dark lable_color">{{ __('Collateral type') }}</label>
 
                                 <select class="form-control" id="collateral_type" name="collateral_type" required focus
                                     wire:model="collateral_type">
@@ -123,7 +123,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="collateral_value" class="form-label">{{ __('Collateral value') }}</label>
+                                <label for="collateral_value" class="form-lable text-dark">{{ __('Collateral value') }}</label>
 
                                 <input id="value" placeholder="{{ __('Enter collateral value') }}"
                                     type="number" class="form-control @error('value') is-invalid @enderror"
@@ -140,7 +140,7 @@
 
                             <div class="col-sm-4">
                                 <label for="description"
-                                    class="form-label">{{ __('Collateral description') }}</label>
+                                    class="form-lable text-dark">{{ __('Collateral description') }}</label>
 
                                 <textarea id="description" placeholder="{{ __('Enter collateral description') }}" type="text-field"
                                     class="form-control @error('description') is-invalid @enderror" name="description"
@@ -155,7 +155,7 @@
                             </div>
 
                             {{-- <div class="col-sm-4">
-                                <label for="initial_diposit" class="form-label">{{ __('Insurance initial deposit') }}</label>
+                                <label for="initial_diposit" class="form-lable text-dark">{{ __('Insurance initial deposit') }}</label>
 
                                 <input id="initial_diposit" placeholder="{{ __('Enter initial diposit') }}" type="number"
                                     class="form-control @error('initial_diposit') is-invalid @enderror" name="initial_diposit"

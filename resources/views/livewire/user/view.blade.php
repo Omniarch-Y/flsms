@@ -27,13 +27,12 @@
                         <thead class="thead-inverse|thead-default">
                             <tr>
                                 <th></th>
-                                <th>Name</th>
-                                <th>Sex</th>
-                                <th>Date of birth</th>
-                                <th>Phone</th>
-                                <th>Email</th>
-                                <th>role</th>
-                                <th>Nationality</th>
+                                <th class="fw-bold" >Name</th>
+                                <th class="fw-bold">Sex</th>
+                                <th class="fw-bold">Date of birth</th>
+                                <th class="fw-bold">Phone</th>
+                                <th class="fw-bold">Email</th>
+                                <th class="fw-bold">role</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -42,19 +41,31 @@
                                 <tr>
 
                                     <td scope="row"><img src="{{ Storage::url($user->picture) }}"
-                                            style="max-width:3rem;min-height:3rem;"></td>
-                                    <td>{{ $user->first_name }}{{ ' ' }}{{ $user->middle_name }}{{ ' ' }}{{ $user->last_name }}
-                                    </td>
-                                    <td>{{ $user->sex }}</td>
-                                    <td>{{ $user->dob }}</td>
-                                    <td>{{ $user->phone_number }}</td>
-                                    <td>{{ $user->email }}</td>
-                                    <td>{{ $user->role }}</td>
-                                    <td>{{ $user->nationality }}</td>
+                                            style="max-width:3rem;min-height:3rem;" class="rounded-circle"></td>
                                     <td>
-                                        <button class="btn btn-secondary btn-sm">view</button>
-                                        <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
-                                            data-bs-target="#editUser"
+                                        <p class="fw-normal mb-1">
+                                            {{ $user->first_name }}{{ ' ' }}{{ $user->middle_name }}{{ ' ' }}{{ $user->last_name }}
+                                        </p>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">{{ $user->sex }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">{{ $user->dob }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">{{ $user->phone_number }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">{{ $user->email }}</p>
+                                    </td>
+                                    <td>
+                                        <p class="fw-normal mb-1">{{ $user->role }}</p>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-secondary btn-sm me-3">view</button>
+                                        <button type="button" class="btn btn-warning btn-sm me-3"
+                                            data-bs-toggle="modal" data-bs-target="#editUser"
                                             wire:click='editUser({{ $user->id }})'>Edit</button>
                                         @include('livewire.user.edit')
                                         <button type="button" class="btn btn-danger btn-sm"

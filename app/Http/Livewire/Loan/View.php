@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Livewire\Loan;
-use Livewire\WithPagination;
+
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\Loan;
 use App\Models\Customer;
 use App\Models\Collateral;
@@ -16,10 +17,10 @@ use Carbon\Carbon;
 class View extends Component
 {   
     use WithPagination;
+    
+    protected $paginationTheme = 'bootstrap';
 
     public $search ,$loan_id, $loan_type ,$amount ,$starting_date ,$ending_date ,$collateral_type ,$value ,$penalty_rate ,$description, $net_amount, $initial_deposit, $collected_amount, $interest_rate, $interest_type;
-
-    protected $PaginationTheme = 'bootstrap';
 
     public $rules = [
         // Loan and collateral values validation
@@ -171,7 +172,46 @@ class View extends Component
 
     public function collect(int $loan_id)
     {
-        $this->loan_id = $loan_id;
+        $WithdrawalReceipt = WithdrawalReceipt::where('loan_id', $loan_id);
+
+            if($WithdrawalReceipt->count() <= 0){
+                $this->dispatchBrowserEvent('respond', [
+                    'title' => 'Loan has not been withdrawn',
+                    'icon' => 'error',
+                    // 'iconColor' => 'green'
+                ]);
+            }else{
+        
+                    $starting_date = Carbon::now();
+                    $ending_date = $starting_date->addYears(1);
+                dd($ending_date);
+
+                    $loan = Loan::find($loan_id);
+                    $insurance = Insurance::find($loan->insu_id);
+                    $current = Carbon::now()->format('Y-m-d');
+
+                    $repayment_date = Carbon::parse($insurance->repayment_date);
+
+                    $difference = $repayment_date->diffInDays($current);
+                    dd($repayment_date->isPast(), $difference, $current, $insurance->repayment_date, $repayment_date);
+
+                if($repayment_date->isPast() &&  $difference == 0)
+                {
+
+                }else if($repayment_date->isPast() &&  $difference >= 0){
+
+                }else{
+
+                }
+
+                $this->loan_id = $loan_id;
+                $this->play = "wee";
+                $this->dispatchBrowserEvent('collect-modal', [
+                    'title' => 'Loan has already been withdrawn',
+                    'icon' => 'error',
+                // 'iconColor' => 'green'
+            ]);
+        }   
     }
 
     public function collectL()
@@ -209,7 +249,7 @@ class View extends Component
     {   
         $search = '%'.$this->search.'%';
 
-        $loans = Loan::where('id','like', $search)->paginate(5);;
+        $loans = Loan::where('id','like', $search)->with('customer')->paginate(5);
         return view('livewire.loan.view',['loans' => $loans]);
     }
 }

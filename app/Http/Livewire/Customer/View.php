@@ -11,8 +11,10 @@ use App\Models\Loan;
 use App\Models\Collateral;
 use App\Models\Insurance;
 use App\Models\Interest;
+use App\Mail\TestMail;
 use Livewire\WithFileUploads;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Mail;
 
 class View extends Component
 {
@@ -24,14 +26,14 @@ class View extends Component
 
     public $search, $customer_id, $first_name, $middle_name, $last_name, $dob, $sex, $phone_number, $email, $picture, $hno, $woreda, $subCity, $city, $country, $nationality, $business_type, $group_name, $remark;
     
-    public $loan_type, $amount, $collateral_type, $value, $cust_id, $description, $starting_date, $ending_date, $interest_rate, $interest_type;
+    public $loan_type, $amount, $collateral_type, $value, $cust_id, $description, $starting_date, $ending_date, $interest_rate, $interest_type, $loan_period;
 
     public $rules = [
         'first_name' =>['required', 'string', 'max:255'],
         'middle_name' =>['required', 'string', 'max:255'],
         'last_name' =>['required', 'string', 'max:255'],
         'dob' => ['required', 'date'],
-        'sex' => ['required'],
+        'sex' => ['string'],
         'phone_number' => ['required', 'numeric', 'min:10'],
         'email' => ['email'],
         'picture' => ['required', 'image'],
@@ -47,6 +49,7 @@ class View extends Component
         // Loan ,Collateral and Interest values validation
         'amount' => ['required', 'numeric'],
         'loan_type' => ['required', 'string'],
+        'loan_period' => ['required', 'numeric'],
         'starting_date' => ['required', 'date'],
         'ending_date' => ['required', 'date'],
         'collateral_type' => ['required', 'string'],
@@ -161,6 +164,13 @@ class View extends Component
                 'icon' => 'success',
                 // 'iconColor' => 'green'
             ]);
+
+            // $details = [
+            //     'title' => 'From FLSMS',
+            //     'body' => '{$registerCustomer} has been successfully registered'
+            // ];
+
+            // Mail::to('dbugroup8@gmail.com')->send(new TestMail($details));
         }
     }
 
@@ -342,7 +352,20 @@ class View extends Component
     }
 
     public function storeLoan()
-    {
+    {   
+        if ($this->loan_period < 1){
+            $period = $this->loan_period * 12;
+
+            $current_date = Carbon::now();
+            $ending_date = $current_date->addMonths($period);
+
+        }else{
+            $period = $this->loan_period;
+
+            $current_date = Carbon::now();
+            $ending_date = $current_date->addYears($this->loan_period);
+        }
+
         $collateral = Collateral::create([
             'collateral_type' => $this->collateral_type,
             'value' => $this->value,
@@ -369,9 +392,22 @@ class View extends Component
                               ->where('interest_type', $interest_type)
                               ->first();
 
+        if($interest_type == 'simple'){
+            // dd($this->amount,$this->loan_period,$interest_rate, $this->loan_period*12);
+                $monthly_payment = ($this->amount + ($this->loan_period * $interest_rate * $this->amount))/($this->loan_period*12);
+        }else{
+            if ($this->loan_period < 1){
+                $pow = pow((1+ ($interest_rate/12)), $this->loan_period*12);
+                $monthly_payment = ($this->amount * $pow)/($this->loan_period*12);
+            }else{
+                $monthly_payment = ($this->amount * pow((1 + $interest_rate),$this->loan_period))/($this->loan_period*12);
+            }
+        }
+
         $Insurance = Insurance::create([
             'initial_deposit' => $this->amount * 0.1,
             'remaining_balance' => $this->amount * 0.1,
+            'monthly_payment' => $monthly_payment,
             // 'repayment_date' => $this->repayment_date,
         ]);
 
@@ -381,8 +417,8 @@ class View extends Component
             'service_charge' => $this->amount * 0.02,
             'loan_type' => $this->loan_type,
             'interest_rate' => $this->interest_rate,
-            'starting_date' => $this->starting_date,
-            'ending_date' => $this->ending_date,
+            'starting_date' => Carbon::now(),
+            'ending_date' => $ending_date,
             'interest_date' => Carbon::now()->addDays(30),
             'cust_id' => $this->customer_id,
             'insu_id' => $Insurance->id,

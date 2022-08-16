@@ -56,6 +56,8 @@
                     </a>
                 </li>
                 @endif
+                {{-- <a href="#" class="list-group-item list-group-item-action waves-effect">
+          <i class="fas fa-user mr-3"></i>Profile</a> --}}
                 @if(auth()->user()->role == 'manager')
                 <li class="nav-item">
                     <a href="" data-bs-toggle="modal" data-bs-target="#registerUser" class="nav-link">
@@ -79,7 +81,7 @@
                     </a>
                 </li>
                 @endif
-                {{-- <li class="nav-item">
+                <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
@@ -102,7 +104,7 @@
                             </a>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
             </ul>
         </nav>
     </div>

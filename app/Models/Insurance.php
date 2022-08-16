@@ -12,6 +12,7 @@ class Insurance extends Model
     protected $fillable = [
         'initial_deposit',
         'repayment_date',
+        'monthly_payment',
         'remaining_balance'
     ];
 }

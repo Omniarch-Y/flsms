@@ -16,7 +16,7 @@
                         @csrf
                         <div class="row g-4 mb-4">
                             <div class="col-sm-4">
-                                <label for="First name" class="form-label">{{ __('First Name') }}</label>
+                                <label for="First name" class="form-lable text-dark">{{ __('First Name') }}</label>
 
                                 <input id="first_name" type="text"
                                     class="form-control @error('first_name') is-invalid @enderror" name="first_name"
@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="Middle name" class="form-label">{{ __('Middle Name') }}</label>
+                                <label for="Middle name" class="form-lable text-dark">{{ __('Middle Name') }}</label>
 
                                 <input id="middle_name" type="text"
                                     class="form-control @error('middle_name') is-invalid @enderror" name="middle_name"
@@ -48,7 +48,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="Last name" class="form-label">{{ __('Last Name') }}</label>
+                                <label for="Last name" class="form-lable text-dark">{{ __('Last Name') }}</label>
 
                                 <input id="last_name" type="text"
                                     class="form-control @error('last_name') is-invalid @enderror" name="last_name"
@@ -64,7 +64,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="dob" class="form-label">{{ __('Date of Birth') }}</label>
+                                <label for="dob" class="form-lable text-dark">{{ __('Date of Birth') }}</label>
 
                                 <input id="dob" type="date"
                                     class="form-control @error('dob') is-invalid @enderror" name="dob"
@@ -79,15 +79,16 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="sex" class="form-label lable_color">{{ __('Sex') }}</label>
+                                <label for="sex" class="form-lable text-dark lable_color">{{ __('Sex') }}</label>
                                 <div class="row ms-1">
-                                    <div class="form-check col-sm-3">
 
+                                    <div class="form-check col-sm-6">
                                         <input class="form-check-input" type="radio" name="sex" id="sex"
                                             value="{{ 'F' }}" wire:model.debounce.500ms="sex" required>
                                         <label class="form-check-label" for="sex">Female</label>
                                     </div>
-                                    <div class="form-check col-sm-3">
+
+                                    <div class="form-check col-sm-6">
                                         <input class="form-check-input" type="radio" name="sex" id="sex"
                                             value="{{ 'M' }}" wire:model.debounce.500ms="sex" required>
                                         <label class="form-check-label" for="sex">Male</label>
@@ -101,7 +102,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="phone_number" class="form-label">{{ __('Phone number') }}</label>
+                                <label for="phone_number" class="form-lable text-dark">{{ __('Phone number') }}</label>
 
                                 <input id="phone_number" placeholder="{{ __('Enter phone number') }}" type="number"
                                     class="form-control @error('phone_number') is-invalid @enderror" name="phone_number"
@@ -116,7 +117,7 @@
                             </div>
 
                             <div class="col-sm-3">
-                                <label for="hno" class="form-label">{{ __('House number') }}</label>
+                                <label for="hno" class="form-lable text-dark">{{ __('House number') }}</label>
 
                                 <input id="hno" type="number"
                                     class="form-control @error('hno') is-invalid @enderror" name="hno"
@@ -132,7 +133,7 @@
                             </div>
 
                             <div class="col-sm-3">
-                                <label for="woreda" class="form-label">{{ __('Woreda') }}</label>
+                                <label for="woreda" class="form-lable text-dark">{{ __('Woreda') }}</label>
 
                                 <input id="woreda" type="text"
                                     class="form-control @error('woreda') is-invalid @enderror" name="woreda"
@@ -148,7 +149,7 @@
                             </div>
 
                             <div class="col-sm-3">
-                                <label for="subCity" class="form-label">{{ __('Subcity') }}</label>
+                                <label for="subCity" class="form-lable text-dark">{{ __('Subcity') }}</label>
 
                                 <input id="subCity" type="text"
                                     class="form-control @error('subCity') is-invalid @enderror" name="subCity"
@@ -164,7 +165,7 @@
                             </div>
 
                             <div class="col-sm-3">
-                                <label for="city" class="form-label">{{ __('City') }}</label>
+                                <label for="city" class="form-lable text-dark">{{ __('City') }}</label>
 
                                 <input id="city" type="text"
                                     class="form-control @error('city') is-invalid @enderror" name="city"
@@ -180,7 +181,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="country" class="form-label">{{ __('Country') }}</label>
+                                <label for="country" class="form-lable text-dark">{{ __('Country') }}</label>
 
                                 <input id="country" type="text"
                                     class="form-control @error('country') is-invalid @enderror" name="country"
@@ -195,7 +196,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="Nationality" class="form-label">{{ __('Nationality') }}</label>
+                                <label for="Nationality" class="form-lable text-dark">{{ __('Nationality') }}</label>
 
                                 <input id="nationality" type="text"
                                     class="form-control @error('nationality') is-invalid @enderror"
@@ -211,7 +212,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="business_type" class="form-label">{{ __('Buisness type') }}</label>
+                                <label for="business_type" class="form-lable text-dark">{{ __('Buisness type') }}</label>
 
                                 <input id="business_type" type="text"
                                     class="form-control @error('business_type') is-invalid @enderror"
@@ -227,7 +228,7 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="Group name" class="form-label">{{ __(' Group name') }}</label>
+                                <label for="Group name" class="form-lable text-dark">{{ __(' Group name') }}</label>
 
                                 <input id="group_name" type="text"
                                     class="form-control @error('group_name') is-invalid @enderror" name="group_name"
@@ -243,7 +244,7 @@
                             </div>
 
                             <div class="col-sm-5">
-                                <label for="Remark" class="form-label">{{ __('Remark') }}</label>
+                                <label for="Remark" class="form-lable text-dark">{{ __('Remark') }}</label>
 
                                 <textarea id="remark" placeholder="{{ __('Enter remark') }}" type="text-field"
                                     class="form-control @error('remark') is-invalid @enderror" name="remark" value="{{ old('remark') }}"
@@ -258,7 +259,7 @@
                             </div>
 
                             <div class="col-sm-3">
-                                <label for="picture" class="form-label">{{ __('Picture') }}</label>
+                                <label for="picture" class="form-lable text-dark">{{ __('Picture') }}</label>
 
                                 <input name="picture" type="file" class="form-control" wire:model="picture">
                                 @error('picture')

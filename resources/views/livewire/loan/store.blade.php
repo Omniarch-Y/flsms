@@ -1,5 +1,5 @@
 @php
-$notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rate) || empty($this->starting_date) || empty($this->ending_date) || empty($this->description) || empty($this->value) ? true : false;
+$notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rate) || empty($this->description) || empty($this->value) ? true : false;
 // $filled = (!is_null($first_name) && !empty($first_name) && !is_null($middle_name) && !empty($middle_name) && !is_null($last_name) && !empty($last_name) && !is_null($dob) && !empty($dob) && !is_null($sex) && !empty($sex) && !is_null($phone_number) && !empty($phone_number) && !is_null($hno) && !empty($hno) && !is_null($woreda) && !empty($woreda) && !is_null($subCity) && !empty($subCity) && !is_null($city) && !empty($city) && !is_null($country) && !empty($country) && !is_null($nationality) && !empty($nationality) && !is_null($group_id) && !empty($group_id) && !is_null($business_type) && !empty($business_type) && !is_null($picture) && !empty($picture));
 @endphp
 
@@ -22,7 +22,7 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                         @csrf
                         <div class="row g-4 mb-4">
                             <div class="col-sm-4">
-                                <label for="loan_type" class="form-label lable_color">{{ __('Loan type') }}</label>
+                                <label for="loan_type" class="form-lable text-dark lable_color">{{ __('Loan type') }}</label>
 
                                 <select class="form-control" id="loan_type" name="loan_type" required focus
                                     wire:model="loan_type">
@@ -35,7 +35,7 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="amount" class="form-label">{{ __('Amount') }}</label>
+                                <label for="amount" class="form-lable text-dark">{{ __('Amount') }}</label>
 
                                 <input id="amount" type="number"
                                     class="form-control @error('amount') is-invalid @enderror" name="amount"
@@ -52,7 +52,7 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
 
                             <div class="col-sm-4">
                                 <label for="interest_rate"
-                                    class="form-label lable_color">{{ __('Interest Rate') }}</label>
+                                    class="form-lable text-dark lable_color">{{ __('Interest Rate') }}</label>
 
                                 <select class="form-control" id="interest_rate" name="interest_rate" required focus
                                     wire:model="interest_rate">
@@ -68,7 +68,7 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
 
                             <div class="col-sm-4">
                                 <label for="interest_type"
-                                    class="form-label lable_color">{{ __('Interest Type') }}</label>
+                                    class="form-lable text-dark lable_color">{{ __('Interest Type') }}</label>
 
                                 <select class="form-control" id="interest_type" name="interest_type" required focus
                                     wire:model="interest_type">
@@ -80,8 +80,8 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                                 </select>
                             </div>
 
-                            <div class="col-sm-4">
-                                <label for="starting date" class="form-label">{{ __('Starting date') }}</label>
+                            {{-- <div class="col-sm-4">
+                                <label for="starting date" class="form-lable text-dark">{{ __('Starting date') }}</label>
 
                                 <input id="starting_date" type="date"
                                     class="form-control @error('starting_date') is-invalid @enderror"
@@ -96,7 +96,7 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="Ending date" class="form-label">{{ __('Ending date') }}</label>
+                                <label for="Ending date" class="form-lable text-dark">{{ __('Ending date') }}</label>
 
                                 <input id="ending_date" type="date"
                                     class="form-control @error('ending_date') is-invalid @enderror" name="ending_date"
@@ -108,11 +108,36 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div> --}}
+
+                            <div class="col-sm-4">
+                                <label for="Loan period"
+                                    class="form-lable text-dark lable_color">{{ __('Loan period') }}</label>
+
+                                <select class="form-control" id="loan_period" name="loan_period" required focus
+                                    wire:model="loan_period">
+
+                                    <option value="Select Role" disabled selected>Click to Select Group</option>
+
+                                    <option value="10" selected>10 Years</option>
+                                    <option value="9" selected>9 Years</option>
+                                    <option value="8" selected>8 Years</option>
+                                    <option value="7" selected>7 Years</option>
+                                    <option value="6" selected>6 Years</option>
+                                    <option value="5" selected>5 Years</option>
+                                    <option value="4" selected>4 Years</option>
+                                    <option value="3" selected>3 Years</option>
+                                    <option value="2" selected>2 Years</option>
+                                    <option value="1" selected>1 Year</option>
+                                    <option value="0.2" selected>6 month</option>
+                                    <option value="0.25" selected>3 month</option>
+
+                                </select>
                             </div>
 
                             <div class="col-sm-4">
                                 <label for="collateral_type"
-                                    class="form-label lable_color">{{ __('Collateral type') }}</label>
+                                    class="form-lable text-dark lable_color">{{ __('Collateral type') }}</label>
 
                                 <select class="form-control" id="collateral_type" name="collateral_type" required focus
                                     wire:model="collateral_type">
@@ -127,7 +152,7 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="collateral_value" class="form-label">{{ __('Collateral value') }}</label>
+                                <label for="collateral_value" class="form-lable text-dark">{{ __('Collateral value') }}</label>
 
                                 <input id="value" placeholder="{{ __('Enter collateral value') }}"
                                     type="number" class="form-control @error('value') is-invalid @enderror"
@@ -144,7 +169,7 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
 
                             <div class="col-sm-4">
                                 <label for="description"
-                                    class="form-label">{{ __('Collateral description') }}</label>
+                                    class="form-lable text-dark">{{ __('Collateral description') }}</label>
 
                                 <textarea id="description" placeholder="{{ __('Enter collateral description') }}" type="text-field"
                                     class="form-control @error('description') is-invalid @enderror" name="description"

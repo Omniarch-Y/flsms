@@ -123,7 +123,6 @@
             <table class="table table-hover mt-5">
                 <thead class="thead-inverse|thead-default">
                     <tr>
-                        <th></th>
                         <th>Id</th>
                         <th>Customer</th>
                         <th>Collateral</th>
@@ -136,23 +135,39 @@
                 <tbody>
                     @forelse ($loans as $loan)
                         <tr>
-                            <td></td>
-                            <td>{{ $loan->id }}</td>
-                            <td>{{ $loan->cust_id }}</td>
-                            <td>{{ $loan->coll_id }}</td>
-                            <td>{{ $loan->net_amount }}</td>
-                            <td>{{ $loan->starting_date }}</td>
-                            <td>{{ $loan->ending_date }}</td>
                             <td>
-                                <button class="btn btn-secondary btn-sm">view</button>
-                                <button type="button" class="btn btn-warning btn-sm" wire:click='editLoan({{ $loan->id }})'><i
-                                        class="fa-regular fa-pen-to-square" aria-hidden="true"></i></button>
+                                <p class="fw-normal mb-1">{{ $loan->id }}</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">
+                                    {{ $loan->customer->first_name }}{{ ' ' }}{{ $loan->customer->middle_name }}
+                                </p>
+                            </td>
+
+                            <td>
+                                <p class="fw-normal mb-1">{{ $loan->coll_id }}</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">{{ $loan->net_amount }}</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">{{ $loan->starting_date }}</p>
+                            </td>
+                            <td>
+                                <p class="fw-normal mb-1">{{ $loan->ending_date }}</p>
+                            </td>
+
+                            <td>
+                                <button class="btn btn-secondary btn-sm me-3">view</button>
+                                <button type="button" class="btn btn-warning btn-sm me-3"
+                                    wire:click='editLoan({{ $loan->id }})'><i class="fa-regular fa-pen-to-square"
+                                        aria-hidden="true"></i></button>
                                 @include('livewire.loan.edit')
-                                <button type="button" class="btn btn-success btn-sm"
+                                <button type="button" class="btn btn-success btn-sm me-3"
                                     wire:click='withdraw({{ $loan->id }})'>Withdraw</button>
                                 @include('livewire.loan.collect')
-                                <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#collect" wire:click='collect({{ $loan->id }})'>Collect</button>
+                                <button type="button" class="btn btn-info btn-sm"
+                                    wire:click='collect({{ $loan->id }})'>Collect</button>
                                 @include('livewire.loan.collect')
                             </td>
                         </tr>
@@ -164,7 +179,7 @@
 
                 </tbody>
             </table>
-            <div class="container " style="margin-top:1rem">
+            <div class="container" style="margin-top:1rem">
                 <div class="d-flex justify-content-center align-items-center ">
                     <h5>{{ $loans->links() }}</h5>
                 </div>
@@ -185,6 +200,10 @@
 
         window.addEventListener('editLoan-modal', e => {
             $('#editLoan').modal('show');
+        });
+
+        window.addEventListener('collect-modal', e => {
+            $('#collect').modal('show');
         });
 
         window.addEventListener('delete-modal', e => {

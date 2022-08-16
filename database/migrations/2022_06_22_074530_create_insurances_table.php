@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('time_gap')->nullable();
             $table->date('repayment_date')->nullable();
             $table->float('payed_amount')->nullable();
+            $table->float('monthly_payment');
             $table->float('remaining_balance')->nullable();
             $table->timestamps();
         });
