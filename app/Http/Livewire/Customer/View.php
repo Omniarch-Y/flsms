@@ -440,7 +440,10 @@ class View extends Component
     {   
         $search = '%'.$this->search.'%';
         $customers = Customer::where('first_name','like', $search)
-                                ->orWhere('phone_number', 'like', $search)       
+                                ->orWhere('middle_name','like', $search)
+                                ->orWhere('last_name','like', $search)
+                                ->orWhere('phone_number', 'like', $search)
+                                ->orderBy('created_at', 'desc')     
                                 ->paginate(6);
         return view('livewire.customer.view', ['customers' => $customers]);
     }

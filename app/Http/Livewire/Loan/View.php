@@ -249,7 +249,7 @@ class View extends Component
     {   
         $search = '%'.$this->search.'%';
 
-        $loans = Loan::where('id','like', $search)->with('customer')->paginate(5);
+        $loans = Loan::where('id','like', $search)->with('customer')->orderBy('created_at', 'desc')->paginate(5);
         return view('livewire.loan.view',['loans' => $loans]);
     }
 }
