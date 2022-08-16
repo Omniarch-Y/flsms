@@ -27,11 +27,11 @@
                         <thead class="thead-inverse|thead-default">
                             <tr>
                                 <th></th>
-                                <th class="fw-bold" >Name</th>
+                                <th class="fw-bold">Name</th>
                                 <th class="fw-bold">Sex</th>
                                 <th class="fw-bold">Date of birth</th>
                                 <th class="fw-bold">Phone</th>
-                                <th class="fw-bold">Email</th>
+                                {{-- <th class="fw-bold">Email</th> --}}
                                 <th class="fw-bold">role</th>
                                 <th></th>
                             </tr>
@@ -46,6 +46,7 @@
                                         <p class="fw-normal mb-1">
                                             {{ $user->first_name }}{{ ' ' }}{{ $user->middle_name }}{{ ' ' }}{{ $user->last_name }}
                                         </p>
+                                        <p class="text-muted mb-0">{{ $user->email }}</p>
                                     </td>
                                     <td>
                                         <p class="fw-normal mb-1">{{ $user->sex }}</p>
@@ -56,9 +57,9 @@
                                     <td>
                                         <p class="fw-normal mb-1">{{ $user->phone_number }}</p>
                                     </td>
-                                    <td>
+                                    {{-- <td>
                                         <p class="fw-normal mb-1">{{ $user->email }}</p>
-                                    </td>
+                                    </td> --}}
                                     <td>
                                         <p class="fw-normal mb-1">{{ $user->role }}</p>
                                     </td>

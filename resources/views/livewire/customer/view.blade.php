@@ -407,11 +407,11 @@
                 <table class="table table-hover mt-5">
                     <thead class="thead-inverse|thead-default">
                         <tr>
-                            <th></th>
-                            <th>Name</th>
-                            <th>Sex</th>
-                            <th>Date of birth</th>
-                            <th>Phone</th>
+                            <th class="fw-bold"></th>
+                            <th class="fw-bold">Name</th>
+                            <th class="fw-bold">Sex</th>
+                            <th class="fw-bold">Date of birth</th>
+                            <th class="fw-bold">Phone</th>
                             {{-- <th>Nationality</th> --}}
                             <th></th>
                         </tr>

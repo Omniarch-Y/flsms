@@ -123,12 +123,12 @@
             <table class="table table-hover mt-5">
                 <thead class="thead-inverse|thead-default">
                     <tr>
-                        <th>Id</th>
-                        <th>Customer</th>
-                        <th>Collateral</th>
-                        <th>Net amount</th>
-                        <th>Starting date</th>
-                        <th>Ending date</th>
+                        <th class="fw-bold">Id</th>
+                        <th class="fw-bold">Customer</th>
+                        <th class="fw-bold">Collateral</th>
+                        <th class="fw-bold">Net amount</th>
+                        <th class="fw-bold">Starting date</th>
+                        <th class="fw-bold">Ending date</th>
                         <th></th>
                     </tr>
                 </thead>
