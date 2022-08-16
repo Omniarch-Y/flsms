@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Livewire\Customer;
 use App\Http\Livewire\User;
 use App\Http\Livewire\Loan;
+use App\Http\Livewire\InactiveLoans;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoanController;
@@ -47,6 +48,8 @@ Route::controller(LoanController::class)->group( function (){
 Route::get('customers', Customer::class)->middleware('isLoan_officer');
 
 Route::get('loans', Loan::class)->middleware('isEncoder');
+
+Route::get('inactiveLoans', InactiveLoans::class)->middleware('isAdmin');
 
 Route::get('users', User::class)->middleware('isAdmin');
 

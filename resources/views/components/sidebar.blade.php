@@ -70,6 +70,27 @@
                 </li>
                 @endif
 
+                @if(auth()->user()->role == 'admin')
+                <li class="nav-item">
+                    <a href="/inactiveLoans" class="nav-link">
+                        <i class="nav-icon fa-solid fa-toggle-off"></i>
+                        <p>
+                            Inactive Loans
+                            {{-- <span class="right badge badge-danger"></span> --}}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/users" class="nav-link">
+                        <i class="nav-icon fa-solid fa-users"></i>
+                        <p>
+                            Users
+                            {{-- <span class="right badge badge-danger"></span> --}}
+                        </p>
+                    </a>
+                </li>
+                @endif
+
                 @if(auth()->user()->role == 'encoder')
                 <li class="nav-item">
                     <a href="pages/widgets.html" class="nav-link">

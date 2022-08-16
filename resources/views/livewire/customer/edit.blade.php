@@ -60,7 +60,6 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-
                             </div>
 
                             <div class="col-sm-4">

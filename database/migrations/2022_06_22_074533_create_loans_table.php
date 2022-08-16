@@ -23,7 +23,7 @@ return new class extends Migration
             $table->float('net_amount')->nullable();
             $table->float('total_debt')->nullable();
             $table->float('penalty_rate')->nullable();
-            $table->boolean('status')->default(0);
+            $table->boolean('status')->default('inactive');
             $table->date('starting_date');
             $table->date('ending_date');
             $table->date('interest_date');
