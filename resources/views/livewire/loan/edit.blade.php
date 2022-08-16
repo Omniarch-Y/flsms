@@ -18,15 +18,16 @@
                         <div class="row g-4 mb-4">
 
                             <div class="col-sm-4">
-                                <label for="loan_type" class="form-lable text-dark lable_color">{{ __('Loan type') }}</label>
+                                <label for="loan_type"
+                                    class="form-lable text-dark lable_color">{{ __('Loan type') }}</label>
 
                                 <select class="form-control" id="loan_type" name="loan_type" required focus
                                     wire:model="loan_type">
 
+                                    <option value="" hidden selected>Select loan type</option>
                                     <option value="personal" selected>Personal</option>
                                     <option value="buisness" selected>Buisness</option>
 
-                                    <option value="Select Role" disabled selected>Click to Select type</option>
                                 </select>
                             </div>
 
@@ -53,12 +54,13 @@
                                 <select class="form-control" id="interest_rate" name="interest_rate" required focus
                                     wire:model="interest_rate">
 
+                                    <option value="" hidden selected>Select interest rate
+                                    </option>
                                     <option value="0.05" selected>5%</option>
                                     <option value="0.1" selected>10%</option>
                                     <option value="0.15" selected>15%</option>
                                     <option value="0.2" selected>20%</option>
 
-                                    <option value="Select Role" disabled selected>Click to Select type</option>
                                 </select>
                             </div>
 
@@ -69,15 +71,17 @@
                                 <select class="form-control" id="interest_type" name="interest_type" required focus
                                     wire:model="interest_type">
 
+                                    <option value="" hidden selected>Select interest type
+                                    </option>
                                     <option value="simple" selected>Simple</option>
                                     <option value="compound" selected>Compound</option>
 
-                                    <option value="Select Role" disabled selected>Click to Select type</option>
                                 </select>
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="starting date" class="form-lable text-dark">{{ __('Starting date') }}</label>
+                                <label for="starting date"
+                                    class="form-lable text-dark">{{ __('Starting date') }}</label>
 
                                 <input id="starting_date" type="date"
                                     class="form-control @error('starting_date') is-invalid @enderror"
@@ -113,17 +117,18 @@
                                 <select class="form-control" id="collateral_type" name="collateral_type" required focus
                                     wire:model="collateral_type">
 
+                                    <option value="" hidden selected>Select collateral type
+                                    </option>
                                     <option value="property" selected>Property</option>
                                     <option value="car" selected>Car</option>
                                     <option value="equipment" selected>Equipment</option>
 
-
-                                    <option value="Select Role" disabled selected>Click to Select Group</option>
                                 </select>
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="collateral_value" class="form-lable text-dark">{{ __('Collateral value') }}</label>
+                                <label for="collateral_value"
+                                    class="form-lable text-dark">{{ __('Collateral value') }}</label>
 
                                 <input id="value" placeholder="{{ __('Enter collateral value') }}"
                                     type="number" class="form-control @error('value') is-invalid @enderror"
@@ -153,22 +158,6 @@
                                 @enderror
 
                             </div>
-
-                            {{-- <div class="col-sm-4">
-                                <label for="initial_diposit" class="form-lable text-dark">{{ __('Insurance initial deposit') }}</label>
-
-                                <input id="initial_diposit" placeholder="{{ __('Enter initial diposit') }}" type="number"
-                                    class="form-control @error('initial_diposit') is-invalid @enderror" name="initial_diposit"
-                                    value="{{ old('initial_diposit') }}" autocomplete="initial_diposit" required wire:model="initial_diposit">
-
-                                @error('initial_diposit')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-
-                            </div> --}}
-
                         </div>
                         <center>
                             <button type="submit" class="btn btn-primary" wire:target="update"

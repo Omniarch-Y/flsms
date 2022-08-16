@@ -15,10 +15,9 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/jquery.min.js') }}" defer></script>
-
     <script src="{{ asset('js/mdb.min.js') }}" defer></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="{{ asset('js/mdb.min.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -26,7 +25,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/mdb.min pro.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet">

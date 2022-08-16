@@ -27,10 +27,10 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                                 <select class="form-control" id="loan_type" name="loan_type" required focus
                                     wire:model="loan_type">
 
+                                    <option value="" hidden selected>Select loan type</option>
                                     <option value="personal" selected>Personal</option>
                                     <option value="buisness" selected>Buisness</option>
 
-                                    <option value="Select Role" disabled selected>Click to Select type</option>
                                 </select>
                             </div>
 
@@ -57,12 +57,12 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                                 <select class="form-control" id="interest_rate" name="interest_rate" required focus
                                     wire:model="interest_rate">
 
+                                    <option value="" hidden selected>Select interest rate</option>
                                     <option value="0.05" selected>5%</option>
                                     <option value="0.1" selected>10%</option>
                                     <option value="0.15" selected>15%</option>
                                     <option value="0.2" selected>20%</option>
 
-                                    <option value="Select Role" disabled selected>Click to Select type</option>
                                 </select>
                             </div>
 
@@ -73,42 +73,12 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                                 <select class="form-control" id="interest_type" name="interest_type" required focus
                                     wire:model="interest_type">
 
+                                    <option value="" hidden selected>Select interest type</option>
                                     <option value="simple" selected>Simple</option>
                                     <option value="compound" selected>Compound</option>
-
-                                    <option value="Select Role" disabled selected>Click to Select type</option>
+                                    
                                 </select>
                             </div>
-
-                            {{-- <div class="col-sm-4">
-                                <label for="starting date" class="form-lable text-dark">{{ __('Starting date') }}</label>
-
-                                <input id="starting_date" type="date"
-                                    class="form-control @error('starting_date') is-invalid @enderror"
-                                    name="starting_date" value="{{ old('starting_date') }}" autocomplete="starting_date"
-                                    placeholder="{{ __('Enter starting date') }}" required wire:model="starting_date">
-
-                                @error('starting_date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="col-sm-4">
-                                <label for="Ending date" class="form-lable text-dark">{{ __('Ending date') }}</label>
-
-                                <input id="ending_date" type="date"
-                                    class="form-control @error('ending_date') is-invalid @enderror" name="ending_date"
-                                    value="{{ old('ending_date') }}" autocomplete="ending_date"
-                                    placeholder="{{ __('Enter ending date') }}" required wire:model="ending_date">
-
-                                @error('ending_date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div> --}}
 
                             <div class="col-sm-4">
                                 <label for="Loan period"
@@ -117,8 +87,8 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                                 <select class="form-control" id="loan_period" name="loan_period" required focus
                                     wire:model="loan_period">
 
-                                    <option value="Select Role" disabled selected>Click to Select Group</option>
-
+                                   
+                                    <option value="" hidden selected>Select loan period</option>
                                     <option value="10" selected>10 Years</option>
                                     <option value="9" selected>9 Years</option>
                                     <option value="8" selected>8 Years</option>
@@ -142,12 +112,11 @@ $notfilled = $errors->any() || empty($this->amount) || empty($this->interest_rat
                                 <select class="form-control" id="collateral_type" name="collateral_type" required focus
                                     wire:model="collateral_type">
 
+                                    <option value="" hidden selected>Select loan type</option>
                                     <option value="1" selected>Property</option>
                                     <option value="1" selected>Car</option>
                                     <option value="1" selected>Equipment</option>
 
-
-                                    <option value="Select Role" disabled selected>Click to Select Group</option>
                                 </select>
                             </div>
 

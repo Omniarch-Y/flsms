@@ -233,12 +233,12 @@
                                 <select class="form-control" id="role" name="role" focus required
                                     wire:model.debounce.500ms="role">
 
+                                    <option value="" hidden selected>Select user loan</option>
                                     <option value="loan_officer" selected>Loan officer</option>
                                     <option value="encoder" selected>Encoder</option>
                                     <option value="manager" selected>Manager</option>
                                     <option value="admin" selected>Admin</option>
-
-                                    <option value="Select Role" disabled selected>Click to Select Category</option>
+                                    
                                 </select>
                             </div>
 
