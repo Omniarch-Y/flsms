@@ -31,7 +31,7 @@ class LoanInterest extends Command
      */
     public function handle()
     {       
-            $loans = Loan::all();
+            $loans = Loan::where('status','active')->get();
             $current = Carbon::now();
 
             echo "\r\n";

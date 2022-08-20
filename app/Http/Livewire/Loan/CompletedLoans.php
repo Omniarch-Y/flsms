@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Livewire\InactiveLoans;
+namespace App\Http\Livewire\Loan;
 
 use App\Models\Loan;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class View extends Component
+class CompletedLoans extends Component
 {
     use WithPagination;
 
@@ -36,7 +36,7 @@ class View extends Component
     {
         $search = '%' . $this->search . '%';
 
-        $loans = Loan::where('id', 'like', $search)->where('status', 'inactive')->with('customer')->orderBy('created_at', 'desc')->paginate(5);
-        return view('livewire.inactive-loans.view', ['loans' => $loans])->layout('layouts.main');
+        $loans = Loan::where('id', 'like', $search)->where('status', 'completed')->with('customer')->orderBy('created_at', 'desc')->paginate(5);
+        return view('livewire.loan.completed-loans', ['loans' => $loans])->layout('layouts.main');
     }
 }

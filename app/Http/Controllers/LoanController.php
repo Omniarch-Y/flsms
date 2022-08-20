@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Loan;
-use App\Models\Collateral;
-use App\Models\Insurance;
-use App\Models\WithdrawalReceipt;
 use App\Models\CollectionReceipt;
+use App\Models\Loan;
+use App\Models\Penality;
+use App\Models\Saving;
+use App\Models\WithdrawalReceipt;
+use Illuminate\Http\Request;
 
 class LoanController extends Controller
 {
@@ -28,7 +28,7 @@ class LoanController extends Controller
      */
     public function create()
     {
-        return view('loans.create');
+
     }
 
     /**
@@ -39,41 +39,7 @@ class LoanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'cust_id' => ['required', 'numeric'],
-            'amount' => ['required', 'numeric'],
-            'interest_rate' => ['required', 'numeric'],
-            'starting_date' => ['required', 'date'],
-            'ending_date' => ['required', 'date'],
-            'collateral_type' => ['required',],
-            'description' => ['required',],
-            'value' => ['required'],
-        ]);
 
-        $loan = Loan::where('cust_id', $request->cust_id)->where('status',0)->count();
-
-        if ($loan >= 1){
-            return redirect('/customer')->with('success','User has unpaid loan');
-        }
-
-        $newCollateral = new Collateral();
-        $newCollateral->collateral_type = $request->collateral_type;
-        $newCollateral->description = $request->description;
-        $newCollateral->value = $request->value;
-        $newCollateral->user_id = auth()->user()->id;
-        $newCollateral->save();
-
-        $newLoan = new Loan();
-        $newLoan->amount = $request->amount;
-        $newLoan->interest_rate = $request->interest_rate;
-        $newLoan->starting_date = $request->starting_date;
-        $newLoan->ending_date = $request->ending_date;
-        $newLoan->collateral = $newCollateral->id;
-        $newLoan->cust_id = $request->cust_id;
-        $newLoan->user_id = auth()->user()->id;
-        $newLoan->save();
-
-        return redirect('/customers')->with('success','Loan issued successfully');
     }
 
     /**
@@ -83,7 +49,7 @@ class LoanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showWithdrawal($id)
-    {   
+    {
         $withdrawal = WithdrawalReceipt::find($id);
         $loan = Loan::find($withdrawal->loan_id);
 
@@ -91,12 +57,13 @@ class LoanController extends Controller
     }
 
     public function showCollect($id)
-    {   
+    {
         $collection = CollectionReceipt::find($id);
         $loan = Loan::find($collection->loan_id);
-        $insurance = Insurance::find($collection->insu_id);
+        $saving = Saving::find($collection->saving_id);
+        $penality = Penality::where('reciept_id', $id);
 
-        return view('livewire.Receipt.collection_receipt', ['loan' => $loan, 'insurance' => $insurance, 'collection' => $collection]);
+        return view('livewire.Receipt.collection_receipt', ['loan' => $loan, 'saving' => $saving, 'collection' => $collection]);
     }
 
     /**

@@ -17,23 +17,23 @@ class UserSeeder extends Seeder
     {
 
         DB::table('users')->insert([
-            [
-                'first_name' => 'Semere',
-                'middle_name' => 'Mulatu',
-                'last_name' => 'Hailu',
-                'dob' => '2000-06-20',
-                'sex' => 'M',
-                'phone_number' => '0987654321',
-                'email' => 'a@gmail.com',
-                'picture' => 'Image1',
-                'address_id' => '1',
-                'nationality' => 'Ethiopian',
-                'role' => 'admin',
-                'password' => '$2y$10$WqHlqTuUaMgkrXEDK49H/.OaH9rJHH676MfF/g76n2YU9ksKy3hVi',
-                'created_at' => now(),
-                'updated_at' => now(),
-                // 'user_id' => null,
-            ],
+            // [
+            //     'first_name' => 'Semere',
+            //     'middle_name' => 'Mulatu',
+            //     'last_name' => 'Hailu',
+            //     'dob' => '2000-06-20',
+            //     'sex' => 'M',
+            //     'phone_number' => '0987654321',
+            //     'email' => 'a@gmail.com',
+            //     'picture' => 'Image1',
+            //     'address_id' => '1',
+            //     'nationality' => 'Ethiopian',
+            //     'role' => 'admin',
+            //     'password' => '$2y$10$WqHlqTuUaMgkrXEDK49H/.OaH9rJHH676MfF/g76n2YU9ksKy3hVi',
+            //     'created_at' => now(),
+            //     'updated_at' => now(),
+            //     // 'user_id' => null,
+            // ],
 
             [
                 'first_name' => 'Marta',

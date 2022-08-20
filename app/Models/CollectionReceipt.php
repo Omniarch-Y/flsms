@@ -11,9 +11,23 @@ class CollectionReceipt extends Model
 
     protected $fillable = [
         'amount',
-        'pen_id',
-        'insu_id',
+        'saving_id',
         'loan_id',
         'user_id'
     ];
+
+    public function loan() {
+        return $this->belongsTo(Loan::class,'loan_id');
+        
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class,'user_id');
+        
+    }
+
+    // public function saving() {
+    //     return $this->belongsTo(Saving::class,'saving_id');
+        
+    // }
 }

@@ -23,74 +23,113 @@
                 </div>
             </div>
         </div> --}}
-
         <section class="content" style="margin-top:4rem">
             <div class="container-fluid">
-
                 <div class="row">
-
-                    <div class="col-lg-3 col-6">
-
-                        <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>{{$allCustomers}}</h3>
-                                <p>Total Customers</p>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between px-md-1">
+                                    <div>
+                                        <h3 class="text-danger">{{ auth()->user()->count() }}</h3>
+                                        <p class="mb-0">System users</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="fas fa-user-gear text-danger fa-3x"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
-                            </div>
-                            {{-- <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a> --}}
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>{{$users}}</h3>
-                                <p>Total Users</p>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between px-md-1">
+                                    <div>
+                                        <h3 class="text-success">{{ $users }}</h3>
+                                        <p class="mb-0">Total customers</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="far fa-user text-success fa-3x"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            {{-- <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a> --}}
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <div class="small-box bg-warning">
-                            <div class="inner">
-                                <h3 style="color: #fff;">{{$activeLoans}}</h3>
-                                <p style="color: #fff;">Active loans</p>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between px-md-1">
+                                    <div>
+                                        <h3 class="text-warning">20 %</h3>
+                                        <p class="mb-0">Highest interest rate</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="fas fa-chart-pie text-warning fa-3x"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            {{-- <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a> --}}
                         </div>
                     </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <div class="small-box bg-danger">
-                            <div class="inner">
-                                <h3>999999999</h3>
-                                <p>Unique Visitors</p>
+                    <div class="col-xl-3 col-sm-6 col-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between px-md-1">
+                                    <div>
+                                        <h3 class="text-info">{{ $activeLoans }}</h3>
+                                        <p class="mb-0">Active loans</p>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="fas fa-wallet text-info fa-3x"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                            </div>
-                            {{-- <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a> --}}
                         </div>
                     </div>
-
                 </div>
 
+                <div class="row">
+                    <div class="col-xl-6 col-md-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between p-md-1">
+                                    <div class="d-flex flex-row">
+                                        <div class="align-self-center">
+                                            <h2 class="h1 mb-0 me-4">$76,456.00</h2>
+                                        </div>
+                                        <div>
+                                            <h4>Total Sales</h4>
+                                            <p class="mb-0">Monthly Sales Amount</p>
+                                        </div>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="far fa-heart text-danger fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-md-12 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between p-md-1">
+                                    <div class="d-flex flex-row">
+                                        <div class="align-self-center">
+                                            <h2 class="h1 mb-0 me-4">$36,000.00</h2>
+                                        </div>
+                                        <div>
+                                            <h4>Total Cost</h4>
+                                            <p class="mb-0">Monthly Cost</p>
+                                        </div>
+                                    </div>
+                                    <div class="align-self-center">
+                                        <i class="fas fa-wallet text-success fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <livewire:user.view />
 
             </div>

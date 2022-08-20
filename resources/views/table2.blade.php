@@ -1,428 +1,154 @@
-@extends('layouts.main')
+@extends('layouts.info')
 @section('content')
         
-        <!--MDB Tables-->
-        <div class="container mt-4">
-
-            <div class="text-center darken-grey-text mb-4">
-                <h1 class="font-bold mt-4 mb-3 h5">Built with Material Design for Bootstrap 4</h1>
-                <a class="btn btn-danger btn-md" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Free download<i class="fa fa-download pl-2"></i></a>
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+    <nav class="nav nav-borders">
+        <a class="nav-link active ms-0" href="https://www.bootdey.com/snippets/view/bs5-edit-profile-account-details" target="__blank">Profile</a>
+        <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-profile-billing-page" target="__blank">Billing</a>
+        <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-profile-security-page" target="__blank">Security</a>
+        <a class="nav-link" href="https://www.bootdey.com/snippets/view/bs5-edit-notifications-page"  target="__blank">Notifications</a>
+    </nav>
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <!-- Profile picture upload button-->
+                    <button class="btn btn-primary" type="button">Upload new image</button>
+                </div>
             </div>
-
+        </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
             <div class="card mb-4">
+                <div class="card-header">Account Details</div>
                 <div class="card-body">
-                    <!-- Grid row -->
-                    <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-md-12">
-                            <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">Search within table</h2>
-                            <div class="input-group md-form form-sm form-2 pl-0">
-                                <input class="form-control my-0 py-1 pl-3 purple-border" type="text" placeholder="Search something here..." aria-label="Search">
-                                <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"><a><i class="fa fa-search white-text" aria-hidden="true"></i></a></span>
+                    <form>
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">Username (how your name will appear to other users on the site)</label>
+                            <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username" value="username">
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">First name</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" value="Valerie">
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Last name</label>
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" value="Luna">
                             </div>
                         </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                    <!--Table-->
-                    <table class="table table-striped">
-                        <!--Table head-->
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                            </tr>
-                        </thead>
-                        <!--Table head-->
-                        <!--Table body-->
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                        <!--Table body-->
-                    </table>
-                    <!--Table-->
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-body">
-                    <!-- Grid row -->
-                    <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-md-12">
-                            <h2 class="pt-3 pb-4 text-center font-bold font-up danger-text">Bordered table</h2>
+                        <!-- Form Row        -->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (organization name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">Organization name</label>
+                                <input class="form-control" id="inputOrgName" type="text" placeholder="Enter your organization name" value="Start Bootstrap">
+                            </div>
+                            <!-- Form Group (location)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLocation">Location</label>
+                                <input class="form-control" id="inputLocation" type="text" placeholder="Enter your location" value="San Francisco, CA">
+                            </div>
                         </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                    <table class="table table-bordered red-border text-center">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                                <th>Table heading</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                                <td>Table cell</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-body">
-                    <!--Table-->
-                    <table class="table table-hover">
-                        <!--Table head-->
-                        <thead class="mdb-color darken-3">
-                            <tr class="text-white">
-                                <th>#</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                                <th>Country</th>
-                                <th>City</th>
-                            </tr>
-                        </thead>
-                        <!--Table head-->
-                        <!--Table body-->
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>USA</td>
-                                <td>New York</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>Spain</td>
-                                <td>Madrid</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>Italy</td>
-                                <td>Rome</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Anna</td>
-                                <td>Doe</td>
-                                <td>@anna</td>
-                                <td>Poland</td>
-                                <td>Warsaw</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Mary</td>
-                                <td>Kate</td>
-                                <td>@olsen</td>
-                                <td>Germany</td>
-                                <td>Berlin</td>
-                            </tr>
-                        </tbody>
-                        <!--Table body-->
-                    </table>
-                    <!--Table-->
-                </div>
-            </div>
-            <div class="card mb-4">
-                <div class="card-body">
-                    <!-- Grid row -->
-                    <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-md-12">
-                            <h2 class="py-3 text-center font-bold font-up success-text">Colorful table</h2>
+                        <!-- Form Group (email address)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                            <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" value="name@example.com">
                         </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Column heading</th>
-                                <th>Column heading</th>
-                                <th>Column heading</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="table-success">
-                                <th scope="row">3</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-info">
-                                <th scope="row">5</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">6</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-warning">
-                                <th scope="row">7</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">8</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                            <tr class="table-danger">
-                                <th scope="row">9</th>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                                <td>Column content</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <!-- Grid row -->
-                    <div class="row">
-                        <!-- Grid column -->
-                        <div class="col-md-12">
-                            <h2 class="py-3 text-center font-bold font-up blue-text">Table with pagination</h2>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Phone number</label>
+                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" value="555-123-4567">
+                            </div>
+                            <!-- Form Group (birthday)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputBirthday">Birthday</label>
+                                <input class="form-control" id="inputBirthday" type="text" name="birthday" placeholder="Enter your birthday" value="06/10/1988">
+                            </div>
                         </div>
-                        <!-- Grid column -->
-                    </div>
-                    <!-- Grid row -->
-                    <!--Table-->
-                    <table class="table table-hover table-responsive mb-0">
-                        <!--Table head-->
-                        <thead>
-                            <tr>
-                                <th scope="row">#</th>
-                                <th class="th-lg"><a>First Name</a></th>
-                                <th class="th-lg"><a href="">Last Name</a></th>
-                                <th class="th-lg"><a href="">Username</a></th>
-                                <th class="th-lg"><a href="">Username</a></th>
-                                <th class="th-lg"><a href="">Username</a></th>
-                                <th class="th-lg"><a href="">Username</a></th>
-                            </tr>
-                        </thead>
-                        <!--Table head-->
-                        <!--Table body-->
-                        <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">2</th>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td>@fat</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">3</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">4</th>
-                                <td>Paul</td>
-                                <td>Topolski</td>
-                                <td>@P_Topolski</td>
-                                <td>Paul</td>
-                                <td>Topolski</td>
-                                <td>@P_Topolski</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">5</th>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                        <!--Table body-->
-                    </table>
-                    <!--Bottom Table UI-->
-                    <div class="d-flex justify-content-center">
-                        <!--Pagination -->
-                        <nav class="my-4 pt-2">
-                            <ul class="pagination pagination-circle pg-blue mb-0">
-                                <!--First-->
-                                <li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a></li>
-                                <!--Arrow left-->
-                                <li class="page-item disabled">
-                                    <a class="page-link" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                            <span class="sr-only">Previous</span>
-                                        </a>
-                                </li>
-                                <!--Numbers-->
-                                <li class="page-item active"><a class="page-link">1</a></li>
-                                <li class="page-item"><a class="page-link">2</a></li>
-                                <li class="page-item"><a class="page-link">3</a></li>
-                                <li class="page-item"><a class="page-link">4</a></li>
-                                <li class="page-item"><a class="page-link">5</a></li>
-                                <!--Arrow right-->
-                                <li class="page-item">
-                                    <a class="page-link" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                            <span class="sr-only">Next</span>
-                                        </a>
-                                </li>
-                                <!--First-->
-                                <li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>
-                            </ul>
-                        </nav>
-                        <!--/Pagination -->
-                    </div>
-                    <!--Bottom Table UI-->
+                        <!-- Save changes button-->
+                        <button class="btn btn-primary" type="button">Save changes</button>
+                    </form>
                 </div>
             </div>
-          
-            <hr class="my-4">
-          
-            <div class="text-center darken-grey-text mb-4">
-                <h3 class="font-bold mb-3">Here you can find more Tables:</h3>
-                <a class="btn btn-danger" href="https://mdbootstrap.com/content/tables/" target="_blank">Bootstrap Tables</a>
-            </div>
-
         </div>
-        <!--MDB Tables-->
+    </div>
+</div>
       
 @endsection
 
 <style>
-    .hm-gradient {
-    background-image: linear-gradient(to top, #f3e7e9 0%, #e3eeff 99%, #e3eeff 100%);
+    body{margin-top:20px;
+background-color:#f2f6fc;
+color:#69707a;
 }
-.darken-grey-text {
-    color: #2E2E2E;
+.img-account-profile {
+    height: 10rem;
 }
-.input-group.md-form.form-sm.form-2 input {
-    border: 1px solid #bdbdbd;
-    border-top-left-radius: 0.25rem;
-    border-bottom-left-radius: 0.25rem;
+.rounded-circle {
+    border-radius: 50% !important;
 }
-.input-group.md-form.form-sm.form-2 input.purple-border {
-    border: 1px solid #9e9e9e;
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%);
 }
-.input-group.md-form.form-sm.form-2 input[type=text]:focus:not([readonly]).purple-border {
-    border: 1px solid #ba68c8;
-    box-shadow: none;
+.card .card-header {
+    font-weight: 500;
 }
-.form-2 .input-group-addon {
-    border: 1px solid #ba68c8;
+.card-header:first-child {
+    border-radius: 0.35rem 0.35rem 0 0;
 }
-.danger-text {
-    color: #ff3547; 
-}  
-.success-text {
-    color: #00C851; 
+.card-header {
+    padding: 1rem 1.35rem;
+    margin-bottom: 0;
+    background-color: rgba(33, 40, 50, 0.03);
+    border-bottom: 1px solid rgba(33, 40, 50, 0.125);
 }
-.table-bordered.red-border, .table-bordered.red-border th, .table-bordered.red-border td {
-    border: 1px solid #ff3547!important;
-}        
-.table.table-bordered th {
-    text-align: center;
+.form-control, .dataTable-input {
+    display: block;
+    width: 100%;
+    padding: 0.875rem 1.125rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1;
+    color: #69707a;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #c5ccd6;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.35rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.nav-borders .nav-link.active {
+    color: #0061f2;
+    border-bottom-color: #0061f2;
+}
+.nav-borders .nav-link {
+    color: #69707a;
+    border-bottom-width: 0.125rem;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 </style>

@@ -1,1883 +1,557 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
-    <script src="{{ asset('js/jquery.min.js') }}" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-
-    {{-- <script src="{{ asset('js/mdb.min.js') }}" defer></script> --}}
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet"> --}}
-
-</head>
-
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-
-        <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
-                width="60">
-        </div>
-
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i
-                            class="fas fa-bars"></i></a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
+<div class="container">
+    <div class="main-body">
+    
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="main-breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>
+              <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol>
+          </nav>
+          <!-- /Breadcrumb -->
+    
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>John Doe</h4>
+                      <p class="text-secondary mb-1">Full Stack Developer</p>
+                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                      <button class="btn btn-primary">Follow</button>
+                      <button class="btn btn-outline-primary">Message</button>
                     </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-comments"></i>
-                        <span class="badge badge-danger navbar-badge">3</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <a href="#" class="dropdown-item">
-
-                            <div class="media">
-                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 mr-3 img-circle">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Brad Diesel
-                                        <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">Call me whenever you can...</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-
-                            <div class="media">
-                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        John Pierce
-                                        <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">I got your message bro</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-
-                            <div class="media">
-                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
-                                <div class="media-body">
-                                    <h3 class="dropdown-item-title">
-                                        Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
-                                    </h3>
-                                    <p class="text-sm">The subject goes here</p>
-                                    <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                                </div>
-                            </div>
-
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                    </div>
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link" data-toggle="dropdown" href="#">
-                        <i class="far fa-bell"></i>
-                        <span class="badge badge-warning navbar-badge">15</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                        <span class="dropdown-item dropdown-header">15 Notifications</span>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-envelope mr-2"></i> 4 new messages
-                            <span class="float-right text-muted text-sm">3 mins</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-users mr-2"></i> 8 friend requests
-                            <span class="float-right text-muted text-sm">12 hours</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">
-                            <i class="fas fa-file mr-2"></i> 3 new reports
-                            <span class="float-right text-muted text-sm">2 days</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true"
-                        href="#" role="button">
-                        <i class="fas fa-th-large"></i>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-
-            <a href="index3.html" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                    style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
-            </a>
-
-            <div class="sidebar">
-
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
-                    </div>
+                  </div>
                 </div>
-
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Dashboard
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v1</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v2</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index3.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Dashboard v3</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Widgets
-                                    <span class="right badge badge-danger">New</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Layout Options
-                                    <i class="fas fa-angle-left right"></i>
-                                    <span class="badge badge-info right">6</span>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/layout/top-nav.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Top Navigation</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Top Navigation + Sidebar</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/layout/boxed.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Boxed</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/layout/fixed-sidebar.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Fixed Sidebar</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Fixed Sidebar <small>+ Custom Area</small></p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/layout/fixed-topnav.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Fixed Navbar</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/layout/fixed-footer.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Fixed Footer</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Collapsed Sidebar</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-chart-pie"></i>
-                                <p>
-                                    Charts
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/charts/chartjs.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>ChartJS</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/flot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Flot</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/inline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inline</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/charts/uplot.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>uPlot</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tree"></i>
-                                <p>
-                                    UI Elements
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/UI/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>General</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/icons.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Icons</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/buttons.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Buttons</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/sliders.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Sliders</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/modals.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Modals & Alerts</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/navbar.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Navbar & Tabs</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/timeline.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Timeline</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/UI/ribbons.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Ribbons</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
-                                <p>
-                                    Forms
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/forms/general.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>General Elements</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/advanced.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Advanced Elements</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/editors.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Editors</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/forms/validation.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Validation</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Tables
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/tables/simple.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Simple Tables</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/tables/data.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>DataTables</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/tables/jsgrid.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>jsGrid</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-header">EXAMPLES</li>
-                        <li class="nav-item">
-                            <a href="pages/calendar.html" class="nav-link">
-                                <i class="nav-icon far fa-calendar-alt"></i>
-                                <p>
-                                    Calendar
-                                    <span class="badge badge-info right">2</span>
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/gallery.html" class="nav-link">
-                                <i class="nav-icon far fa-image"></i>
-                                <p>
-                                    Gallery
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="pages/kanban.html" class="nav-link">
-                                <i class="nav-icon fas fa-columns"></i>
-                                <p>
-                                    Kanban Board
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-envelope"></i>
-                                <p>
-                                    Mailbox
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/mailbox.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Inbox</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/compose.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Compose</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/mailbox/read-mail.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Read</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Pages
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/examples/invoice.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Invoice</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/profile.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Profile</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/e-commerce.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>E-commerce</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/projects.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Projects</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/project-add.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Project Add</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/project-edit.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Project Edit</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/project-detail.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Project Detail</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/contacts.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Contacts</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/faq.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>FAQ</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/contact-us.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Contact us</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-plus-square"></i>
-                                <p>
-                                    Extras
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Login & Register v1
-                                            <i class="fas fa-angle-left right"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="pages/examples/login.html" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Login v1</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="pages/examples/register.html" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Register v1</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="pages/examples/forgot-password.html" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Forgot Password v1</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="pages/examples/recover-password.html" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Recover Password v1</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Login & Register v2
-                                            <i class="fas fa-angle-left right"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="pages/examples/login-v2.html" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Login v2</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="pages/examples/register-v2.html" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Register v2</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="pages/examples/forgot-password-v2.html" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Forgot Password v2</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="pages/examples/recover-password-v2.html" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
-                                                <p>Recover Password v2</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/lockscreen.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Lockscreen</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/legacy-user-menu.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Legacy User Menu</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/language-menu.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Language Menu</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/404.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Error 404</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/500.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Error 500</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/pace.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Pace</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/examples/blank.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Blank Page</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="starter.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Starter Page</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-search"></i>
-                                <p>
-                                    Search
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pages/search/simple.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Simple Search</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="pages/search/enhanced.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Enhanced</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-header">MISCELLANEOUS</li>
-                        <li class="nav-item">
-                            <a href="iframe.html" class="nav-link">
-                                <i class="nav-icon fas fa-ellipsis-h"></i>
-                                <p>Tabbed IFrame Plugin</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="https://adminlte.io/docs/3.1/" class="nav-link">
-                                <i class="nav-icon fas fa-file"></i>
-                                <p>Documentation</p>
-                            </a>
-                        </li>
-                        <li class="nav-header">MULTI LEVEL EXAMPLE</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-circle nav-icon"></i>
-                                <p>Level 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-circle"></i>
-                                <p>
-                                    Level 1
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Level 2</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>
-                                            Level 2
-                                            <i class="right fas fa-angle-left"></i>
-                                        </p>
-                                    </a>
-                                    <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Level 3</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Level 3</p>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="#" class="nav-link">
-                                                <i class="far fa-dot-circle nav-icon"></i>
-                                                <p>Level 3</p>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Level 2</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-circle nav-icon"></i>
-                                <p>Level 1</p>
-                            </a>
-                        </li>
-                        <li class="nav-header">LABELS</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-danger"></i>
-                                <p class="text">Important</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-warning"></i>
-                                <p>Warning</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon far fa-circle text-info"></i>
-                                <p>Informational</p>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-
-        </aside>
-
-        <div class="content-wrapper">
-
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <section class="content">
-                <div class="container-fluid">
-
-                    <div class="row">
-                        <div class="col-lg-3 col-6">
-
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>150</h3>
-                                    <p>New Orders</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-6">
-
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-                                    <p>Bounce Rate</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-6">
-
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-                                    <h3>44</h3>
-                                    <p>User Registrations</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-6">
-
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>65</h3>
-                                    <p>Unique Visitors</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i
-                                        class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="row">
-
-                        <section class="col-lg-7 connectedSortable">
-
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">
-                                        <i class="fas fa-chart-pie mr-1"></i>
-                                        Sales
-                                    </h3>
-                                    <div class="card-tools">
-                                        <ul class="nav nav-pills ml-auto">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" href="#revenue-chart"
-                                                    data-toggle="tab">Area</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <div class="tab-content p-0">
-
-                                        <div class="chart tab-pane active" id="revenue-chart"
-                                            style="position: relative; height: 300px;">
-                                            <canvas id="revenue-chart-canvas" height="300"
-                                                style="height: 300px;"></canvas>
-                                        </div>
-                                        <div class="chart tab-pane" id="sales-chart"
-                                            style="position: relative; height: 300px;">
-                                            <canvas id="sales-chart-canvas" height="300"
-                                                style="height: 300px;"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="card direct-chat direct-chat-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Direct Chat</h3>
-                                    <div class="card-tools">
-                                        <span title="3 New Messages" class="badge badge-primary">3</span>
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" title="Contacts"
-                                            data-widget="chat-pane-toggle">
-                                            <i class="fas fa-comments"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="card-body">
-
-                                    <div class="direct-chat-messages">
-
-                                        <div class="direct-chat-msg">
-                                            <div class="direct-chat-infos clearfix">
-                                                <span class="direct-chat-name float-left">Alexander Pierce</span>
-                                                <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-                                            </div>
-
-                                            <img class="direct-chat-img" src="dist/img/user1-128x128.jpg"
-                                                alt="message user image">
-
-                                            <div class="direct-chat-text">
-                                                Is this template really for free? That's unbelievable!
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="direct-chat-msg right">
-                                            <div class="direct-chat-infos clearfix">
-                                                <span class="direct-chat-name float-right">Sarah Bullock</span>
-                                                <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                                            </div>
-
-                                            <img class="direct-chat-img" src="dist/img/user3-128x128.jpg"
-                                                alt="message user image">
-
-                                            <div class="direct-chat-text">
-                                                You better believe it!
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="direct-chat-msg">
-                                            <div class="direct-chat-infos clearfix">
-                                                <span class="direct-chat-name float-left">Alexander Pierce</span>
-                                                <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
-                                            </div>
-
-                                            <img class="direct-chat-img" src="dist/img/user1-128x128.jpg"
-                                                alt="message user image">
-
-                                            <div class="direct-chat-text">
-                                                Working with AdminLTE on a great new app! Wanna join?
-                                            </div>
-
-                                        </div>
-
-
-                                        <div class="direct-chat-msg right">
-                                            <div class="direct-chat-infos clearfix">
-                                                <span class="direct-chat-name float-right">Sarah Bullock</span>
-                                                <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
-                                            </div>
-
-                                            <img class="direct-chat-img" src="dist/img/user3-128x128.jpg"
-                                                alt="message user image">
-
-                                            <div class="direct-chat-text">
-                                                I would love to.
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div class="direct-chat-contacts">
-                                        <ul class="contacts-list">
-                                            <li>
-                                                <a href="#">
-                                                    <img class="contacts-list-img" src="dist/img/user1-128x128.jpg"
-                                                        alt="User Avatar">
-                                                    <div class="contacts-list-info">
-                                                        <span class="contacts-list-name">
-                                                            Count Dracula
-                                                            <small
-                                                                class="contacts-list-date float-right">2/28/2015</small>
-                                                        </span>
-                                                        <span class="contacts-list-msg">How have you been? I
-                                                            was...</span>
-                                                    </div>
-
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <img class="contacts-list-img" src="dist/img/user7-128x128.jpg"
-                                                        alt="User Avatar">
-                                                    <div class="contacts-list-info">
-                                                        <span class="contacts-list-name">
-                                                            Sarah Doe
-                                                            <small
-                                                                class="contacts-list-date float-right">2/23/2015</small>
-                                                        </span>
-                                                        <span class="contacts-list-msg">I will be waiting for...</span>
-                                                    </div>
-
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <img class="contacts-list-img" src="dist/img/user3-128x128.jpg"
-                                                        alt="User Avatar">
-                                                    <div class="contacts-list-info">
-                                                        <span class="contacts-list-name">
-                                                            Nadia Jolie
-                                                            <small
-                                                                class="contacts-list-date float-right">2/20/2015</small>
-                                                        </span>
-                                                        <span class="contacts-list-msg">I'll call you back at...</span>
-                                                    </div>
-
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <img class="contacts-list-img" src="dist/img/user5-128x128.jpg"
-                                                        alt="User Avatar">
-                                                    <div class="contacts-list-info">
-                                                        <span class="contacts-list-name">
-                                                            Nora S. Vans
-                                                            <small
-                                                                class="contacts-list-date float-right">2/10/2015</small>
-                                                        </span>
-                                                        <span class="contacts-list-msg">Where is your new...</span>
-                                                    </div>
-
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <img class="contacts-list-img" src="dist/img/user6-128x128.jpg"
-                                                        alt="User Avatar">
-                                                    <div class="contacts-list-info">
-                                                        <span class="contacts-list-name">
-                                                            John K.
-                                                            <small
-                                                                class="contacts-list-date float-right">1/27/2015</small>
-                                                        </span>
-                                                        <span class="contacts-list-msg">Can I take a look at...</span>
-                                                    </div>
-
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="#">
-                                                    <img class="contacts-list-img" src="dist/img/user8-128x128.jpg"
-                                                        alt="User Avatar">
-                                                    <div class="contacts-list-info">
-                                                        <span class="contacts-list-name">
-                                                            Kenneth M.
-                                                            <small
-                                                                class="contacts-list-date float-right">1/4/2015</small>
-                                                        </span>
-                                                        <span class="contacts-list-msg">Never mind I found...</span>
-                                                    </div>
-
-                                                </a>
-                                            </li>
-
-                                        </ul>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="card-footer">
-                                    <form action="#" method="post">
-                                        <div class="input-group">
-                                            <input type="text" name="message" placeholder="Type Message ..."
-                                                class="form-control">
-                                            <span class="input-group-append">
-                                                <button type="button" class="btn btn-primary">Send</button>
-                                            </span>
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div>
-
-
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">
-                                        <i class="ion ion-clipboard mr-1"></i>
-                                        To Do List
-                                    </h3>
-                                    <div class="card-tools">
-                                        <ul class="pagination pagination-sm">
-                                            <li class="page-item"><a href="#" class="page-link">&laquo;</a>
-                                            </li>
-                                            <li class="page-item"><a href="#" class="page-link">1</a></li>
-                                            <li class="page-item"><a href="#" class="page-link">2</a></li>
-                                            <li class="page-item"><a href="#" class="page-link">3</a></li>
-                                            <li class="page-item"><a href="#" class="page-link">&raquo;</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="card-body">
-                                    <ul class="todo-list" data-widget="todo-list">
-                                        <li>
-
-                                            <span class="handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo1"
-                                                    id="todoCheck1">
-                                                <label for="todoCheck1"></label>
-                                            </div>
-
-                                            <span class="text">Design a nice theme</span>
-
-                                            <small class="badge badge-danger"><i class="far fa-clock"></i> 2
-                                                mins</small>
-
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo2" id="todoCheck2"
-                                                    checked>
-                                                <label for="todoCheck2"></label>
-                                            </div>
-                                            <span class="text">Make the theme responsive</span>
-                                            <small class="badge badge-info"><i class="far fa-clock"></i> 4
-                                                hours</small>
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo3"
-                                                    id="todoCheck3">
-                                                <label for="todoCheck3"></label>
-                                            </div>
-                                            <span class="text">Let theme shine like a star</span>
-                                            <small class="badge badge-warning"><i class="far fa-clock"></i> 1
-                                                day</small>
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo4"
-                                                    id="todoCheck4">
-                                                <label for="todoCheck4"></label>
-                                            </div>
-                                            <span class="text">Let theme shine like a star</span>
-                                            <small class="badge badge-success"><i class="far fa-clock"></i> 3
-                                                days</small>
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo5"
-                                                    id="todoCheck5">
-                                                <label for="todoCheck5"></label>
-                                            </div>
-                                            <span class="text">Check your messages and notifications</span>
-                                            <small class="badge badge-primary"><i class="far fa-clock"></i> 1
-                                                week</small>
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <span class="handle">
-                                                <i class="fas fa-ellipsis-v"></i>
-                                                <i class="fas fa-ellipsis-v"></i>
-                                            </span>
-                                            <div class="icheck-primary d-inline ml-2">
-                                                <input type="checkbox" value="" name="todo6"
-                                                    id="todoCheck6">
-                                                <label for="todoCheck6"></label>
-                                            </div>
-                                            <span class="text">Let theme shine like a star</span>
-                                            <small class="badge badge-secondary"><i class="far fa-clock"></i> 1
-                                                month</small>
-                                            <div class="tools">
-                                                <i class="fas fa-edit"></i>
-                                                <i class="fas fa-trash-o"></i>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-
-                                <div class="card-footer clearfix">
-                                    <button type="button" class="btn btn-primary float-right"><i
-                                            class="fas fa-plus"></i> Add item</button>
-                                </div>
-                            </div>
-
-                        </section>
-
-
-                        <section class="col-lg-5 connectedSortable">
-
-                            <div class="card bg-gradient-primary">
-                                <div class="card-header border-0">
-                                    <h3 class="card-title">
-                                        <i class="fas fa-map-marker-alt mr-1"></i>
-                                        Visitors
-                                    </h3>
-
-                                    <div class="card-tools">
-                                        <button type="button" class="btn btn-primary btn-sm daterange"
-                                            title="Date range">
-                                            <i class="far fa-calendar-alt"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-primary btn-sm"
-                                            data-card-widget="collapse" title="Collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                    </div>
-
-                                </div>
-                                <div class="card-body">
-                                    <div id="world-map" style="height: 250px; width: 100%;"></div>
-                                </div>
-
-                                <div class="card-footer bg-transparent">
-                                    <div class="row">
-                                        <div class="col-4 text-center">
-                                            <div id="sparkline-1"></div>
-                                            <div class="text-white">Visitors</div>
-                                        </div>
-
-                                        <div class="col-4 text-center">
-                                            <div id="sparkline-2"></div>
-                                            <div class="text-white">Online</div>
-                                        </div>
-
-                                        <div class="col-4 text-center">
-                                            <div id="sparkline-3"></div>
-                                            <div class="text-white">Sales</div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                            <div class="card bg-gradient-info">
-                                <div class="card-header border-0">
-                                    <h3 class="card-title">
-                                        <i class="fas fa-th mr-1"></i>
-                                        Sales Graph
-                                    </h3>
-                                    <div class="card-tools">
-                                        <button type="button" class="btn bg-info btn-sm"
-                                            data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn bg-info btn-sm" data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="card-body">
-                                    <canvas class="chart" id="line-chart"
-                                        style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                                </div>
-
-                                <div class="card-footer bg-transparent">
-                                    <div class="row">
-                                        <div class="col-4 text-center">
-                                            <input type="text" class="knob" data-readonly="true" value="20"
-                                                data-width="60" data-height="60" data-fgColor="#39CCCC">
-                                            <div class="text-white">Mail-Orders</div>
-                                        </div>
-
-                                        <div class="col-4 text-center">
-                                            <input type="text" class="knob" data-readonly="true" value="50"
-                                                data-width="60" data-height="60" data-fgColor="#39CCCC">
-                                            <div class="text-white">Online</div>
-                                        </div>
-
-                                        <div class="col-4 text-center">
-                                            <input type="text" class="knob" data-readonly="true" value="30"
-                                                data-width="60" data-height="60" data-fgColor="#39CCCC">
-                                            <div class="text-white">In-Store</div>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-                            <div class="card bg-gradient-success">
-                                <div class="card-header border-0">
-                                    <h3 class="card-title">
-                                        <i class="far fa-calendar-alt"></i>
-                                        Calendar
-                                    </h3>
-
-                                    <div class="card-tools">
-
-                                        <div class="btn-group">
-                                            <button type="button" class="btn btn-success btn-sm dropdown-toggle"
-                                                data-toggle="dropdown" data-offset="-52">
-                                                <i class="fas fa-bars"></i>
-                                            </button>
-                                            <div class="dropdown-menu" role="menu">
-                                                <a href="#" class="dropdown-item">Add new event</a>
-                                                <a href="#" class="dropdown-item">Clear events</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a href="#" class="dropdown-item">View calendar</a>
-                                            </div>
-                                        </div>
-                                        <button type="button" class="btn btn-success btn-sm"
-                                            data-card-widget="collapse">
-                                            <i class="fas fa-minus"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-success btn-sm"
-                                            data-card-widget="remove">
-                                            <i class="fas fa-times"></i>
-                                        </button>
-                                    </div>
-
-                                </div>
-
-                                <div class="card-body pt-0">
-
-                                    <div id="calendar" style="width: 100%"></div>
-                                </div>
-
-                            </div>
-
-                        </section>
-
-                    </div>
-
-                </div>
-            </section>
-
-        </div>
-
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.2.0
-            </div>
-        </footer>
-
-        <aside class="control-sidebar control-sidebar-dark">
-
-        </aside>
-
-    </div>
-
-
-    {{-- <script src="plugins/jquery/jquery.min.js"></script>
-
-<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
-
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script src="plugins/chart.js/Chart.min.js"></script>
-
-<script src="plugins/sparklines/sparkline.js"></script>
-
-<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-
-<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
-
-<script src="plugins/moment/moment.min.js"></script>
-<script src="plugins/daterangepicker/daterangepicker.js"></script>
-
-<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-
-<script src="plugins/summernote/summernote-bs4.min.js"></script>
-
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-
-<script src="dist/js/adminlte.js?v=3.2.0"></script>
-
-<script src="dist/js/demo.js"></script>
-
-<script src="dist/js/pages/dashboard.js"></script> --}}
-</body>
-
-</html>
-
-
-
-{{-- customer page with sidebar --}}
-
-{{-- <div class="wrapper">
-
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
-            width="60">
-    </div>
-
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="/customers" class="nav-link">Home</a>
-            </li>
-        </ul>
-
-        <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item">
-                <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                    <i class="fas fa-search"></i>
-                </a>
-                <div class="navbar-search-block">
-                    <form class="form-inline">
-                        <div class="input-group input-group-sm">
-                            <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                aria-label="Search">
-                            <div class="input-group-append">
-                                <button class="btn btn-navbar" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-comments"></i>
-                    <span class="badge badge-danger navbar-badge">3</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <a href="#" class="dropdown-item">
-
-                        <div class="media">
-                            <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Brad Diesel
-                                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">Call me whenever you can...</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-
-                        <div class="media">
-                            <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    John Pierce
-                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">I got your message bro</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-
-                        <div class="media">
-                            <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-                            <div class="media-body">
-                                <h3 class="dropdown-item-title">
-                                    Nora Silvester
-                                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                                </h3>
-                                <p class="text-sm">The subject goes here</p>
-                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-                            </div>
-                        </div>
-
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-                </div>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link" data-toggle="dropdown" href="#">
-                    <i class="far fa-bell"></i>
-                    <span class="badge badge-warning navbar-badge">15</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                    <span class="dropdown-item dropdown-header">15 Notifications</span>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-envelope mr-2"></i> 4 new messages
-                        <span class="float-right text-muted text-sm">3 mins</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-users mr-2"></i> 8 friend requests
-                        <span class="float-right text-muted text-sm">12 hours</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-file mr-2"></i> 3 new reports
-                        <span class="float-right text-muted text-sm">2 days</span>
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                    {{ Auth::user()->name }}
-                </a>
-
-                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                       onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-widget="control-sidebar" data-controlsidebar-slide="true" href="#"
-                    role="button">
-                    <i class="fas fa-th-large"></i>
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-
-        <a href="index3.html" class="brand-link">
-            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-                style="opacity: .8">
-            <span class="brand-text font-weight-light">AdminLTE 3</span>
-        </a>
-
-        <div class="sidebar">
-
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="{{ Storage::url(auth()->user()->picture) }}" class="img-circle elevation-2"
-                        alt="User Image">
-                </div>
-                <div class="info">
-                    <a href="#"
-                        class="d-block">{{ auth()->user()->first_name }}{{ ' ' }}{{ auth()->user()->middle_name }}{{ ' ' }}{{ auth()->user()->last_name }}</a>
-                </div>
-            </div>
-
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
-
-                    <li class="nav-item menu-open">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-tachometer-alt"></i>
-                            <p>
-                                Dashboard
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
-                            <p>
-                                Widgets
-                                <span class="right badge badge-danger">New</span>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-copy"></i>
-                            <p>
-                                Layout Options
-                                <i class="fas fa-angle-left right"></i>
-                                <span class="badge badge-info right">6</span>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="pages/layout/top-nav.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Top Navigation</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Top Navigation + Sidebar</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+              </div>
+              <div class="card mt-3">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>Website</h6>
+                    <span class="text-secondary">https://bootdey.com</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github mr-2 icon-inline"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>Github</h6>
+                    <span class="text-secondary">bootdey</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
+                    <span class="text-secondary">@bootdey</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
+                    <span class="text-secondary">bootdey</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>Facebook</h6>
+                    <span class="text-secondary">bootdey</span>
+                  </li>
                 </ul>
-            </nav>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Full Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Kenneth Valdez
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      fip@jukmuh.al
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Phone</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (239) 816-9029
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Mobile</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      (320) 380-4539
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      Bay Area, San Francisco, CA
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-info " target="__blank" href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills">Edit</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row gutters-sm">
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                      <small>Web Design</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Website Markup</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>One Page</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Mobile Template</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Backend API</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mb-3">
+                  <div class="card h-100">
+                    <div class="card-body">
+                      <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+                      <small>Web Design</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Website Markup</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>One Page</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Mobile Template</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Backend API</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
 
         </div>
-
-    </aside>
-
-    <div class="content-wrapper">
-
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard v1</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-        <section class="content">
-            <div class="container-fluid">
-
-                <div class="row">
-                    <div class="col-lg-3 col-6">
-
-                        <div class="small-box bg-info">
-                            <div class="inner">
-                                <h3>150</h3>
-                                <p>New Orders</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <div class="small-box bg-success">
-                            <div class="inner">
-                                <h3>53<sup style="font-size: 20px">%</sup></h3>
-                                <p>Bounce Rate</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-stats-bars"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <div class="small-box bg-warning">
-                            <div class="inner">
-                                <h3>44</h3>
-                                <p>User Registrations</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-person-add"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-6">
-
-                        <div class="small-box bg-danger">
-                            <div class="inner">
-                                <h3>65</h3>
-                                <p>Unique Visitors</p>
-                            </div>
-                            <div class="icon">
-                                <i class="ion ion-pie-graph"></i>
-                            </div>
-                            <a href="#" class="small-box-footer">More info <i
-                                    class="fas fa-arrow-circle-right"></i></a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <livewire:customer.view />
-
-            </div>
-        </section>
-
     </div>
 
 
-    <footer class="main-footer">
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-        All rights reserved.
-        <div class="float-right d-none d-sm-inline-block">
-            <b>Version</b> 3.2.0
-        </div>
-    </footer>
 
-    <aside class="control-sidebar control-sidebar-dark">
 
-    </aside>
 
-</div>
- --}}
+{{-- 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="main-content">
+            <!-- NAV TABS -->
+        	<ul class="nav nav-tabs nav-tabs-custom-colored tabs-iconized">
+        		<li class="active"><a href="#profile-tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-user"></i> Profile</a></li>
+        		<li class=""><a href="#activity-tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-rss"></i> Recent Activity</a></li>
+        		<li class=""><a href="#settings-tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-gear"></i> Settings</a></li>
+        	</ul>
+        	<!-- END NAV TABS -->
+        	<div class="tab-content profile-page">
+        		<!-- PROFILE TAB CONTENT -->
+        		<div class="tab-pane profile active" id="profile-tab">
+        			<div class="row">
+        				<div class="col-md-3">
+        					<div class="user-info-left">
+        						<img class="img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="Profile Picture">
+        						<h2>Jonathan Smith <i class="fa fa-circle green-font online-icon"></i><sup class="sr-only">online</sup></h2>
+        						<div class="contact">
+        							<a href="#" class="btn btn-block btn-danger"><i class="fa fa-envelope-o"></i> Send Message</a>
+        							<a href="#" class="btn btn-block btn-success"><i class="fa fa-book"></i> Add To Contact</a>
+        							<ul class="list-inline social">
+        								<li><a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a></li>
+        								<li><a href="#" title="Twitter"><i class="fa fa-twitter-square"></i></a></li>
+        								<li><a href="#" title="Google Plus"><i class="fa fa-google-plus-square"></i></a></li>
+        							</ul>
+        						</div>
+        					</div>
+        				</div>
+        				<div class="col-md-9">
+        					<div class="user-info-right">
+        						<div class="basic-info">
+        							<h3><i class="fa fa-square"></i> Basic Information</h3>
+        							<p class="data-row">
+        								<span class="data-name">Username</span>
+        								<span class="data-value">jonasmith</span>
+        							</p>
+        							<p class="data-row">
+        								<span class="data-name">Birth Date</span>
+        								<span class="data-value">Nov 20, 1988</span>
+        							</p>
+        							<p class="data-row">
+        								<span class="data-name">Gender</span>
+        								<span class="data-value">Male</span>
+        							</p>
+        							<p class="data-row">
+        								<span class="data-name">Website</span>
+        								<span class="data-value"><a href="#">www.jonasmith.com</a></span>
+        							</p>
+        							<p class="data-row">
+        								<span class="data-name">Last Login</span>
+        								<span class="data-value">2 hours ago</span>
+        							</p>
+        							<p class="data-row">
+        								<span class="data-name">Date Joined</span>
+        								<span class="data-value">Feb 22, 2012</span>
+        							</p>
+        						</div>
+        						<div class="contact_info">
+        							<h3><i class="fa fa-square"></i> Contact Information</h3>
+        							<p class="data-row">
+        								<span class="data-name">Email</span>
+        								<span class="data-value">me@jonasmith.com</span>
+        							</p>
+        							<p class="data-row">
+        								<span class="data-name">Phone</span>
+        								<span class="data-value">(1800) 221 - 876543</span>
+        							</p>
+        							<p class="data-row">
+        								<span class="data-name">Address</span>
+        								<span class="data-value">Riverside City 66, 80123 Denver<br>Colorado</span>
+        							</p>
+        						</div>
+        						<div class="about">
+        							<h3><i class="fa fa-square"></i> About Me</h3>
+        							<p>Dramatically facilitate proactive solutions whereas professional intellectual capital. Holisticly utilize competitive e-markets through intermandated meta-services. Objectively.</p>
+        							<p>Monotonectally foster future-proof infomediaries before principle-centered interfaces. Assertively recaptiualize cutting-edge web services rather than emerging "outside the box" thinking. Phosfluorescently cultivate resource maximizing technologies and user-centric convergence. Completely underwhelm cross functional innovation vis-a-vis.</p>
+        						</div>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        		<!-- END PROFILE TAB CONTENT -->
+        
+        		<!-- ACTIVITY TAB CONTENT -->
+        		<div class="tab-pane activity" id="activity-tab">
+        			<ul class="list-unstyled activity-list">
+        				<li>
+        					<i class="fa fa-shopping-cart activity-icon pull-left"></i>
+        					<p>
+        						<a href="#">Jonathan</a> commented on <a href="#">Special Deal 2013</a> <span class="timestamp">12 minutes ago</span>
+        					</p>
+        				</li>
+        				<li>
+        					<i class="fa fa-pencil activity-icon pull-left"></i>
+        					<p>
+        						<a href="#">Jonathan</a> posted <a href="#">a new blog post</a> <span class="timestamp">4 hours ago</span>
+        					</p>
+        				</li>
+        				<li>
+        					<i class="fa fa-user activity-icon pull-left"></i>
+        					<p>
+        						<a href="#">Jonathan</a> edited his profile <span class="timestamp">11 hours ago</span>
+        					</p>
+        				</li>
+        				<li>
+        					<i class="fa fa-pencil activity-icon pull-left"></i>
+        					<p>
+        						<a href="#">Jonathan</a> has added review on <a href="#">jQuery Complete Guide</a> book <span class="timestamp">Yesterday</span>
+        					</p>
+        				</li>
+        				<li>
+        					<i class="fa fa-thumbs-up activity-icon pull-left"></i>
+        					<p>
+        						<a href="#">Jonathan</a> liked <a href="#">a post</a> <span class="timestamp">December 12</span>
+        					</p>
+        				</li>
+        				<li>
+        					<i class="fa fa-tasks activity-icon pull-left"></i>
+        					<p>
+        						<a href="#">Jonathan</a> has completed one task <span class="timestamp">December 11</span>
+        					</p>
+        				</li>
+        				<li>
+        					<i class="fa fa-picture-o activity-icon pull-left"></i>
+        					<p>
+        						<a href="#">Jonathan</a> uploaded <a href="#">new photos</a> <span class="timestamp">December 5</span>
+        					</p>
+        				</li>
+        				<li>
+        					<i class="fa fa-credit-card activity-icon pull-left"></i>
+        					<p>
+        						<a href="#">Jonathan</a> has updated his credit card info <span class="timestamp">September 28</span>
+        					</p>
+        				</li>
+        			</ul>
+        			<p class="text-center more"><a href="#" class="btn btn-custom-primary">View more <i class="fa fa-long-arrow-right"></i></a></p>
+        		</div>
+        		<!-- END ACTIVITY TAB CONTENT -->
+        
+        		<!-- SETTINGS TAB CONTENT -->
+        		<div class="tab-pane settings" id="settings-tab">
+        			<form class="form-horizontal" role="form">
+        				<fieldset>
+        					<h3><i class="fa fa-square"></i> Change Password</h3>
+        					<div class="form-group">
+        						<label for="old-password" class="col-sm-3 control-label">Old Password</label>
+        						<div class="col-sm-4">
+        							<input type="password" id="old-password" name="old-password" class="form-control">
+        						</div>
+        					</div>
+        					<hr>
+        					<div class="form-group">
+        						<label for="password" class="col-sm-3 control-label">New Password</label>
+        						<div class="col-sm-4">
+        							<input type="password" id="password" name="password" class="form-control">
+        						</div>
+        					</div>
+        					<div class="form-group">
+        						<label for="password2" class="col-sm-3 control-label">Repeat Password</label>
+        						<div class="col-sm-4">
+        							<input type="password" id="password2" name="password2" class="form-control">
+        						</div>
+        					</div>
+        				</fieldset>
+        				<fieldset>
+        					<h3><i class="fa fa-square"></i> Privacy</h3>
+        					<label class="fancy-checkbox">
+        						<input type="checkbox">
+        						<span>Show my display name</span>
+        					</label>
+        					<label class="fancy-checkbox">
+        						<input type="checkbox">
+        						<span>Show my birth date</span>
+        					</label>
+        					<label class="fancy-checkbox">
+        						<input type="checkbox">
+        						<span>Show my email</span>
+        					</label>
+        					<label class="fancy-checkbox">
+        						<input type="checkbox">
+        						<span>Show my online status on chat</span>
+        					</label>
+        				</fieldset>
+        				<h3><i class="fa fa-square"> </i>Notifications</h3>
+        				<fieldset>
+        					<div class="form-group">
+        						<label class="col-sm-5 control-label">Receive message from administrator</label>
+        						<ul class="col-sm-7 list-inline">
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-on" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-globe"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-globe"></i></span><input type="checkbox" checked="" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-globe'></i>" data-off-label="<i class='glyphicon glyphicon-globe'></i>"></div></div>
+        							</li>
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-on" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-phone"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-phone"></i></span><input type="checkbox" checked="" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-phone'></i>" data-off-label="<i class='glyphicon glyphicon-phone'></i>"></div></div>
+        							</li>
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-on" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-envelope"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-envelope"></i></span><input type="checkbox" checked="" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-envelope'></i>" data-off-label="<i class='glyphicon glyphicon-envelope'></i>"></div></div>
+        							</li>
+        						</ul>
+        					</div>
+        					<div class="form-group">
+        						<label class="col-sm-5 control-label">New product has been added</label>
+        						<ul class="col-sm-7 list-inline">
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-off" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-globe"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-globe"></i></span><input type="checkbox" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-globe'></i>" data-off-label="<i class='glyphicon glyphicon-globe'></i>"></div></div>
+        							</li>
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-on" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-phone"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-phone"></i></span><input type="checkbox" checked="" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-phone'></i>" data-off-label="<i class='glyphicon glyphicon-phone'></i>"></div></div>
+        							</li>
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-on" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-envelope"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-envelope"></i></span><input type="checkbox" checked="" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-envelope'></i>" data-off-label="<i class='glyphicon glyphicon-envelope'></i>"></div></div>
+        							</li>
+        						</ul>
+        					</div>
+        					<div class="form-group">
+        						<label class="col-sm-5 control-label">Product review has been approved</label>
+        						<ul class="col-sm-7 list-inline">
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-on" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-globe"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-globe"></i></span><input type="checkbox" checked="" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-globe'></i>" data-off-label="<i class='glyphicon glyphicon-globe'></i>"></div></div>
+        							</li>
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-off" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-phone"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-phone"></i></span><input type="checkbox" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-phone'></i>" data-off-label="<i class='glyphicon glyphicon-phone'></i>"></div></div>
+        							</li>
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-on" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-envelope"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-envelope"></i></span><input type="checkbox" checked="" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-envelope'></i>" data-off-label="<i class='glyphicon glyphicon-envelope'></i>"></div></div>
+        							</li>
+        						</ul>
+        					</div>
+        					<div class="form-group">
+        						<label class="col-sm-5 control-label">Others liked your post</label>
+        						<ul class="col-sm-7 list-inline">
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-off" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-globe"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-globe"></i></span><input type="checkbox" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-globe'></i>" data-off-label="<i class='glyphicon glyphicon-globe'></i>"></div></div>
+        							</li>
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-off" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-phone"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-phone"></i></span><input type="checkbox" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-phone'></i>" data-off-label="<i class='glyphicon glyphicon-phone'></i>"></div></div>
+        							</li>
+        							<li>
+        								<div class="has-switch switch-animate switch-small switch-off" tabindex="0"><div><span class="switch-left"><i class="glyphicon glyphicon-envelope"></i></span><label>&nbsp;</label><span class="switch-right switch-default"><i class="glyphicon glyphicon-envelope"></i></span><input type="checkbox" class="bs-switch switch-small" data-off="default" data-on-label="<i class='glyphicon glyphicon-envelope'></i>" data-off-label="<i class='glyphicon glyphicon-envelope'></i>"></div></div>
+        							</li>
+        						</ul>
+        					</div>
+        				</fieldset>
+        			</form>
+        			<p class="text-center"><a href="#" class="btn btn-custom-primary"><i class="fa fa-floppy-o"></i> Save Changes</a></p>
+        		</div>
+        		<!-- END SETTINGS TAB CONTENT -->
+        	</div>
+        </div>    
+        
+
+    
+	</div>
+</div> --}}
+
+<style>
+    body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #555;
+  background: #ececec;
+  margin-top:20px;
+}
+
+.nav.nav-tabs-custom-colored > li.active > a, 
+.nav.nav-tabs-custom-colored > li.active > a:hover, 
+.nav.nav-tabs-custom-colored > li.active > a:focus {
+  background-color: #296EAA;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tab-content.profile-page {
+  padding: 35px 15px;
+}
+
+.profile .user-info-left {
+  text-align: center;
+}
+
+.profile .user-info-left, 
+.profile .user-info-right {
+  padding: 10px 0;
+}
+
+.profile .user-info-left img {
+  border: 3px solid #fff;
+}
+
+.profile .user-info-left h2 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.user-info-left .btn{
+    border-radius:0px;    
+}
+
+.profile .user-info-left ul.social a {
+  font-size: 20px;
+  color: #b9b9b9;
+}
+
+.profile .user-info-right {
+  border-left: 1px solid #ddd;
+  padding-left: 30px;
+}
+
+.profile h3, .activity h3, .settings h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.data-row .data-name, .data-row .data-value {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+.data-row .data-name {
+  width: 12em;
+    color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  font-size: 0.9em;
+  vertical-align: top;
+}
+
+ul.activity-list > li:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+ul.activity-list > li {
+  padding: 15px;
+}
+
+ul.activity-list > li .activity-icon {
+  display: inline-block;
+  vertical-align: middle;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px;
+  width: 34px;
+  height: 34px;
+  background-color: #e4e4e4;
+  font-size: 16px;
+  color: #656565;
+  line-height: 34px;
+  text-align: center;
+  margin-right: 10px;
+}
+
+fieldset {
+  margin-bottom: 40px;
+}
+
+hr {
+  border-top-color: #ddd;
+}
+
+.form-horizontal .control-label {
+  text-align: left;
+}
+
+.form-control, .input-group .form-control {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+</style>

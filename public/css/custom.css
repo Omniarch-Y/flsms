@@ -3,9 +3,7 @@ a {
 }
 
  *{
-    font-family: 'Nunito', sans-serif;
-    /* font-family: 'Roboto', sans-serif; */
-    /* font-family: 'Sora', sans-serif; */
+    font-family: 'Nunito', 'Roboto', 'Sora', sans-serif;
 }
 
 .nav-pills .nav-link {
@@ -21,6 +19,7 @@ a {
   }
 body{
     color: #000 !important;
+    background-color: #f4f6f9;
     /* width:100% !important; */
 }
 

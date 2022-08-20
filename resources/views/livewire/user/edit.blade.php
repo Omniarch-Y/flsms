@@ -243,6 +243,28 @@
                             </div>
 
                             <div class="col-sm-4">
+                                <label for="password" class="form-lable text-dark">{{ __('Password') }}</label>
+
+                                <input id="password" type="password"
+                                    class="form-control @error('password') is-invalid @enderror" name="password"
+                                    autocomplete="current-password" wire:model.debounce.500ms="password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label for="password-confirm" class="form-lable text-dark">{{ __('Confirm Password') }}</label>
+
+                                <input id="password-confirm" type="password" class="form-control"
+                                    name="password_confirmation" autocomplete="new-password"
+                                    wire:model.debounce.500ms="password_confirmation">
+                            </div>
+
+                            <div class="col-sm-4">
                                 <label for="picture" class="form-lable text-dark">{{ __('Picture') }}</label>
 
                                 <input name="picture" type="file" class="form-control" wire:model="picture">

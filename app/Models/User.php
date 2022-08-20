@@ -32,6 +32,11 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function address() {
+        return $this->belongsTo(Address::class,'address_id');
+        
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

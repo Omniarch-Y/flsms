@@ -64,7 +64,8 @@
                                         <p class="fw-normal mb-1">{{ $user->role }}</p>
                                     </td>
                                     <td>
-                                        <button class="btn btn-secondary btn-sm me-3">view</button>
+                                        <a class="btn btn-info btn-sm me-3 "
+                                        href="{{url('user-info'.'/'.$user->id)}}">view</a>
                                         <button type="button" class="btn btn-warning btn-sm me-3"
                                             data-bs-toggle="modal" data-bs-target="#editUser"
                                             wire:click='editUser({{ $user->id }})'>Edit</button>

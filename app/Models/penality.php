@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Insurance extends Model
+class penality extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'initial_deposit',
-        'repayment_date',
-        'monthly_payment',
-        'remaining_balance'
+        'amount',
+        'user_id',
+        'reciept_id',
+        'late_by'
     ];
 }

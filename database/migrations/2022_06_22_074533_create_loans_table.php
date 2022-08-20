@@ -22,8 +22,8 @@ return new class extends Migration
             $table->float('service_charge');
             $table->float('net_amount')->nullable();
             $table->float('total_debt')->nullable();
-            $table->float('penalty_rate')->nullable();
-            $table->boolean('status')->default('inactive');
+            $table->string('contract')->nullable();
+            $table->string('status')->default('inactive');
             $table->date('starting_date');
             $table->date('ending_date');
             $table->date('interest_date');
@@ -33,8 +33,8 @@ return new class extends Migration
             $table->foreign('int_id')->references('id')->on('interests')->onDelete('set null')->onUpdate('cascade');      
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('insu_id')->nullable();
-            $table->foreign('insu_id')->references('id')->on('insurances')->onDelete('set null')->onUpdate('cascade');
+            $table->unsignedBigInteger('saving_id')->nullable();
+            $table->foreign('saving_id')->references('id')->on('savings')->onDelete('set null')->onUpdate('cascade');
             $table->timestamps();
         });
     }

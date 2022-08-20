@@ -163,9 +163,9 @@
                                     wire:click='editLoan({{ $loan->id }})'><i class="fa-regular fa-pen-to-square"
                                         aria-hidden="true"></i></button>
                                 @include('livewire.loan.edit')
-                                <button type="button" class="btn btn-success btn-sm me-3"
-                                    wire:click='withdraw({{ $loan->id }})'>Withdraw</button>
-                                @include('livewire.loan.collect')
+                                <button type="button" class="btn btn-success btn-sm me-3" data-bs-toggle="modal"
+                                    wire:click='acceptWithdrawal({{ $loan->id }})'>Withdraw</button>
+                                @include('livewire.Receipt.withdrawalModal')
                                 <button type="button" class="btn btn-info btn-sm"
                                     wire:click='collect({{ $loan->id }})'>Collect</button>
                                 @include('livewire.loan.collect')
@@ -200,6 +200,10 @@
 
         window.addEventListener('editLoan-modal', e => {
             $('#editLoan').modal('show');
+        });
+
+        window.addEventListener('withdrawal-modal', e => {
+            $('#withdrawalModal').modal('show');
         });
 
         window.addEventListener('collect-modal', e => {

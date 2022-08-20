@@ -451,7 +451,8 @@
                                 <p class="fw-normal mb-1">{{ $customer->nationality }}</p>
                             </td> --}}
                                 <td>
-                                    <button class="btn btn-secondary btn-sm me-3">view</button>
+                                    <a class="btn btn-info btn-sm me-3 "
+                                    href="{{url('customer-info'.'/'.$customer->id)}}">view</a>
                                     <button type="button" class="btn btn-success btn-sm me-5"
                                         wire:click='issueLoan({{ $customer->id }})'>Loan</button>
                                     @include('livewire.loan.store')

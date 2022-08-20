@@ -243,7 +243,7 @@ $notfilled = $errors->any() || empty($this->first_name) || empty($this->middle_n
                                     <option value="loan_officer" selected>Loan officer</option>
                                     <option value="encoder" selected>Encoder</option>
                                     <option value="manager" selected>Manager</option>
-                                    <option value="admin" selected>Admin</option>
+                                    {{-- <option value="admin" selected>Admin</option> --}}
 
                                 </select>
                             </div>

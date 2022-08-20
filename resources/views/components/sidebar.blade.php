@@ -1,10 +1,21 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-    <a href="index3.html" class="brand-link">
-        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
-        <span class="brand-text font-weight-light">FLSMS</span>
-    </a>
+        @if(auth()->user()->role == 'loan_officer')
+        <a href="/customers" class="brand-link">       
+            <i class="fa-solid fa-hand-holding-dollar ms-4 me-2"></i>
+            <span class="brand-text font-weight-light">FLSMS</span>
+        </a>
+        @elseif(auth()->user()->role == 'manager')
+        <a href="/users" class="brand-link">
+            <i class="fa-solid fa-hand-holding-dollar ms-4 me-2"></i>
+            <span class="brand-text font-weight-light">FLSMS</span>
+        </a>
+        @else
+        <a href="/loans" class="brand-link">
+            <i class="fa-solid fa-hand-holding-dollar ms-4 me-2"></i>
+            <span class="brand-text font-weight-light">FLSMS</span>
+        </a>
+        @endif
 
     <div class="sidebar">
 
@@ -15,7 +26,7 @@
             </div>
             <div class="info">
                 <a href="#"
-                    class="d-block">{{ auth()->user()->first_name }}{{ ' ' }}{{ auth()->user()->middle_name }}{{ ' ' }}{{ auth()->user()->last_name }}</a>
+                    class="d-block">{{ auth()->user()->first_name }}{{ ' ' }}{{ auth()->user()->middle_name }}</a>
             </div>
             
         </div>
@@ -70,7 +81,7 @@
                 </li>
                 @endif
 
-                @if(auth()->user()->role == 'admin')
+                @if(auth()->user()->role == 'manager')
                 <li class="nav-item">
                     <a href="/inactiveLoans" class="nav-link">
                         <i class="nav-icon fa-solid fa-toggle-off"></i>
@@ -102,30 +113,64 @@
                     </a>
                 </li>
                 @endif
+                
+                @if(auth()->user()->role == 'manager')
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-copy"></i>
                         <p>
-                            Layout Options
+                            Loans
                             <i class="fas fa-angle-left right"></i>
                             <span class="badge badge-info right">6</span>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Top Navigation</p>
+                            <a href="/inactiveLoans" class="nav-link">
+                                <i class="nav-icon fa-solid fa-toggle-off"></i>
+                                <p>
+                                    Inactive Loans
+                                    {{-- <span class="right badge badge-danger"></span> --}}
+                                </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Top Navigation + Sidebar</p>
+                            <a href="/activeLoans" class="nav-link">
+                                <i class="nav-icon fa-solid fa-toggle-off"></i>
+                                <p>
+                                    Active Loans
+                                    {{-- <span class="right badge badge-danger"></span> --}}
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/completedLoans" class="nav-link">
+                                <i class="nav-icon fa-solid fa-toggle-off"></i>
+                                <p>
+                                    Completed Loans
+                                    {{-- <span class="right badge badge-danger"></span> --}}
+                                </p>
                             </a>
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="/withdrawal" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Withdrawal record
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/collection" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Collection record
+                        </p>
+                    </a>
+                </li>
+                @endif
             </ul>
         </nav>
     </div>

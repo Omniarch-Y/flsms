@@ -13,15 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('collection_receipts', function (Blueprint $table) {
+        Schema::create('penalities', function (Blueprint $table) {
             $table->id();
             $table->float('amount');
-            $table->unsignedBigInteger('saving_id');
-            $table->foreign('saving_id')->references('id')->on('savings')->onDelete('cascade')->onUpdate('cascade');
-            $table->unsignedBigInteger('loan_id');
-            $table->foreign('loan_id')->references('id')->on('loans')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('late_by')->default(0);
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->unsignedBigInteger('reciept_id');
+            $table->foreign('reciept_id')->references('id')->on('collection_receipts')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collection_receipts');
+        Schema::dropIfExists('penalities');
     }
 };

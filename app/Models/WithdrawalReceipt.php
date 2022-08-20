@@ -13,4 +13,12 @@ class WithdrawalReceipt extends Model
         'user_id',
         'loan_id',
     ];
+
+    public function loan() {
+        return $this->belongsTo(Loan::class,'loan_id');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

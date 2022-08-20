@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('insurances', function (Blueprint $table) {
+        Schema::create('savings', function (Blueprint $table) {
             $table->id();
-            $table->float('initial_deposit')->nullable();
-            $table->date('time_gap')->nullable();
-            $table->date('repayment_date')->nullable();
             $table->float('payed_amount')->nullable();
-            $table->float('monthly_payment');
             $table->float('remaining_balance')->nullable();
+            $table->float('monthly_payment');
+            $table->float('insurance_deposit')->nullable();
+            $table->date('repayment_date')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('insurances');
+        Schema::dropIfExists('savings');
     }
 };

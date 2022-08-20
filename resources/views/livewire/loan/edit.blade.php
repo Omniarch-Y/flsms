@@ -80,34 +80,28 @@
                             </div>
 
                             <div class="col-sm-4">
-                                <label for="starting date"
-                                    class="form-lable text-dark">{{ __('Starting date') }}</label>
+                                <label for="Loan period"
+                                    class="form-lable text-dark lable_color">{{ __('Loan period') }}</label>
 
-                                <input id="starting_date" type="date"
-                                    class="form-control @error('starting_date') is-invalid @enderror"
-                                    name="starting_date" value="{{ old('starting_date') }}" autocomplete="starting_date"
-                                    placeholder="{{ __('Enter starting date') }}" required wire:model="starting_date">
+                                <select class="form-control" id="loan_period" name="loan_period" required focus
+                                    wire:model="loan_period">
 
-                                @error('starting_date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                                   
+                                    <option value="" hidden selected>Select loan period</option>
+                                    <option value="10" selected>10 Years</option>
+                                    <option value="9" selected>9 Years</option>
+                                    <option value="8" selected>8 Years</option>
+                                    <option value="7" selected>7 Years</option>
+                                    <option value="6" selected>6 Years</option>
+                                    <option value="5" selected>5 Years</option>
+                                    <option value="4" selected>4 Years</option>
+                                    <option value="3" selected>3 Years</option>
+                                    <option value="2" selected>2 Years</option>
+                                    <option value="1" selected>1 Year</option>
+                                    <option value="0.2" selected>6 month</option>
+                                    <option value="0.25" selected>3 month</option>
 
-                            <div class="col-sm-4">
-                                <label for="Ending date" class="form-lable text-dark">{{ __('Ending date') }}</label>
-
-                                <input id="ending_date" type="date"
-                                    class="form-control @error('ending_date') is-invalid @enderror" name="ending_date"
-                                    value="{{ old('ending_date') }}" autocomplete="ending_date"
-                                    placeholder="{{ __('Enter ending date') }}" required wire:model="ending_date">
-
-                                @error('ending_date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                </select>
                             </div>
 
                             <div class="col-sm-4">

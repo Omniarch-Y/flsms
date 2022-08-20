@@ -23,6 +23,7 @@ return new class extends Migration
             $table->unsignedBigInteger('phone_number')->unique();
             $table->string('email')->unique()->nullable();
             $table->string('picture')->nullable();
+            $table->string('file_attachment')->nullable();
             $table->unsignedBigInteger('address_id')->nullable();
             $table->foreign('address_id')->references('id')->on('addresses')->onDelete('set null')->onUpdate('cascade');
             $table->string('nationality');

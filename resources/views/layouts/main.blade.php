@@ -34,8 +34,6 @@
 
 <body class="sidebar-mini layout-fixed">
 
-    {{-- @include('navbar') --}}
-
     <main>
         {{ $slot }}
     </main>

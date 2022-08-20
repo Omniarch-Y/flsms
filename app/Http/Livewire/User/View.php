@@ -2,17 +2,17 @@
 
 namespace App\Http\Livewire\User;
 
-use Livewire\Component;
-use App\Models\User;
 use App\Models\Address;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
-use Illuminate\Support\Facades\Hash;
 
 class View extends Component
-{      
+{
     use WithPagination;
-    
+
     use WithFileUploads;
 
     protected $paginationTheme = 'bootstrap';
@@ -20,9 +20,9 @@ class View extends Component
     public $search, $user_id, $first_name, $middle_name, $last_name, $dob, $sex, $email, $password, $password_confirmation, $phone_number, $picture, $role, $hno, $woreda, $subCity, $city, $country, $nationality;
 
     public $rules = [
-        'first_name' =>['required', 'string', 'max:255'],
-        'middle_name' =>['required', 'string', 'max:255'],
-        'last_name' =>['required', 'string', 'max:255'],
+        'first_name' => ['required', 'string', 'max:255'],
+        'middle_name' => ['required', 'string', 'max:255'],
+        'last_name' => ['required', 'string', 'max:255'],
         'dob' => ['required', 'date'],
         'sex' => ['required'],
         'phone_number' => ['required', 'numeric', 'min:10'],
@@ -37,7 +37,7 @@ class View extends Component
         'role' => ['required', 'string', 'max:255'],
         'password' => ['required', 'confirmed', 'min:4'],
     ];
-    
+
     public function updatingSearch()
     {
         $this->resetPage();
@@ -57,29 +57,29 @@ class View extends Component
         $country = $this->country;
 
         $isAvailable = Address::where('hno', $hno)
-                              ->where('woreda', $woreda)
-                              ->where('subCity', $subCity)
-                              ->where('city', $city)
-                              ->where('country', $country)
-                              ->first();
+            ->where('woreda', $woreda)
+            ->where('subCity', $subCity)
+            ->where('city', $city)
+            ->where('country', $country)
+            ->first();
 
-        if($isAvailable == false){
+        if ($isAvailable == false) {
             // creating new address
             Address::create([
-                    'hno'=> $hno,
-                    'woreda' => $woreda,
-                    'subCity' => $subCity,
-                    'city' => $city,
-                    'country' => $country,
+                'hno' => $hno,
+                'woreda' => $woreda,
+                'subCity' => $subCity,
+                'city' => $city,
+                'country' => $country,
             ]);
         }
 
         $findAddress = Address::where('hno', $hno)
-                              ->where('woreda', $woreda)
-                              ->where('subCity', $subCity)
-                              ->where('city', $city)
-                              ->where('country', $country)
-                              ->first();
+            ->where('woreda', $woreda)
+            ->where('subCity', $subCity)
+            ->where('city', $city)
+            ->where('country', $country)
+            ->first();
 
         $picture = $this->picture->store('public/userPictures');
 
@@ -105,16 +105,16 @@ class View extends Component
             // 'iconColor' => 'green'
         ]);
         $this->reset();
-        
+
         $this->dispatchBrowserEvent('close-modal');
     }
 
     public function update()
     {
         $validateData = $this->validate([
-            'first_name' =>['required', 'string', 'max:255'],
-            'middle_name' =>['required', 'string', 'max:255'],
-            'last_name' =>['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
+            'middle_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'dob' => ['required', 'date'],
             'sex' => ['required'],
             'phone_number' => ['required', 'numeric', 'min:10'],
@@ -126,6 +126,7 @@ class View extends Component
             'country' => ['required', 'string', 'max:255'],
             'nationality' => ['required', 'string', 'max:255'],
             'role' => ['required', 'string', 'max:255'],
+            'password' => ['confirmed'],
         ]);
 
         $savedAddress_1 = $this->hno;
@@ -135,35 +136,42 @@ class View extends Component
         $savedAddress_5 = $this->country;
 
         $isAvailable = Address::where('hno', $savedAddress_1)
-                               ->where('woreda', $savedAddress_2)
-                               ->where('subCity', $savedAddress_3)
-                               ->where('city', $savedAddress_4)
-                               ->where('country', $savedAddress_5)
-                               ->first();
-                               
-        if($isAvailable == false){
+            ->where('woreda', $savedAddress_2)
+            ->where('subCity', $savedAddress_3)
+            ->where('city', $savedAddress_4)
+            ->where('country', $savedAddress_5)
+            ->first();
+
+        if ($isAvailable == false) {
             // creating new address
             Address::create([
-                    'hno'=> $this->hno,
-                    'woreda' => $this->woreda,
-                    'subCity' => $this->subCity,
-                    'city' => $this->city,
-                    'country' => $this->country,
+                'hno' => $this->hno,
+                'woreda' => $this->woreda,
+                'subCity' => $this->subCity,
+                'city' => $this->city,
+                'country' => $this->country,
             ]);
         }
 
         $findAddress = Address::where('hno', $savedAddress_1)
-                              ->where('woreda', $savedAddress_2)
-                              ->where('subCity', $savedAddress_3)
-                              ->where('city', $savedAddress_4)
-                              ->where('country', $savedAddress_5)
-                              ->first();
-        
-        if ($this->picture == null){
+            ->where('woreda', $savedAddress_2)
+            ->where('subCity', $savedAddress_3)
+            ->where('city', $savedAddress_4)
+            ->where('country', $savedAddress_5)
+            ->first();
+
+        if ($this->picture == null) {
             $currentUser = User::find($this->user_id);
             $picture = $currentUser->picture;
-        }else{
+        } else {
             $picture = $this->picture->store('public/userPictures');
+        }
+
+        if ($this->password == null) {
+            $currentUser = User::find($this->user_id);
+            $password = $currentUser->password;
+        } else {
+            $password = Hash::make($this->password);
         }
 
         User::where('id', $this->user_id)->update([
@@ -178,6 +186,7 @@ class View extends Component
             'address_id' => $findAddress->id,
             'nationality' => $validateData['nationality'],
             'role' => $validateData['role'],
+            'password' => $password,
         ]);
 
         $this->dispatchBrowserEvent('respond', [
@@ -189,12 +198,12 @@ class View extends Component
         $this->reset();
     }
 
-    public function editUser(int $user_id) 
+    public function editUser(int $user_id)
     {
         $user = User::find($user_id);
         $address = Address::find($user->address_id);
 
-        if($user){
+        if ($user) {
             $this->user_id = $user->id;
             $this->first_name = $user->first_name;
             $this->middle_name = $user->middle_name;
@@ -210,7 +219,7 @@ class View extends Component
             $this->country = $address->country;
             $this->nationality = $user->nationality;
             $this->role = $user->role;
-        }else{
+        } else {
             return redirect()->to('/users')->with('error', 'user was not found');
         }
     }
@@ -219,10 +228,10 @@ class View extends Component
     {
         $authUser = auth()->user()->id;
 
-        if($user !== $authUser){
+        if ($user !== $authUser) {
             $this->user_id = $user;
             $this->dispatchBrowserEvent('deleteUser');
-        }else {
+        } else {
             $this->dispatchBrowserEvent('respond', [
                 'title' => 'Invalid action!',
                 'icon' => 'error',
@@ -244,10 +253,10 @@ class View extends Component
 
     public function render()
     {
-        $search = '%'.$this->search.'%';
-        $users = User::where('first_name','like', $search)
-                                ->orWhere('phone_number', 'like', $search)       
-                                ->paginate(10);
+        $search = '%' . $this->search . '%';
+        $users = User::where('first_name', 'like', $search)
+            ->orWhere('phone_number', 'like', $search)
+            ->paginate(10);
         return view('livewire.user.view', ['users' => $users]);
     }
 }

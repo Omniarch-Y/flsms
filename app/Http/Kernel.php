@@ -65,9 +65,11 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         //Custom defined middleware
-        'isAdmin'=>\App\Http\Middleware\Admin::class,
+        // 'isAdmin'=>\App\Http\Middleware\Admin::class,
         'isLoan_officer'=>\App\Http\Middleware\Loan_officer::class,
         'isEncoder'=>\App\Http\Middleware\Encoder::class,
         'isManager'=>\App\Http\Middleware\Manager::class,
+        'isManager_encoder'=>\App\Http\Middleware\manager_encoder::class,
+        'isManager_loan_officer'=>\App\Http\Middleware\manager_loan_officer::class,
     ];
 }

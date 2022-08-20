@@ -18,6 +18,7 @@ class Customer extends Model
         'phone_number',
         'email',
         'picture',
+        'file_attachment',
         'address_id',
         'nationality',
         'business_type',
@@ -25,4 +26,11 @@ class Customer extends Model
         // 'password',
         'user_id',
     ];
+
+    public function address() {
+        return $this->belongsTo(Address::class,'address_id');
+        
+    }
 }
+
+

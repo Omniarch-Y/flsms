@@ -265,7 +265,7 @@ $notfilled = $errors->any() || empty($this->first_name) || empty($this->middle_n
 
                             </div>
 
-                            <div class="col-sm-5">
+                            <div class="col-sm-8">
                                 <label for="Remark" class="form-lable text-dark">{{ __('Remark') }}</label>
 
                                 <textarea id="remark" placeholder="{{ __('Enter remark') }}" type="text-field"
@@ -277,10 +277,21 @@ $notfilled = $errors->any() || empty($this->first_name) || empty($this->middle_n
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-
                             </div>
 
-                            <div class="col-sm-3">
+                            <div class="col-sm-4">
+                                <label for="file_attachment" class="form-lable text-dark">{{ __('File attachment') }}</label>
+
+                                <input name="file_attachment" type="file" class="form-control" wire:model="file_attachment"
+                                    required>
+                                @error('file_attachment')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-sm-4">
                                 <label for="picture" class="form-lable text-dark">{{ __('Picture') }}</label>
 
                                 <input name="picture" type="file" class="form-control" wire:model="picture"
@@ -292,11 +303,13 @@ $notfilled = $errors->any() || empty($this->first_name) || empty($this->middle_n
                                 @enderror
                             </div>
 
-                            <div class="col-sm-12">
+                            <div class="col-sm-4">
+                                <center>
                                 @if ($picture)
-                                    <img class="mb-6 ms-5" src="{{ $picture->temporaryUrl() }}"
-                                        style="max-width:10rem;min-height:10rem;">
+                                    <img class="mb-6 me-5" src="{{ $picture->temporaryUrl() }}"
+                                        style="max-width:10rem; min-height:10rem; float:right">
                                 @endif
+                            </center>
                             </div>
 
                         </div>
