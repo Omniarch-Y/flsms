@@ -231,7 +231,7 @@ class View extends Component
             $currentCustomer = Customer::find($this->customer_id);
             $file_attachment = $currentCustomer->file_attachment;
         } else {
-            $file_attachment = $this->file_attachment->store('public/customerPictures');
+            $file_attachment = $this->file_attachment->store('public/customerFiles');
         }
 
         if ($findGroup == null) {
