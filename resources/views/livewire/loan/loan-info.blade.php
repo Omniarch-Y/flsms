@@ -6,10 +6,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="{{ Storage::url($cust->picture) }}" alt="Admin" class="rounded-circle"
+                            <img src="{{ Storage::url($loa->contract ) }}" alt="Admin" class="rounded-circle"
                                 width="200">
                             <div class="mt-3">
-                                <h4>{{ $cust->first_name }}{{ ' ' }}{{ $cust->middle_name }}</h4>
+                                <h4>{{ $loa->first_name }}{{ ' ' }}{{ $loa->middle_name }}</h4>
                                 {{-- <p class="text-secondary mb-1">Full Stack Developer</p>
                                 <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
                                 <button class="btn btn-primary">Follow</button>
@@ -48,10 +48,10 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Full Name</h6>
+                                <h6 class="mb-0">Customer Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $cust->first_name }}{{ ' ' }}{{ $cust->middle_name }}{{ ' ' }}{{ $cust->last_name }}
+                                {{ $loa->customer->first_name }}{{ ' ' }}{{ $loa->customer->middle_name }}{{ ' ' }}{{ $loa->customer->last_name }}
                             </div>
                         </div>
                         <hr>
@@ -60,7 +60,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-success text-bold" style="font-size: 15px;">
-                                {{ $cust->email }}
+                                {{ $loa->email }}
                             </div>
                         </div>
                         <hr>
@@ -69,7 +69,7 @@
                                 <h6 class="mb-0">Phone</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $cust->phone_number }}
+                                {{-- {{ $loa->phone_number }} --}}
                             </div>
                         </div>
                         <hr>
@@ -78,7 +78,7 @@
                                 <h6 class="mb-0">House number</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $cust->address->hno }}
+                                {{-- {{ $loa->address->hno }} --}}
                             </div>
                         </div>
                         <hr>
@@ -87,7 +87,7 @@
                                 <h6 class="mb-0">Woreda</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $cust->address->woreda }}
+                                {{-- {{ $loa->address->woreda }} --}}
                             </div>
                         </div>
                         <hr>
@@ -96,7 +96,7 @@
                                 <h6 class="mb-0">Address</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $cust->address->subCity }},{{ ' ' }}{{ $cust->address->city }},{{ ' ' }}{{ $cust->address->country }}
+                                {{-- {{ $loa->address->subCity }},{{ ' ' }}{{ $loa->address->city }},{{ ' ' }}{{ $loa->address->country }} --}}
                             </div>
                         </div>
                         <hr>
@@ -104,7 +104,7 @@
                             <div class="col-sm-3">
                                 <h6 class="mb-0">Sex</h6>
                             </div>
-                            @if ($cust->sex == 'M')
+                            {{-- @if ($loa->sex == 'M')
                                 <div class="col-sm-9 text-secondary">
                                     Male
                                 </div>
@@ -112,7 +112,7 @@
                                 <div class="col-sm-9 text-secondary">
                                     Female
                                 </div>
-                            @endif
+                            @endif --}}
                         </div>
                         <hr>
                         <div class="row">
@@ -120,7 +120,7 @@
                                 <h6 class="mb-0">Date of birth</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $cust->dob }}
+                                {{-- {{ $loa->dob }} --}}
                             </div>
                         </div>
                         <hr>
@@ -129,16 +129,16 @@
                                 <h6 class="mb-0">nationality</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $cust->nationality }}
+                                {{-- {{ $loa->nationality }} --}}
                             </div>
                         </div>
                         <hr>
                         <div class="row">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Active loans</h6>
+                                <h6 class="mb-0">Active loas</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $loan->count() }}
+                                {{-- {{ $loa->count() }} --}}
                             </div>
                         </div>
                         <hr>
@@ -147,7 +147,7 @@
                                 <h6 class="mb-0">Business type</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                {{ $cust->business_type }}
+                                {{-- {{ $loa->business_type }} --}}
                             </div>
                         </div>
                         <hr class="mb-3">
@@ -161,7 +161,7 @@
 <div class="card mt-5">
     <div class="card-body">
         <div class="d-flex flex-column align-items-center text-center">
-            <img src="{{ Storage::url($cust->file_attachment) }}" alt="Admin" width="600">
+            <img src="{{ Storage::url($loa->contract) }}" alt="Admin" width="600">
             <div class="mt-3">
                 <h4>File attachment</h4>
             </div>

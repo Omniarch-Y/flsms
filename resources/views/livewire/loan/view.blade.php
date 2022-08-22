@@ -158,7 +158,8 @@
                             </td>
 
                             <td>
-                                <button class="btn btn-secondary btn-sm me-3">view</button>
+                                <a class="btn btn-info btn-sm me-3"
+                                    href="{{ url('loan-info' . '/' . $loan->id) }}">view</a>
                                 <button type="button" class="btn btn-warning btn-sm me-3"
                                     wire:click='editLoan({{ $loan->id }})'><i class="fa-regular fa-pen-to-square"
                                         aria-hidden="true"></i></button>

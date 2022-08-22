@@ -152,6 +152,19 @@
                                 @enderror
 
                             </div>
+
+                            <div class="col-sm-4">
+                                <label for="contract" class="form-lable text-dark">{{ __('Contract') }}</label>
+
+                                <input name="contract" type="file" class="form-control" wire:model="contract"
+                                    required>
+                                @error('contract')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
                         </div>
                         <center>
                             <button type="submit" class="btn btn-primary" wire:target="update"

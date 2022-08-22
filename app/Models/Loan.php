@@ -40,8 +40,8 @@ class Loan extends Model
         return $this->belongsTo(Collateral::class,'coll_id');
 
     }
-    public function insurance() {
-        return $this->belongsTo(Insurance::class,'insu_id');
+    public function savings() {
+        return $this->belongsTo(Saving::class,'saving_id');
 
     }
     public function interest() {

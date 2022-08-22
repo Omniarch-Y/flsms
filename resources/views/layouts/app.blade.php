@@ -21,8 +21,8 @@
         <script src="{{ asset('js/mdb.min.js') }}" defer></script>
 
         <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="{{ asset('css/fonts/Nunito.css') }}" rel="stylesheet">
+        {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="{{ asset('css/fonts/Nunito.css') }}" rel="stylesheet"> --}}
 
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">

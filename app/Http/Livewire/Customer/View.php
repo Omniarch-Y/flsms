@@ -432,6 +432,7 @@ class View extends Component
             'interest_date' => Carbon::now()->addDays(30),
             'cust_id' => $this->customer_id,
             'saving_id' => $Saving->id,
+            'contract' => $contract,
             'int_id' => $findInterest->id,
             'coll_id' => $collateral->id,
             'user_id' => auth()->user()->id,

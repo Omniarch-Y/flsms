@@ -13,16 +13,19 @@ use App\Models\WithdrawalReceipt;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class View extends Component
 {
     use WithPagination;
 
+    use WithFileUploads;
+
     protected $paginationTheme = 'bootstrap';
 
     public $search, $loan_type, $amount, $starting_date, $ending_date, $collateral_type, $value, $penalty_rate, $description, $net_amount, $initial_deposit, $collected_amount, $interest_rate, $interest_type, $loan_period;
-    public $loan_id, $total, $difference;
+    public $loan_id, $total, $difference, $contract;
 
     public $rules = [
         // Loan and collateral values validation
@@ -38,7 +41,7 @@ class View extends Component
         'initial_deposit' => ['required', 'numeric'],
 
         'collected_amount' => ['required', 'numeric'],
-
+        'contract' => ['required', 'image'],
         'interest_rate' => ['required', 'numeric'],
         'interest_type' => ['required', 'string'],
     ];
@@ -125,11 +128,19 @@ class View extends Component
             'repayment_date' => Carbon::now()->addMonths(1),
         ]);
 
+        if ($this->contract == null) {
+            $currentLoan = Loan::find($this->loan_id);
+            $contract = $currentLoan->contract;
+        } else {
+            $contract = $this->contract->store('public/contract');
+        }
+
         Loan::where('id', $this->loan_id)->update([
             'amount' => $this->amount,
             'total_debt' => $this->amount,
             'service_charge' => $this->amount * 0.02,
             'loan_type' => $this->loan_type,
+            'contract' => $contract,
             'starting_date' => $this->starting_date,
             'ending_date' => $this->ending_date,
             'int_id' => $findInterest->id,
