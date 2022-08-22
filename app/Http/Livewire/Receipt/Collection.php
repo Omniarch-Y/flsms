@@ -39,7 +39,7 @@ class Collection extends Component
         $search = '%' . $this->search . '%';
 
         $collections = CollectionReceipt::where('id', 'like', $search)->orWhere('created_at', 'like', $search)->orderBy('created_at', 'desc')->paginate(5);
-        return view('livewire.receipt.collection', ['collections' => $collections])->layout('layouts.main');
+        return view('livewire.Receipt.collection', ['collections' => $collections])->layout('layouts.main');
     }
 }
 

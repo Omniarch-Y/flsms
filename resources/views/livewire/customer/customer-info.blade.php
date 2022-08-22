@@ -157,3 +157,14 @@
         </div>
     </div>
 </div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="d-flex flex-column align-items-center text-center">
+            <img src="{{ Storage::url($cust->file_attachment) }}" alt="Admin" width="600">
+            <div class="mt-3">
+                <h4>File attachment</h4>
+            </div>
+        </div>
+    </div>
+</div>

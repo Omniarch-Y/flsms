@@ -37,7 +37,7 @@ class Withdrawal extends Component
         $search = '%' . $this->search . '%';
 
         $withdrawals = WithdrawalReceipt::where('id', 'like', $search)->orWhere('created_at', 'like', $search)->with('user')->with('loan')->orderBy('created_at', 'desc')->paginate(5);
-        return view('livewire.receipt.withdrawal', ['withdrawals' => $withdrawals])->layout('layouts.main');
+        return view('livewire.Receipt.withdrawal', ['withdrawals' => $withdrawals])->layout('layouts.main');
     }
 }
 
