@@ -49,7 +49,7 @@ class View extends Component
         'amount' => ['required', 'numeric'],
         'loan_type' => ['required', 'string'],
         'loan_period' => ['required', 'numeric'],
-        'contract' => ['required|mimes:jpg,png,jpeg,svg,gif,pdf'],
+        'contract' => ['required', 'image'],
         'starting_date' => ['required', 'date'],
         'ending_date' => ['required', 'date'],
         'collateral_type' => ['required', 'string'],
