@@ -11,9 +11,9 @@
     <style>
         .card {
             padding-bottom: 0px;
-            width: 20%;
+            width: 90%;
             margin-top: 30px;
-            background: #f0f0f0;
+            background: #eee;
             font-family: 'Helvetica Neue', Helvetica, Arial;
 
         }
@@ -27,7 +27,7 @@
             justify-content: space-between;
         }
     </style>
-    <div class="card container text">
+         <div class="card container text">
         <strong>
             @if ($message = Session::get('error'))
                 <div class="alert alert-danger center_text">
@@ -37,46 +37,58 @@
         </strong>
         <form action="{{ url('/changeStatus') }}" method="POST">
             @csrf
+            <img src="{{URL::asset('/image/logo.png')}}" alt="profile Pic" height="200" width="200">
             <h4 class="text-center">LOAN RECEIPT</h4>
             <div class="text-center">FLSMS</div>
-            <div class="text-center">WEE WE BORROWED</div>
+            <div class="text-center">{{ $data->first_name}}</div>
             <div class="text-center">Tel :0987654321</div>
             <div class="text-center mt-3">RECIPT :</div>
             {{-- @foreach ($informations as $information)
-    <div class="text-center">DATE :{{$information->created_at->format('Y-m-d') }}</div>
+    <div class="text-center">DATE :{{ date("Y-m-d")}}</div>
     @endforeach --}}
-            <div class="text-center">DATE :</div>
-            <div class="text-center mb-1">CASHER :{{ auth()->user()->name }}</div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+            <div class="text-center">DATE :{{ date("Y-m-d")}}</div>
+            <div class="text-center mb-1">CASHER :{{ auth()->user()->first_name}}</div>
+            <div class="dot text-center"> - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
             {{-- @foreach ($data as $data) --}}
-
+            <div class="invoice-details mt25">
+                            <div class="well">
+                                <ul class="list-unstyled mb0">
+                                    <li class="item"><strong>Customer ID : </strong>{{ $data->id }}</li>
+                                    <li><strong>Taken Date:</strong> {{ $data->starting_date }}</li>
+                                    <li><strong>Ending Date:</strong> {{ $data->ending_date }}</li>
+                                    <li><strong>Status:</strong> <span class="label label-danger">Withdrawed</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        {{-- @endforeach --}}
+            <div class="e text-center"> - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
             <div id="container">
-                <div class="item">{{ $data->id }}</div>
+                <div class="item">Total Debit</div>
                 <div class="price">{{ $data->amount }}Br</div>
             </div>
             {{-- @endforeach --}}
-            <div class="e">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+            <div class="e text-center"> - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
             <div id="container">
-                <div class="x">TAXABLE</div>
-                <div class="priceView">Br</div>
+                <div class="x">Service Charge</div>
+                <div class="priceView">{{ $data->service_charge }}</div>
             </div>
             <div id="container">
-                <div class="x">VAT15%</div>
-                <div class="priceView">Br</div>
+                <div class="x">Interest applies on</div>
+                <div class="priceView">{{ $data->interest_date}}</div>
             </div>
             <div id="container">
-                <strong class="price">TOTAL</strong>
-                <strong class="priceView">Br</strong>
+                <strong class="price">Loan Type</strong>
+                <strong class="priceView">{{ $data->loan_type}}</strong>
             </div>
             <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
             <div id="container">
                 <div class="Cash">CASH:</div>
-                <div class="cashView">Br</div>
+                <div class="cashView">{{ $data->net_amount }}Br</div>
             </div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
-            <div class="PaidWith">Paid with CASH</div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
+            <div class="PaidWith text-center">Paid with CASH</div>
+            <div class="dot text-center">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+            <div class="dot text-center">- - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - -</div>
             <div class="text-center">THANK YOU</div>
             <div class="text-center">HAVE A NICE DAY</div>
     </div>

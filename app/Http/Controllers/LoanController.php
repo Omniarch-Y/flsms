@@ -63,7 +63,7 @@ class LoanController extends Controller
         $saving = Saving::find($collection->saving_id);
         $penality = Penality::where('reciept_id', $id);
 
-        return view('livewire.Receipt.collection_receipt', ['loan' => $loan, 'saving' => $saving, 'collection' => $collection]);
+        return view('livewire.Receipt.collection_receipt', compact('loan','saving','collection','penality'));
     }
 
     /**

@@ -61,11 +61,11 @@ Route::get('customers', Customer::class)->middleware('isLoan_officer');
 Route::get('loans', Loan::class)->middleware('isEncoder');
 
 Route::get('inactiveLoans', InactiveLoans::class)->middleware('isManager');
-Route::get('activeLoans', ActiveLoans::class)->middleware('isManager');
+// Route::get('activeLoans', ActiveLoans::class)->middleware('isManager');
 Route::get('completedLoans', CompletedLoans::class)->middleware('isManager');
 
-Route::get('withdrawal', withdrawal::class)->middleware('isManager');
-Route::get('collection', collection::class)->middleware('isManager');
+Route::get('withdrawal', Withdrawal::class)->middleware('isManager');
+Route::get('collection', Collection::class)->middleware('isManager');
 
 Route::get('users', User::class)->middleware('isManager');
 

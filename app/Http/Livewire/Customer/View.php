@@ -8,7 +8,7 @@ use App\Models\Customer;
 use App\Models\GroupCustomer;
 use App\Models\Interest;
 use App\Models\Loan;
-use App\Models\Saving;
+use App\Models\saving;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithFileUploads;

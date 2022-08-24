@@ -11,7 +11,7 @@
     <style>
         .card {
             padding-bottom: 0px;
-            width: 20%;
+            width: 90%;
             margin-top: 30px;
             background: #f0f0f0;
             font-family: 'Helvetica Neue', Helvetica, Arial;
@@ -37,46 +37,55 @@
         </strong>
         <form action="{{ url('/changeStatus') }}" method="POST">
             @csrf
+            <div><img src="{{URL::asset('/image/logo.png')}}" alt="logo Pic" height="100" width="100"></div>
             <h4 class="text-center">LOAN RECEIPT</h4>
             <div class="text-center">FLSMS</div>
-            <div class="text-center">WEE WE BORROWED</div>
             <div class="text-center">Tel :0987654321</div>
             <div class="text-center mt-3">RECIPT :</div>
             {{-- @foreach ($informations as $information)
-    <div class="text-center">DATE :{{$information->created_at->format('Y-m-d') }}</div>
+    <div class="text-center">DATE :{{ date("Y-m-d")}}</div>
     @endforeach --}}
-            <div class="text-center">DATE :</div>
-            <div class="text-center mb-1">CASHER :{{ auth()->user()->name }}</div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+            <div class="text-center">DATE :{{ date("Y-m-d")}}</div>
+            <div class="text-center mb-1">CASHER :{{ auth()->user()->first_name}}</div>
+            <div class="dot text-center"> - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
             {{-- @foreach ($data as $data) --}}
 
-            <div id="container">
-                <div class="item">{{ $collection->id }}</div>
-                <div class="price">{{ $collection->amount }}Br</div>
-            </div>
+            <div class="invoice-details mt25">
+                            <div class="well">
+                                <ul class="list-unstyled mb0">
+                                    <li class="item"><strong>Customer ID : </strong>{{ $collection->id }}</li>
+                                    <li><strong>Taken Date:</strong> DATE :{{ date("Y-m-d")}} </li>
+                                    <li><strong>Status:</strong> <span class="label label-danger">collected</span></li>
+                                </ul>
+                            </div>
+                        </div>
             {{-- @endforeach --}}
             <div class="e">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
             <div id="container">
-                <div class="x">TAXABLE</div>
-                <div class="priceView">Br</div>
+            <div class="x">Reciept ID </div>
+                <div class="priceView"></div>
             </div>
             <div id="container">
-                <div class="x">VAT15%</div>
+            <div class="x">Late By </div>
+                <div class="priceView"></div>
+            </div>
+            <div id="container">
+                <div class="x">Penality</div>
                 <div class="priceView">Br</div>
             </div>
             <div id="container">
                 <strong class="price">TOTAL</strong>
                 <strong class="priceView">Br</strong>
-            </div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+                </div>
+            <div class="dot">-- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
             <div id="container">
                 <div class="Cash">CASH:</div>
-                <div class="cashView">Br</div>
+                <div class="cashView strong">{{ $collection->amount }}Br</div>
             </div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
-            <div class="PaidWith">Paid with CASH</div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
-            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+            <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
+            <div class="PaidWith text-center">Paid with CASH</div>
+            <div class="dot text-center">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
+            <div class="dot text-center">- - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - -</div>
             <div class="text-center">THANK YOU</div>
             <div class="text-center">HAVE A NICE DAY</div>
     </div>
