@@ -1,175 +1,126 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-        @if(auth()->user()->role == 'loan_officer')
-        <a href="/customers" class="brand-link">       
+    @if (auth()->user()->role == 'loan_officer')
+        <a href="/customers" class="brand-link">
             <i class="fa-solid fa-hand-holding-dollar ms-4 me-2"></i>
             <span class="brand-text font-weight-light">FLSMS</span>
         </a>
-        @elseif(auth()->user()->role == 'manager')
+    @elseif(auth()->user()->role == 'manager')
         <a href="/users" class="brand-link">
             <i class="fa-solid fa-hand-holding-dollar ms-4 me-2"></i>
             <span class="brand-text font-weight-light">FLSMS</span>
         </a>
-        @else
+    @else
         <a href="/loans" class="brand-link">
             <i class="fa-solid fa-hand-holding-dollar ms-4 me-2"></i>
             <span class="brand-text font-weight-light">FLSMS</span>
         </a>
-        @endif
+    @endif
 
     <div class="sidebar">
-
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-                <img src="{{ Storage::url(auth()->user()->picture) }}" class="img-circle elevation-2"
-                    alt="User Image">
-            </div>
-            <div class="info">
-                <a href="#"
-                    class="d-block">{{ auth()->user()->first_name }}{{ ' ' }}{{ auth()->user()->middle_name }}</a>
-            </div>
-            
-        </div>
-
-        {{-- <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-                <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                    aria-label="Search">
-                <div class="input-group-append">
-                    <button class="btn btn-sidebar">
-                        <i class="fas fa-search fa-fw"></i>
-                    </button>
-                </div>
-            </div>
-        </div> --}}
 
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
 
-                {{-- <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Dashboard
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                </li> --}}
-                @if(auth()->user()->role == 'loan_officer')
-                <li class="nav-item">
-                    <a href="" data-bs-toggle="modal" data-bs-target="#registerCustomer" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Add Customer
-                            {{-- <span class="right badge badge-danger">New</span> --}}
-                        </p>
-                    </a>
-                </li>
-                @endif
-                {{-- <a href="#" class="list-group-item list-group-item-action waves-effect">
-          <i class="fas fa-user mr-3"></i>Profile</a> --}}
-                @if(auth()->user()->role == 'manager')
-                <li class="nav-item">
-                    <a href="" data-bs-toggle="modal" data-bs-target="#registerUser" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Add User
-                            {{-- <span class="right badge badge-danger">New</span> --}}
-                        </p>
-                    </a>
-                </li>
+                @if (auth()->user()->role == 'loan_officer')
+                    <li class="nav-item">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#registerCustomer" class="nav-link">
+                            <i class="nav-icon fa-solid fa-person-circle-plus"></i>
+                            <p>
+                                Add Customer
+                            </p>
+                        </a>
+                    </li>
                 @endif
 
-                @if(auth()->user()->role == 'manager')
-                <li class="nav-item">
-                    <a href="/inactiveLoans" class="nav-link">
-                        <i class="nav-icon fa-solid fa-toggle-off"></i>
-                        <p>
-                            Inactive Loans
-                            {{-- <span class="right badge badge-danger"></span> --}}
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/users" class="nav-link">
-                        <i class="nav-icon fa-solid fa-users"></i>
-                        <p>
-                            Users
-                            {{-- <span class="right badge badge-danger"></span> --}}
-                        </p>
-                    </a>
-                </li>
+                @if (auth()->user()->role == 'manager')
+                    <li class="nav-item">
+                        <a href="" data-bs-toggle="modal" data-bs-target="#registerUser" class="nav-link">
+                            <i class="nav-icon fa-solid fa-user-plus"></i>
+                            <p>
+                                Add User
+                            </p>
+                        </a>
+                    </li>
                 @endif
 
-                @if(auth()->user()->role == 'encoder')
-                <li class="nav-item">
-                    <a href="pages/widgets.html" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Widgets
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li>
+                @if (auth()->user()->role == 'manager')
+                    <li class="nav-item">
+                        <a href="/users" class="nav-link">
+                            <i class="nav-icon fa-solid fa-users"></i>
+                            <p>
+                                Users
+                            </p>
+                        </a>
+                    </li>
                 @endif
-                
-                @if(auth()->user()->role == 'manager')
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
-                        <p>
-                            Loans
-                            <i class="fas fa-angle-left right"></i>
-                            <span class="badge badge-info right">6</span>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="/inactiveLoans" class="nav-link">
-                                <i class="nav-icon fa-solid fa-toggle-off"></i>
-                                <p>
-                                    Inactive Loans
-                                    {{-- <span class="right badge badge-danger"></span> --}}
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/activeLoans" class="nav-link">
-                                <i class="nav-icon fa-solid fa-toggle-off"></i>
-                                <p>
-                                    Active Loans
-                                    {{-- <span class="right badge badge-danger"></span> --}}
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/completedLoans" class="nav-link">
-                                <i class="nav-icon fa-solid fa-toggle-off"></i>
-                                <p>
-                                    Completed Loans
-                                    {{-- <span class="right badge badge-danger"></span> --}}
-                                </p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="/withdrawal" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Withdrawal record
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/collection" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Collection record
-                        </p>
-                    </a>
-                </li>
+
+                @if (auth()->user()->role == 'encoder')
+                    <li class="nav-item">
+                        <a href="pages/widgets.html" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Widgets
+                                <span class="right badge badge-danger">New</span>
+                            </p>
+                        </a>
+                    </li>
+                @endif
+
+                @if (auth()->user()->role == 'manager')
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa-solid fa-wallet"></i>
+                            <p>
+                                Loans
+                                <i class="fas fa-angle-left right"></i>
+                                <span class="badge badge-info right">6</span>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/inactiveLoans" class="nav-link">
+                                    <i class="nav-icon fa-brands fa-creative-commons-nc"></i>
+                                    <p>
+                                        Inactive Loans
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/activeLoans" class="nav-link">
+                                    <i class="nav-icon fa-solid fa-sack-dollar"></i>
+                                    <p>
+                                        Active Loans
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/completedLoans" class="nav-link">
+                                    <i class="nav-icon fas fa-dollar-sign"></i>
+                                    <p>
+                                        Completed Loans
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/withdrawal" class="nav-link">
+                            <i class="nav-icon fa-solid fa-arrow-up"></i>
+                            <p>
+                                Withdrawal record
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/collection" class="nav-link">
+                            <i class="nav-icon fa-solid fa-arrow-down"></i>
+                            <p>
+                                Collection record
+                            </p>
+                        </a>
+                    </li>
                 @endif
             </ul>
         </nav>

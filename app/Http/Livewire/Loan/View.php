@@ -244,7 +244,7 @@ class View extends Component
             $repayment_date = Carbon::parse($Saving->repayment_date);
 
             $difference = $repayment_date->diffInDays($current);
-
+ 
             if ($repayment_date->isPast() && $difference >= 0) {
 
                 $this->monthly_payment = $Saving->monthly_payment;
@@ -256,6 +256,7 @@ class View extends Component
                 $this->difference = $difference;
 
             } else {
+                // dd($difference);
                 $this->monthly_payment = $Saving->monthly_payment;
                 $this->penality = 0;
                 $this->total = $this->monthly_payment;
@@ -268,7 +269,11 @@ class View extends Component
     }
 
     public function collectLoan()
-    {
+    {   
+        $loan = Loan::find($this->loan_id);
+
+        $saving = Saving::find($loan->saving_id);
+
         if ($this->collected_amount < $this->total) {
             $this->dispatchBrowserEvent('respond', [
                 'title' => 'Input requred amount',
@@ -276,12 +281,20 @@ class View extends Component
                 // 'iconColor' => 'green'
             ]);
             $this->dispatchBrowserEvent('collect-modal');
-        } else {
+        }else if($saving->remaining_balance < $this->collected_amount){
+            $this->dispatchBrowserEvent('respond', [
+                'title' => 'Input is over requred amount',
+                'icon' => 'error',
+                // 'iconColor' => 'green'
+            ]);
+            $this->dispatchBrowserEvent('collect-modal');
+
+        }else {
 
             $sudo = Carbon::now()->format('Y-m-d');
-            $loan = Loan::find($this->loan_id);
+            // $loan = Loan::find($this->loan_id);
 
-            $saving = Saving::find($loan->saving_id);
+            // $saving = Saving::find($loan->saving_id);
 
             $collection_receipts = CollectionReceipt::create([
                 'amount' => $this->collected_amount,
@@ -292,13 +305,20 @@ class View extends Component
 
             $collected_amount = $this->collected_amount - $this->penality;
             $total_payed_amount = $saving->payed_amount + $collected_amount;
-
+            // dd($loan->total_debt - $total_payed_amount);
             Saving::find($loan->saving_id)->update([
                 'payed_amount' => $total_payed_amount,
                 'remaining_balance' => $loan->total_debt - $total_payed_amount,
                 'repayment_date' => Carbon::parse($saving->repayment_date)->addDays(30),
             ]);
+            $Updated_saving = Saving::find($loan->saving_id);
+            
+            if($Updated_saving->remaining_balance <= 0){
+                Loan::find($this->loan_id)->update([
+                    'status' => 'completed'
+                ]);
 
+            }
             if ($this->penality >= 0) {
                 penality::create([
                     'amount' => $this->penality,

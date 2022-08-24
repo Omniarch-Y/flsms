@@ -260,8 +260,7 @@
                             <div class="col-sm-4">
                                 <label for="file_attachment" class="form-lable text-dark">{{ __('File attachment') }}</label>
 
-                                <input name="file_attachment" type="file" class="form-control" wire:model="file_attachment"
-                                    required>
+                                <input name="file_attachment" type="file" class="form-control" wire:model="file_attachment">
                                 @error('file_attachment')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

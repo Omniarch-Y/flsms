@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="card-body">
-                    {{-- <div> --}}
+
                     @if (session()->has('message'))
                         <center>
                             <div class="alert alert-success text-center col-sm-6">
@@ -21,7 +21,6 @@
                             </div>
                         </center>
                     @endif
-                    {{-- </div> --}}
 
                     <table class="table table-hover mt-5">
                         <thead class="thead-inverse|thead-default">
@@ -31,7 +30,6 @@
                                 <th class="fw-bold">Sex</th>
                                 <th class="fw-bold">Date of birth</th>
                                 <th class="fw-bold">Phone</th>
-                                {{-- <th class="fw-bold">Email</th> --}}
                                 <th class="fw-bold">role</th>
                                 <th></th>
                             </tr>
@@ -57,21 +55,20 @@
                                     <td>
                                         <p class="fw-normal mb-1">{{ $user->phone_number }}</p>
                                     </td>
-                                    {{-- <td>
-                                        <p class="fw-normal mb-1">{{ $user->email }}</p>
-                                    </td> --}}
                                     <td>
                                         <p class="fw-normal mb-1">{{ $user->role }}</p>
                                     </td>
                                     <td>
-                                        <a class="btn btn-info btn-sm me-3 "
-                                        href="{{url('user-info'.'/'.$user->id)}}">view</a>
+                                        <a class="btn btn-info btn-sm me-5 "
+                                            href="{{ url('user-info' . '/' . $user->id) }}">view</a>
                                         <button type="button" class="btn btn-warning btn-sm me-3"
                                             data-bs-toggle="modal" data-bs-target="#editUser"
-                                            wire:click='editUser({{ $user->id }})'>Edit</button>
+                                            wire:click='editUser({{ $user->id }})'><i
+                                                class="fa-regular fa-pen-to-square" aria-hidden="true"></i></button>
                                         @include('livewire.user.edit')
                                         <button type="button" class="btn btn-danger btn-sm"
-                                            wire:click='deleteUser({{ $user->id }})'>Delete</button>
+                                            wire:click='deleteUser({{ $user->id }})'><i class="fa fa-trash"
+                                                aria-hidden="true"></i></button>
                                         @include('livewire.user.delete')
                                     </td>
                                 </tr>

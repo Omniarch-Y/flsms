@@ -1,0 +1,335 @@
+
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:02:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:03:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:04:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:05:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4353
+monthly interest rate ---- 0.0125
+new total debt ---- 4407.4125
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 435
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 438.625
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:06:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:07:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:08:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:43:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:44:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4407.41
+monthly interest rate ---- 0.0125
+new total debt ---- 4461.8225
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+   ErrorException 
+
+  Attempt to read property "remaining_balance" on bool
+
+  at app/Console/Commands/LoanInterest.php:137
+    133▕                     $updatedSavings = Saving::find($loan->saving_id)->update([
+    134▕                         'remaining_balance' => $newTotal_debt - $savings->payed_amount
+    135▕                     ]);
+    136▕                     echo "$savings->remaining_balance";
+  ➜ 137▕                     echo "$updatedSavings->remaining_balance";
+    138▕              }
+    139▕         }
+    140▕     }
+    141▕ }
+
+  1   app/Console/Commands/LoanInterest.php:137
+      Illuminate\Foundation\Bootstrap\HandleExceptions::Illuminate\Foundation\Bootstrap\{closure}()
+
+      [2m+13 vendor frames [22m
+  15  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle()
+
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:45:00 *****
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 438.62
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 442.245
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:46:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:47:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:48:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4461.82
+monthly interest rate ---- 0.0125
+new total debt ---- 4516.2325
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 442.25
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 445.875
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:49:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:50:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:51:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:52:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:53:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4516.23
+monthly interest rate ---- 0.0125
+new total debt ---- 4570.6425
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************{"id":1,"payed_amount":104.54,"remaining_balance":0,"monthly_payment":52.27,"insurance_deposit":12.3,"repayment_date":"2023-09-14","created_at":"2022-08-21T19:40:31.000000Z","updated_at":"2022-08-24T14:27:01.000000Z"}
+   ErrorException 
+
+  Attempt to read property "remaining_balance" on bool
+
+  at app/Console/Commands/LoanInterest.php:137
+    133▕                     $updatedSavings = Saving::find($loan->saving_id)->update([
+    134▕                         'remaining_balance' => $newTotal_debt - $savings->payed_amount
+    135▕                     ]);
+    136▕                     echo "$savings";
+  ➜ 137▕                     echo "$updatedSavings->remaining_balance";
+    138▕              }
+    139▕         }
+    140▕     }
+    141▕ }
+
+  1   app/Console/Commands/LoanInterest.php:137
+      Illuminate\Foundation\Bootstrap\HandleExceptions::Illuminate\Foundation\Bootstrap\{closure}()
+
+      [2m+13 vendor frames [22m
+  15  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle()
+
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:54:00 *****
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 445.88
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 449.505
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************{"id":1,"payed_amount":104.54,"remaining_balance":0,"monthly_payment":52.27,"insurance_deposit":12.3,"repayment_date":"2023-09-14","created_at":"2022-08-21T19:40:31.000000Z","updated_at":"2022-08-24T14:27:01.000000Z"}
+   ErrorException 
+
+  Attempt to read property "remaining_balance" on bool
+
+  at app/Console/Commands/LoanInterest.php:137
+    133▕                     $updatedSavings = Saving::find($loan->saving_id)->update([
+    134▕                         'remaining_balance' => $newTotal_debt - $savings->payed_amount
+    135▕                     ]);
+    136▕                     echo "$savings";
+  ➜ 137▕                     echo "$updatedSavings->remaining_balance";
+    138▕              }
+    139▕         }
+    140▕     }
+    141▕ }
+
+  1   app/Console/Commands/LoanInterest.php:137
+      Illuminate\Foundation\Bootstrap\HandleExceptions::Illuminate\Foundation\Bootstrap\{closure}()
+
+      [2m+13 vendor frames [22m
+  15  artisan:37
+      Illuminate\Foundation\Console\Kernel::handle()
+
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:55:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:56:01 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4570.64
+monthly interest rate ---- 0.0125
+new total debt ---- 4625.0525
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************104.54
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 449.5
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 453.125
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************104.54
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:57:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:58:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4625.05
+monthly interest rate ---- 0.0125
+new total debt ---- 4679.4625
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************104.54
+0
+0
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 453.12
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 456.745
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************104.54
+0
+0
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 16:59:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:00:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4679.46
+monthly interest rate ---- 0.0125
+new total debt ---- 4733.8725
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************104.54
+0
+0
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 456.75
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 460.375
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************104.54
+0
+0
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:01:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4733.87
+monthly interest rate ---- 0.0125
+new total debt ---- 4788.2825
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************104.54
+0
+0
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 460.38
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 464.005
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************104.54
+0
+0
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:02:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:03:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4788.28
+monthly interest rate ---- 0.0125
+new total debt ---- 4842.6925
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+4683.74
+0
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 464
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 467.625
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+359.46
+0
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:04:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:05:00 *****
+
+***********************************************************
+loan id ---- 2 
+total debt ---- 4842.69
+monthly interest rate ---- 0.0125
+new total debt ---- 4897.1025
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+4842.69
+4897.1
+
+***********************************************************
+loan id ---- 3 
+total debt ---- 467.62
+monthly interest rate ---- 0.0083333333333333
+new total debt ---- 471.245
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+467.62
+471.25
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:06:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:07:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:08:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:09:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:10:01 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:11:01 *****
+
+***********************************************************
+loan id ---- 6 
+total debt ---- 100000
+monthly interest rate ---- 0.0041666666666667
+new total debt ---- 100416.66666667
+next date to charge interest ---- 2022-09-23 00:00:00
+***********************************************************0
+10000
+100416.67
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:12:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:13:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:14:00 *****

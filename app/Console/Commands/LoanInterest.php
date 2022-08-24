@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use App\Models\Loan;
 use App\Models\Interest;
+use App\Models\Saving;
 use Carbon\Carbon;
 
 class LoanInterest extends Command
@@ -77,10 +78,17 @@ class LoanInterest extends Command
                 echo "\r\n";
                 echo "***********************************************************";
 
-                    $updatedLoan = Loan::where('id', $loan->id)->update([
+                    $updatedLoan = Loan::find($loan->id)->update([
                         'total_debt' => $newTotal_debt,
                         'interest_date' => $newInterest_date
                     ]);
+
+                    $savings = Saving::find($loan->saving_id);
+
+                    $updatedSavings = Saving::find($loan->saving_id)->update([
+                        'remaining_balance' => $newTotal_debt - $savings->payed_amount
+                    ]);
+                    $savings2 = Saving::find($loan->saving_id);
              }
 
              else if($interest_date->diffInDays($current) == 0 && $Loan_interest->interest_type == "simple"){
@@ -114,10 +122,17 @@ class LoanInterest extends Command
                 echo "\r\n";
                 echo "***********************************************************";
 
-                    $updatedLoan = Loan::where('id', $loan->id)->update([
+                    $updatedLoan = Loan::find($loan->id)->update([
                         'total_debt' => $newTotal_debt,
                         'interest_date' => $newInterest_date
                     ]);
+
+                    $savings = Saving::find($loan->saving_id);
+
+                    $updatedSavings = Saving::find($loan->saving_id)->update([
+                        'remaining_balance' => $newTotal_debt - $savings->payed_amount
+                    ]);
+                    $savings2 = Saving::find($loan->saving_id);
              }
         }
     }

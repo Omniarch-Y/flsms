@@ -347,16 +347,22 @@ class View extends Component
 
     public function issueLoan(int $customer)
     {
-        $isAvailable = Loan::where('cust_id', $customer)->where('status', 0)->get();
-
-        if ($isAvailable->count() <= 0) {
-            $this->customer_id = $customer;
-            $this->dispatchBrowserEvent('open-modal');
-        } else {
+        $isAvailable = Loan::where('cust_id', $customer)->where('status', 'active')->get();
+        $isAvailable2 = Loan::where('cust_id', $customer)->where('status', 'inactive')->get();
+        
+        if ($isAvailable->count() > 0) {
             $this->dispatchBrowserEvent('respond', [
                 'title' => 'Customer has active loan!',
                 'icon' => 'error',
             ]);
+        } else if ($isAvailable2->count() > 0){
+            $this->dispatchBrowserEvent('respond', [
+                'title' => 'Customer has pending loan!',
+                'icon' => 'error',
+            ]);
+        }else {
+            $this->customer_id = $customer;
+            $this->dispatchBrowserEvent('open-modal');
         }
     }
 
@@ -414,8 +420,9 @@ class View extends Component
 
         $Saving = Saving::create([
             'insurance_deposit' => $this->amount * 0.1,
-            'remaining_balance' => $this->amount * 0.1,
+            'remaining_balance' => $this->amount,
             'monthly_payment' => $monthly_payment,
+            'payed_amount' => 0,
             'repayment_date' => Carbon::now()->addMonths(1),
         ]);
 
