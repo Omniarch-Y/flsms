@@ -32,6 +32,31 @@ class View extends Component
         ]);
     }
 
+    public function deleteLoan(int $loan)
+    {
+        // $isAvailable = Loan::where('cust_id', $loan)->where('status', 0)->get();
+
+        // if ($isAvailable->count() <= 0) {
+            $this->loan_id = $loan;
+            $this->dispatchBrowserEvent('delete-modal');
+        // } else {
+        //     $this->dispatchBrowserEvent('respond', [
+        //         'title' => 'Customer has active loan!',
+        //         'icon' => 'error',
+        //     ]);
+        // }
+    }
+
+    public function destroy()
+    {
+        $loan = Loan::find($this->loan_id)->delete();
+
+        $this->dispatchBrowserEvent('respond', [
+            'title' => 'Loan deleted!',
+            'icon' => 'success',
+        ]);
+    }
+
     public function render()
     {
         $search = '%' . $this->search . '%';

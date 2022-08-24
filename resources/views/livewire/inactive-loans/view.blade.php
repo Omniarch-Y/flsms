@@ -162,6 +162,10 @@
                                 <button type="button" class="btn btn-success btn-sm me-3"
                                     wire:click='activateModal({{ $loan->id }})'>Activate</button>
                                 @include('livewire.inactive-loans.activate')
+                                <button type="button" class="btn btn-danger btn-sm me-3"
+                                wire:click='deleteLoan({{ $loan->id }})'><i class="fa fa-trash"
+                                    aria-hidden="true"></i></button>
+                            @include('livewire.inactive-loans.delete')
                             </td>
                         </tr>
                     @empty
@@ -187,6 +191,10 @@
         window.addEventListener('activate-modal', e => {
             $('#activateModal').modal('show');
         });
+
+        window.addEventListener('delete-modal', e => {
+                $('#deleteLoan').modal('show');
+            });
 
         window.addEventListener('respond', e => {
             const Toast = Swal.mixin({

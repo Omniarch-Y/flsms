@@ -53,6 +53,8 @@ class LoanInterest extends Command
                 $interest = $loan->total_debt * $monthly_interest_rate;
                 $newTotal_debt = $loan->total_debt + $interest;
                 $newInterest_date = Carbon::parse($loan->interest_date)->addDays(30);
+                $savings = Saving::find($loan->saving_id);
+                $newRemaining_balance = $newTotal_debt - $savings->payed_amount;
 
                 echo "\r\n";
                 echo "\r\n";
@@ -60,17 +62,24 @@ class LoanInterest extends Command
 
                 echo "\r\n";
                 echo "loan id ---- {$loan->id} ";
-                // echo $loan->id;
 
                 echo "\r\n";
                 echo "total debt ---- {$loan->total_debt}";
 
-                // $i = $loan->interest_rate/12;
+                echo "\r\n";
+                echo "required payment ---- {$savings->remaining_balance}";
+
                 echo "\r\n";
                 echo "monthly interest rate ---- {$monthly_interest_rate}";
-                // $x = $loan->total_debt + $interest;
+
+                echo "\r\n";
+                echo "interest type ---- {$Loan_interest->interest_type}";
+
                 echo "\r\n";
                 echo "new total debt ---- {$newTotal_debt}";
+
+                echo "\r\n";
+                echo "new required payment ---- {$newRemaining_balance}";
 
                 echo "\r\n";
                 echo "next date to charge interest ---- {$current_date->addDays(30)}";
@@ -83,12 +92,9 @@ class LoanInterest extends Command
                         'interest_date' => $newInterest_date
                     ]);
 
-                    $savings = Saving::find($loan->saving_id);
-
                     $updatedSavings = Saving::find($loan->saving_id)->update([
-                        'remaining_balance' => $newTotal_debt - $savings->payed_amount
+                        'remaining_balance' => $newRemaining_balance
                     ]);
-                    $savings2 = Saving::find($loan->saving_id);
              }
 
              else if($interest_date->diffInDays($current) == 0 && $Loan_interest->interest_type == "simple"){
@@ -97,6 +103,8 @@ class LoanInterest extends Command
                 $interest = $loan->amount * $monthly_interest_rate;
                 $newTotal_debt = $loan->total_debt + $interest;
                 $newInterest_date = Carbon::parse($loan->interest_date)->addDays(30);
+                $savings = Saving::find($loan->saving_id);
+                $newRemaining_balance = $newTotal_debt - $savings->payed_amount;
 
                 echo "\r\n";
                 echo "\r\n";
@@ -104,17 +112,24 @@ class LoanInterest extends Command
 
                 echo "\r\n";
                 echo "loan id ---- {$loan->id} ";
-                // echo $loan->id;
 
                 echo "\r\n";
                 echo "total debt ---- {$loan->total_debt}";
 
-                // $i = $loan->interest_rate/12;
+                echo "\r\n";
+                echo "required payment ---- {$savings->remaining_balance}";
+
                 echo "\r\n";
                 echo "monthly interest rate ---- {$monthly_interest_rate}";
-                // $x = $loan->total_debt + $interest;
+
+                echo "\r\n";
+                echo "interest type ---- {$Loan_interest->interest_type}";
+
                 echo "\r\n";
                 echo "new total debt ---- {$newTotal_debt}";
+
+                echo "\r\n";
+                echo "new required payment ---- {$newRemaining_balance}";
 
                 echo "\r\n";
                 echo "next date to charge interest ---- {$current_date->addDays(30)}";
@@ -127,12 +142,10 @@ class LoanInterest extends Command
                         'interest_date' => $newInterest_date
                     ]);
 
-                    $savings = Saving::find($loan->saving_id);
-
                     $updatedSavings = Saving::find($loan->saving_id)->update([
-                        'remaining_balance' => $newTotal_debt - $savings->payed_amount
+                        'remaining_balance' => $newRemaining_balance
                     ]);
-                    $savings2 = Saving::find($loan->saving_id);
+
              }
         }
     }
