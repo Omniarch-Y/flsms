@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-xl-6 col-md-12 mb-4">
                         <div class="card">
                             <div class="card-body">
@@ -114,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <livewire:user.view />
 
             </div>
