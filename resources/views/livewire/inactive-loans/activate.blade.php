@@ -14,19 +14,18 @@
                 @csrf
                 <div class="modal-body">
                     <div class="container-fluid">
-
                         <h5>Continue activating loan ?</h5>
                     </div>
                 </div>
                 <center>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success" wire:target="activateLoan" data-bs-dismiss="modal"
-                            wire:loading.attr='disabled'>
+                        <button type="submit" class="btn btn-success" wire:target="activateLoan"
+                            data-bs-dismiss="modal" wire:loading.attr='disabled'>
                             {{ __('Yes') }}
                         </button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('No') }}</button>
+                        <button type="button" class="btn btn-secondary"
+                            data-bs-dismiss="modal">{{ __('No') }}</button>
                     </div>
-
                 </center>
             </form>
         </div>

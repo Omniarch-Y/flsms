@@ -62,6 +62,14 @@
                 <div class="priceView">{{ $collection->id }}</div>
             </div>
             <div id="container">
+                <div class="x">Late By </div>
+                <div class="priceView">{{$penality->late_by}} days</div>
+            </div>
+            <div id="container">
+                <div class="x">Penality</div>
+                <div class="priceView">{{$penality->amount}} Br</div>
+            </div>
+            <div id="container">
                 <strong class="price">Colected amount</strong>
                 <strong class="priceView">{{ $collection->amount }} Br</strong>
             </div>
@@ -69,8 +77,8 @@
                 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                 - - - - - - - - - - - - - - - - - -</div>
             <div id="container">
-                <div class="Cash">CASH:</div>
-                <div class="cashView strong">{{ $collection->amount }}Br</div>
+                <div class="Cash">Total Collection:</div>
+                <div class="cashView strong">{{ $collection->amount + $penality->amount}} Br</div>
             </div>
             <div class="dot text-center">- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - -
                 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -22,4 +22,3 @@ class Withdrawal extends Component
         return view('livewire.Receipt.withdrawal', ['withdrawals' => $withdrawals])->layout('layouts.main');
     }
 }
-

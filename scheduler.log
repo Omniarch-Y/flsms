@@ -437,3 +437,79 @@ next date to charge interest ---- 2022-09-23 00:00:00
 ***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:49:00 *****
 
 ***** MONTHLY INTEREST CHARGED ON 2022-08-24 17:50:00 *****
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-25 16:41:00 *****
+
+***********************************************************
+loan id ---- 5 
+total debt ---- 3513.84
+required payment ---- 3513.84
+monthly interest rate ---- 0.0083333333333333
+interest type ---- compound
+new total debt ---- 3543.122
+new required payment ---- 3543.122
+next date to charge interest ---- 2022-09-24 00:00:00
+***********************************************************
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-25 16:42:00 *****
+
+***********************************************************
+loan id ---- 4 
+total debt ---- 32423
+required payment ---- 3242.3
+monthly interest rate ---- 0.0083333333333333
+interest type ---- simple
+new total debt ---- 32693.191666667
+new required payment ---- 32693.191666667
+next date to charge interest ---- 2022-09-24 00:00:00
+***********************************************************
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-25 16:43:00 *****
+
+***********************************************************
+loan id ---- 5 
+total debt ---- 3543.12
+required payment ---- 3543.12
+monthly interest rate ---- 0.0083333333333333
+interest type ---- compound
+new total debt ---- 3572.646
+new required payment ---- 3572.646
+next date to charge interest ---- 2022-09-24 00:00:00
+***********************************************************
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-25 16:44:00 *****
+
+***********************************************************
+loan id ---- 4 
+total debt ---- 32693.19
+required payment ---- 32693.19
+monthly interest rate ---- 0.0083333333333333
+interest type ---- simple
+new total debt ---- 32963.381666667
+new required payment ---- 32963.381666667
+next date to charge interest ---- 2022-09-24 00:00:00
+***********************************************************
+
+***********************************************************
+loan id ---- 6 
+total debt ---- 100416.67
+required payment ---- 32916.67
+monthly interest rate ---- 0.0041666666666667
+interest type ---- simple
+new total debt ---- 100833.33666667
+new required payment ---- 33333.336666667
+next date to charge interest ---- 2022-09-24 00:00:00
+***********************************************************
+
+***********************************************************
+loan id ---- 10 
+total debt ---- 1000
+required payment ---- 747.9
+monthly interest rate ---- 0.0083333333333333
+interest type ---- compound
+new total debt ---- 1008.3333333333
+new required payment ---- 756.23333333333
+next date to charge interest ---- 2022-09-24 00:00:00
+***********************************************************
+
+***** MONTHLY INTEREST CHARGED ON 2022-08-25 16:45:00 *****

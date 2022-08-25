@@ -14,7 +14,6 @@
                 @csrf
                 <div class="modal-body">
                     <div class="container-fluid">
-
                         <h5>Are you you want to continue ?</h5>
                     </div>
                 </div>
@@ -26,7 +25,6 @@
                         </button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                     </div>
-
                 </center>
             </form>
         </div>

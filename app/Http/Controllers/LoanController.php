@@ -51,7 +51,7 @@ class LoanController extends Controller
      */
     public function showWithdrawal($id)
     {
-        $withdrawal = WithdrawalReceipt::find($id);
+        $withdrawal = WithdrawalReceipt::where('id',$id)->with('user')->first();
         $loan = Loan::find($withdrawal->loan_id);
         $customer = Customer::find($loan->cust_id);
 
@@ -61,12 +61,17 @@ class LoanController extends Controller
     public function showCollect($id)
     {
         $collection = CollectionReceipt::where('id',$id)->with('user')->with('loan')->first();
-        $loan = Loan::find($collection->loan_id);
+        $loan = Loan::find($collection->loan_id)->with('customer')->first();;
         $customer = Customer::find($loan->cust_id);
         $saving = Saving::find($collection->saving_id);
-        $penality = Penality::where('reciept_id', $id);
+        $penality = Penality::where('reciept_id', $id)->first();
+      
+        if($penality->late_by == null){
+            return view('livewire.Receipt.collection_receipt', compact('loan','saving','collection','customer'));
+        }else{
+            return view('livewire.Receipt.collection_receipt_with_penality', compact('loan','saving','collection','penality','customer'));
+        }
 
-        return view('livewire.Receipt.collection_receipt', compact('loan','saving','collection','penality','customer'));
     }
 
     /**

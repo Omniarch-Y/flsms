@@ -24,4 +24,3 @@ class Collection extends Component
         return view('livewire.Receipt.collection', ['collections' => $collections])->layout('layouts.main');
     }
 }
-
