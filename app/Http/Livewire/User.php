@@ -15,7 +15,7 @@ class User extends Component
     {
         $allUsers = Users::all()->count();
         $allCustomers = Customer::all()->count();
-        $activeLoans = Loan::where('status', 0)->get()->count();
+        $activeLoans = Loan::where('status', 'active')->get()->count();
         return view('livewire.user', ['users' => $allUsers], compact('allUsers', 'allCustomers', 'activeLoans'))->layout('layouts.main');
     }
 }

@@ -58,11 +58,11 @@
 
                 @if (auth()->user()->role == 'encoder')
                     <li class="nav-item">
-                        <a href="pages/widgets.html" class="nav-link">
-                            <i class="nav-icon fas fa-th"></i>
+                        <a href="/loans" class="nav-link">
+                            <i class="nav-icon fas fa-home"></i>
                             <p>
-                                Widgets
-                                <span class="right badge badge-danger">New</span>
+                                Home
+                                {{-- <span class="right badge badge-danger">New</span> --}}
                             </p>
                         </a>
                     </li>

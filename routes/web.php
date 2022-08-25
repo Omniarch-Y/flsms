@@ -61,7 +61,7 @@ Route::get('customers', Customer::class)->middleware('isLoan_officer');
 Route::get('loans', Loan::class)->middleware('isEncoder');
 
 Route::get('inactiveLoans', InactiveLoans::class)->middleware('isManager');
-// Route::get('activeLoans', ActiveLoans::class)->middleware('isManager');
+Route::get('activeLoans', ActiveLoans::class)->middleware('isManager');
 Route::get('completedLoans', CompletedLoans::class)->middleware('isManager');
 
 Route::get('withdrawal', Withdrawal::class)->middleware('isManager');

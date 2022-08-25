@@ -34,17 +34,8 @@ class View extends Component
 
     public function deleteLoan(int $loan)
     {
-        // $isAvailable = Loan::where('cust_id', $loan)->where('status', 0)->get();
-
-        // if ($isAvailable->count() <= 0) {
-            $this->loan_id = $loan;
-            $this->dispatchBrowserEvent('delete-modal');
-        // } else {
-        //     $this->dispatchBrowserEvent('respond', [
-        //         'title' => 'Customer has active loan!',
-        //         'icon' => 'error',
-        //     ]);
-        // }
+        $this->loan_id = $loan;
+        $this->dispatchBrowserEvent('delete-modal');
     }
 
     public function destroy()

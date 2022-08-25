@@ -14,24 +14,6 @@ class Withdrawal extends Component
 
     public $search, $loan_id;
 
-    // public function activateModal(int $loan_id)
-    // {
-    //     $this->loan_id = $loan_id;
-    //     $this->dispatchBrowserEvent('activate-modal');
-    // }
-
-    // public function activateLoan()
-    // {
-    //     $inactiveLoan = Loan::find($this->loan_id)->update([
-    //         'status' => 'active',
-    //     ]);
-
-    //     $this->dispatchBrowserEvent('respond', [
-    //         'title' => 'Loan activated successfully!',
-    //         'icon' => 'success',
-    //     ]);
-    // }
-
     public function render()
     {
         $search = '%' . $this->search . '%';

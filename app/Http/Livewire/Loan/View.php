@@ -123,8 +123,9 @@ class View extends Component
 
         $Saving = Saving::where('id', $loan->saving_id)->update([
             'insurance_deposit' => $this->amount * 0.1,
-            'remaining_balance' => $this->amount * 0.1,
+            'remaining_balance' => $this->amount,
             'monthly_payment' => $monthly_payment,
+            'payed_amount' => 0,
             'repayment_date' => Carbon::now()->addMonths(1),
         ]);
 
@@ -214,7 +215,7 @@ class View extends Component
         $WithdrawalReceipt = WithdrawalReceipt::where('loan_id', $loan->id);
 
         Loan::find($loan->id)->update([
-            'net_amount' => $loan->amount - $loan->service_charge - $Saving->initial_deposit,
+            'net_amount' => $loan->amount - $loan->service_charge - $Saving->insurance_deposit,
         ]);
 
         $withdrawal_receipt = WithdrawalReceipt::create([

@@ -3,8 +3,8 @@
 @section('content')
     {{-- <div>
     <h1>adadasda</h1>
-    @foreach ($data as $data)
-    <h1>{{$data}}</h1>
+    @foreach ($loan as $loan)
+    <h1>{{$loan}}</h1>
     @endforeach
 </div> --}}
 
@@ -40,7 +40,7 @@
             <img src="{{URL::asset('/image/logo.png')}}" alt="profile Pic" height="200" width="200">
             <h4 class="text-center">LOAN RECEIPT</h4>
             <div class="text-center">FLSMS</div>
-            <div class="text-center">{{ $data->first_name}}</div>
+            <div class="text-center">{{ $loan->first_name}}</div>
             <div class="text-center">Tel :0987654321</div>
             <div class="text-center mt-3">RECIPT :</div>
             {{-- @foreach ($informations as $information)
@@ -49,13 +49,13 @@
             <div class="text-center">DATE :{{ date("Y-m-d")}}</div>
             <div class="text-center mb-1">CASHER :{{ auth()->user()->first_name}}</div>
             <div class="dot text-center"> - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
-            {{-- @foreach ($data as $data) --}}
+            {{-- @foreach ($loan as $loan) --}}
             <div class="invoice-details mt25">
                             <div class="well">
                                 <ul class="list-unstyled mb0">
-                                    <li class="item"><strong>Customer ID : </strong>{{ $data->id }}</li>
-                                    <li><strong>Taken Date:</strong> {{ $data->starting_date }}</li>
-                                    <li><strong>Ending Date:</strong> {{ $data->ending_date }}</li>
+                                    <li class="item"><strong>Customer ID : </strong>{{ $loan->id }}</li>
+                                    <li><strong>Taken Date:</strong> {{ $loan->starting_date }}</li>
+                                    <li><strong>Ending Date:</strong> {{ $loan->ending_date }}</li>
                                     <li><strong>Status:</strong> <span class="label label-danger">Withdrawed</span></li>
                                 </ul>
                             </div>
@@ -64,29 +64,33 @@
             <div class="e text-center"> - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
             <div id="container">
                 <div class="item">Total Debit</div>
-                <div class="price">{{ $data->amount }}Br</div>
+                <div class="price">{{ $loan->amount }}Br</div>
             </div>
             {{-- @endforeach --}}
             <div class="e text-center"> - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
             <div id="container">
                 <div class="x">Service Charge</div>
-                <div class="priceView">{{ $data->service_charge }}</div>
+                <div class="priceView">{{ $loan->service_charge }}</div>
             </div>
             <div id="container">
                 <div class="x">Interest applies on</div>
-                <div class="priceView">{{ $data->interest_date}}</div>
+                <div class="priceView">{{ $loan->interest_date}}</div>
             </div>
             <div id="container">
                 <strong class="price">Loan Type</strong>
-                <strong class="priceView">{{ $data->loan_type}}</strong>
+                <strong class="priceView">{{ $loan->loan_type}}</strong>
+            </div>
+            <div id="container">
+                <strong class="price">Insurance cut</strong>
+                <strong class="priceView">{{ $loan->amount*0.1}}</strong>
             </div>
             <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
             <div id="container">
-                <div class="Cash">CASH:</div>
-                <div class="cashView">{{ $data->net_amount }}Br</div>
+                <div class="Cash">Net loan:</div>
+                <div class="cashView">{{ $loan->net_amount }}Br</div>
             </div>
             <div class="dot">- - - - - - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
-            <div class="PaidWith text-center">Paid with CASH</div>
+            {{-- <div class="PaidWith text-center">Paid with CASH</div> --}}
             <div class="dot text-center">- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>
             <div class="dot text-center">- - - - - - - - - - - - - - - - - - - - - - - - -- - - - - - - -  - - - - - - - - - - - - - - - - - -</div>
             <div class="text-center">THANK YOU</div>

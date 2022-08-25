@@ -29,7 +29,7 @@
         <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
         {{-- <link href="{{ asset('css/body1.css') }}" rel="stylesheet"> --}}
         <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
-        {{-- <link href="{{ asset('css/mdb.min pro.css') }}" rel="stylesheet"> --}}
+        <link href="{{ asset('css/info.css') }}" rel="stylesheet">
 
     </head>
 

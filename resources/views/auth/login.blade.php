@@ -72,7 +72,7 @@
 
                                 </div>
                         </form>
-                        @if (Route::has('login'))
+                        {{-- @if (Route::has('login'))
                             <div class="" style="float:right">
                                 <form action="{{ url('/logout') }}" method="POST" accept-charset="UTF-8">
                                     @csrf
@@ -82,7 +82,7 @@
                                 </form>
                             </div>
                             @elseif(Route::has('login') == null) <h1></h1>
-                        @endif
+                        @endif --}}
                     </div>
                 </div>
             </div>

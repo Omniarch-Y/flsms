@@ -120,7 +120,7 @@ class View extends Component
             'phone_number' => ['required', 'numeric', 'min:10'],
             'email' => ['required', 'email'],
             'hno' => ['required', 'numeric'],
-            'woreda' => ['required', 'numeric'],
+            'woreda' => ['required', 'string'],
             'subCity' => ['required', 'string', 'max:255'],
             'city' => ['required', 'string', 'max:255'],
             'country' => ['required', 'string', 'max:255'],

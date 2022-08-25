@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('penalities', function (Blueprint $table) {
             $table->id();
             $table->float('amount');
-            $table->integer('late_by')->default(0);
+            $table->integer('late_by')->default(0)->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('reciept_id');
