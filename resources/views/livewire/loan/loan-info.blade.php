@@ -68,6 +68,15 @@
                                 <h6 class="mb-0 text-bold">Net amount</h6>
                             </div>
                             <div class="col-sm-9 text-primary">
+                                {{ $loa->net_amount }}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <h6 class="mb-0 text-bold">Total debt</h6>
+                            </div>
+                            <div class="col-sm-9 text-primary">
                                 {{ $loa->total_debt }}
                             </div>
                         </div>
